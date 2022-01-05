@@ -1,6 +1,6 @@
 import { Arg, Ctx, Mutation, Resolver, UseMiddleware } from "type-graphql";
-import { User } from "../../../../../prisma/type-graphql";
 import { MyContext } from "../../../../utils/MyContext";
+import { User } from "../../../../../generated";
 import { GiveRoleInput } from "../../../inputs/user/GiveRoleInput";
 import { isAdmin } from "../../../middlewares/isAdmin";
 import { isAuth } from "../../../middlewares/isAuth";

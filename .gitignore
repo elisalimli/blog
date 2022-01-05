@@ -1,7 +1,7 @@
 *.log
 dist/
 node_modules/
-prisma/type-graphql
+generated/
 # .env
 .env.local
 .env.prod

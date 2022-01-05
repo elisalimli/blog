@@ -1,7 +1,7 @@
 import { Ctx, Mutation, Resolver } from "type-graphql";
 import { COOKIE_NAME } from "../../../../utils/constants";
 import { MyContext } from "../../../../utils/MyContext";
-import { User } from "../../../models/User";
+import { User } from "../../../../../generated";
 
 @Resolver(User)
 export class LogoutResolver {

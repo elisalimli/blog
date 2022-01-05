@@ -1,5 +1,5 @@
 import { ObjectType, Field } from "type-graphql";
-import { User } from "../../../../prisma/type-graphql";
+import { User } from "../../../../generated";
 import { OkResponse } from "../OkResponse";
 
 @ObjectType()

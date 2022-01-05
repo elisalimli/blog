@@ -1,6 +1,6 @@
 import { Ctx, Query, Resolver } from "type-graphql";
-import { User } from "../../../../../prisma/type-graphql";
 import { MyContext } from "../../../../utils/MyContext";
+import { User } from "../../../../../generated";
 
 @Resolver(User)
 export class MeResolver {

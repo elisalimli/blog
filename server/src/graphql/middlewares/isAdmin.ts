@@ -1,5 +1,4 @@
 import { MiddlewareFn } from "type-graphql";
-import { User } from "../../../prisma/type-graphql";
 import { MyContext } from "../../utils/MyContext";
 
 export const isAdmin: MiddlewareFn<MyContext> = async (

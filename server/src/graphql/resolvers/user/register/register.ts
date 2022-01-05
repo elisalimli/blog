@@ -1,9 +1,9 @@
 import * as argon2 from "argon2";
 import { Arg, Ctx, Mutation, Query, Resolver } from "type-graphql";
+import { User } from "../../../../../generated";
 import { formatYupError } from "../../../../utils/formatYupError";
 import { MyContext } from "../../../../utils/MyContext";
 import { registerSchema } from "../../../../yupSchemas/user/register";
-import { User } from "../../../generated";
 import { RegisterInput } from "../../../inputs/user/RegisterInput";
 import { RegistrationResponse } from "../../../responses/user/RegistrationResponse";
 

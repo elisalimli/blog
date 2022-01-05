@@ -3,8 +3,8 @@ import { Arg, Ctx, Mutation, Resolver } from "type-graphql";
 import * as yup from "yup";
 import { formatYupError } from "../../../../utils/formatYupError";
 import { MyContext } from "../../../../utils/MyContext";
+import { User } from "../../../../../generated";
 import { LoginInput } from "../../../inputs/user/LoginInput";
-import { User } from "../../../models/User";
 import { RegistrationResponse } from "../../../responses/user/RegistrationResponse";
 import { FieldError } from "../../../shared/FieldError";
 
@@ -43,7 +43,7 @@ export class LoginResolver {
       },
     })) as User;
 
-    if (user) valid = await argon2.verify(user.password, input.password);
+    if (user) valid = await argon2.verify(user.password!, input.password);
 
     if (!valid)
       errors.push({ field: "password", message: "Password is incorrect" });
