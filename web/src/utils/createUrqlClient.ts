@@ -1,4 +1,5 @@
 import { cacheExchange } from '@urql/exchange-graphcache';
+import { relayPagination } from '@urql/exchange-graphcache/extras';
 import { dedupExchange, Exchange, fetchExchange } from 'urql';
 import { pipe, tap } from 'wonka';
 
@@ -41,6 +42,9 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
       dedupExchange,
       cacheExchange({
         updates: {
+          Query: {
+            posts: relayPagination(),
+          },
           Mutation: {
             // register: (_result, _, cache, __) => {
             //   betterUpdateQuery<RegisterMutation, MeQuery>(
