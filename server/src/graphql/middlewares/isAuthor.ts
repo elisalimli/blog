@@ -1,7 +1,7 @@
 import { MiddlewareFn } from "type-graphql";
 import { MyContext } from "../../utils/MyContext";
 
-export const isAdmin: MiddlewareFn<MyContext> = async (
+export const isAuthor: MiddlewareFn<MyContext> = async (
   { context: { prisma, req } },
   next
 ) => {
@@ -14,7 +14,7 @@ export const isAdmin: MiddlewareFn<MyContext> = async (
     },
   });
 
-  if (user && user.role != "ADMIN") throw new Error("Not authenticated(admin)");
+  if (user && user.role != "ADMIN") throw new Error("Not author");
 
   return next();
 };

@@ -1,18 +1,19 @@
 import cors from "cors";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
+import expressPlayground from "graphql-playground-middleware-express";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { HelloResolver } from "./graphql/resolvers/hello";
-import { RegisterResolver } from "./graphql/resolvers/user/register/register";
-import expressPlayground from "graphql-playground-middleware-express";
-import { redis } from "./utils/redis";
-import { prisma } from "./utils/prisma";
-import { MeResolver } from "./graphql/resolvers/user/me/me";
-import { sessionMiddleware } from "./utils/sessionMiddleware";
+import { CreatePostResolver } from "./graphql/resolvers/post/createPost/createPost";
 import { LoginResolver } from "./graphql/resolvers/user/login/login";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/logout";
+import { MeResolver } from "./graphql/resolvers/user/me/me";
+import { RegisterResolver } from "./graphql/resolvers/user/register/register";
 import { GiveRoleResolver } from "./graphql/resolvers/user/role/giveRole";
+import { prisma } from "./utils/prisma";
+import { redis } from "./utils/redis";
+import { sessionMiddleware } from "./utils/sessionMiddleware";
 
 const PORT = process.env.PORT || 4000;
 
@@ -37,6 +38,7 @@ export const main: () => any = async () => {
       LoginResolver,
       LogoutResolver,
       GiveRoleResolver,
+      CreatePostResolver,
       //Queries
       HelloResolver,
       MeResolver,

@@ -1,0 +1,3 @@
+- [ ] Create publish function to set published: true 
+- [ ] Pagination for posts/drafts ?
+- [ ] ...    

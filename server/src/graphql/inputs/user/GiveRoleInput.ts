@@ -1,9 +1,10 @@
-import { Field, InputType, Int } from "type-graphql";
+import { Field, InputType } from "type-graphql";
+import { Role } from "../../../../generated";
 
 @InputType()
 export class GiveRoleInput {
-  @Field(() => Int)
-  value!: number;
+  @Field(() => String)
+  role!: Role;
 
   @Field()
   userId!: string;

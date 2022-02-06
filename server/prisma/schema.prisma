@@ -18,13 +18,13 @@ generator typegraphql {
 
 model Post {
   id        String   @id @default(uuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
   title     String   @db.VarChar(255)
   content   String
   published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  String
+  creator   User     @relation(fields: [creatorId], references: [id])
+  creatorId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("post")
 }
@@ -43,6 +43,5 @@ model User {
 
 enum Role {
   USER
-  AUTHOR
   ADMIN
 }
