@@ -1,12 +1,8 @@
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
 
-import UnderlineLink from '../components/links/UnderlineLink';
-
-import Vercel from '~/svg/Vercel.svg';
+import Posts from '@/components/Posts';
 
 export default function HomePage() {
   return (

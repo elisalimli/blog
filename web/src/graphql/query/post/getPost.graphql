@@ -1,0 +1,7 @@
+query GetPost($input:GetPostInput!){
+  getPost(input: $input) {
+    id
+    title
+    content
+  }
+}

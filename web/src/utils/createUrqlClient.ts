@@ -1,9 +1,10 @@
 import { cacheExchange } from '@urql/exchange-graphcache';
 import { dedupExchange, Exchange, fetchExchange } from 'urql';
 import { pipe, tap } from 'wonka';
-import { MeDocument, MeQuery, RegisterMutation } from '../generated/graphql';
+
 import { betterUpdateQuery } from './betterUpdateQuery';
 import { isServer } from './isServer';
+// import { MeDocument, MeQuery, RegisterMutation } from '../generated/graphql';
 
 const errorExchange: Exchange =
   ({ forward }) =>
@@ -26,7 +27,8 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
   }
 
   return {
-    url: process.env.NEXT_PUBLIC_API_URL,
+    // url: process.env.NEXT_PUBLIC_API_URL,
+    url: 'http://localhost:4000/graphql',
     fetchOptions: {
       credentials: 'include' as RequestCredentials,
       headers: cookie
@@ -40,19 +42,19 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
       cacheExchange({
         updates: {
           Mutation: {
-            register: (_result, _, cache, __) => {
-              betterUpdateQuery<RegisterMutation, MeQuery>(
-                cache,
-                { query: MeDocument },
-                _result,
-                (result, data) => {
-                  if (result.register.errors) return data;
-                  return {
-                    me: result.register.user,
-                  };
-                }
-              );
-            },
+            // register: (_result, _, cache, __) => {
+            //   betterUpdateQuery<RegisterMutation, MeQuery>(
+            //     cache,
+            //     { query: MeDocument },
+            //     _result,
+            //     (result, data) => {
+            //       if (result.register.errors) return data;
+            //       return {
+            //         me: result.register.user,
+            //       };
+            //     }
+            //   );
+            // },
           },
         },
       }),

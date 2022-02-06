@@ -1,18 +1,16 @@
-import Layout from '@/components/layout/Layout';
 import { withUrqlClient } from 'next-urql';
-import * as React from 'react';
+import React from 'react';
+import { useGetPostQuery } from '../generated/graphql';
+import { createUrqlClient } from '../utils/createUrqlClient';
 
-const Posts = () => {
+const Posts: React.FC = () => {
+  const [{ data }] = useGetPostQuery({
+    variables: { input: { postId: '58e324c5-c69e-401e-be5f-8df9dfa0ecc3' } },
+  });
   return (
-    <Layout>
-      {/* <Seo templateTitle='Home' /> */}
-      {/* <Seo /> */}
-
-      <main className='layout'>
-        <h1>Hello World</h1>
-        <Posts />
-      </main>
-    </Layout>
+    <div>
+      {data?.getPost ? <div>{data?.getPost?.title}</div> : <div>loading..</div>}
+    </div>
   );
 };
 

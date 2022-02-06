@@ -1,0 +1,32 @@
+{
+  "name": "web3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@graphql-codegen/typescript-urql": "^3.5.1",
+    "graphql": "^16.3.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/typescript": "2.4.3",
+    "@graphql-codegen/typescript-operations": "2.2.4",
+    "@graphql-codegen/typescript-react-apollo": "3.2.5",
+    "@graphql-codegen/cli": "2.5.0",
+    "@graphql-codegen/urql-introspection": "2.1.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gen": "graphql-codegen --config codegen.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisalim17/blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alisalim17/blog/issues"
+  },
+  "homepage": "https://github.com/alisalim17/blog#readme"
+}
