@@ -17,7 +17,7 @@ generator typegraphql {
 }
 
 model Post {
-  id        String   @id @default(uuid())
+  id        String   @unique @default(uuid())
   title     String   @db.VarChar(255)
   content   String
   published Boolean  @default(false)

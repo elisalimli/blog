@@ -7,4 +7,7 @@ export class CreatePostInput {
 
   @Field()
   title!: string;
+
+  @Field(() => Boolean, { defaultValue: false })
+  published?: boolean;
 }
