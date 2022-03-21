@@ -4,22 +4,22 @@ import { useRouter } from 'next/router';
 import { openGraph } from '@/lib/helper';
 
 // !STARTERCONF Change these default meta
-const defaultMeta = {
-  title: 'Next.js + Tailwind CSS + TypeScript Starter',
-  siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
-  description:
-    'A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky',
+export const defaultMeta = {
+  title: 'Video Blog',
+  siteName: 'Video Blog',
+  description: 'A video blog',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   url: 'https://tsnext-tw.thcl.dev',
   type: 'website',
   robots: 'follow, index',
   /** No need to be filled, will be populated with openGraph function */
-  image: '',
+  image: '', // @todo add image
 };
 
 type SeoProps = {
   date?: string;
   templateTitle?: string;
+  description: string;
 } & Partial<typeof defaultMeta>;
 
 export default function Seo(props: SeoProps) {
@@ -35,7 +35,7 @@ export default function Seo(props: SeoProps) {
   // Use siteName if there is templateTitle
   // but show full title if there is none
   meta['image'] = openGraph({
-    description: meta.description,
+    description: props.description,
     siteName: props.templateTitle ? meta.siteName : meta.title,
     templateTitle: props.templateTitle,
   });

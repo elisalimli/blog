@@ -1,13 +1,13 @@
 import { Field, InputType } from "type-graphql";
-
 @InputType()
 export class CreatePostInput {
   @Field()
-  content!: string;
-
-  @Field()
   title!: string;
+  // @todo add tags
 
-  @Field(() => Boolean, { defaultValue: false })
-  published?: boolean;
+  @Field(() => String)
+  url!: string;
+
+  @Field(() => Boolean, { nullable: true, defaultValue: false })
+  isVideo?: boolean;
 }

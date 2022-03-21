@@ -1,3 +1,4 @@
+- [ ] run yarn gen and solve the problem
+- [ ] Add cursor pagination to the web 
 - [ ] Create publish function to set published: true 
 - [ ] Pagination for posts/drafts ?
-- [ ] ...    

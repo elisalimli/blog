@@ -1,19 +1,17 @@
+import { withUrqlClient } from 'next-urql';
 import * as React from 'react';
 
-import Layout from '@/components/layout/Layout';
-
 import Posts from '@/components/Posts';
+import Seo from '@/components/Seo';
 
-export default function HomePage() {
+import SectionContainer from '../components/SectionContainer';
+import { createUrqlClient } from '../utils/createUrqlClient';
+
+const HomePage = () => {
   return (
-    <Layout>
-      {/* <Seo templateTitle='Home' /> */}
-      {/* <Seo /> */}
-
-      <main className='layout'>
-        <h1>Hello World</h1>
-        <Posts />
-      </main>
-    </Layout>
+    <SectionContainer>
+      <Seo title='Home' description='Home' />
+    </SectionContainer>
   );
-}
+};
+export default withUrqlClient(createUrqlClient)(HomePage);

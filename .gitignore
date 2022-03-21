@@ -4,7 +4,7 @@ node_modules/
 generated/
 # .env
 .env.local
-.env.prod
+.env.production
 .next/
 # *.lock
 
@@ -27,3 +27,4 @@ expo/*
 
 # tailwind css for production
 prod.css
+web2/

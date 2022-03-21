@@ -1,7 +1,8 @@
 query GetPost($input:GetPostInput!){
   getPost(input: $input) {
-    id
-    title
-    content
+      id
+      title
+      url
+      creatorId
   }
 }

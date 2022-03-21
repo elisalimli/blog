@@ -1,7 +1,7 @@
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
 import { Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
-import { GetPostsInput } from "../../../inputs/post/GetPostSInput";
+import { GetPostsInput } from "../../../inputs/post/GetPostsInput";
 import { PostsResponse } from "../../../responses/post/PostsResponse";
 
 @Resolver(Post)

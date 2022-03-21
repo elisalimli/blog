@@ -6,11 +6,8 @@ import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { HelloResolver } from "./graphql/resolvers/hello";
 import { CreatePostResolver } from "./graphql/resolvers/post/createPost/createPost";
-import {
-  GetPostResolver,
-  GetPostsResolver,
-} from "./graphql/resolvers/post/getPosts/getPosts";
-import { UpdatePostResolver } from "./graphql/resolvers/post/uptadePost/uptadePost";
+import { GetPostsResolver } from "./graphql/resolvers/post/getPosts/getPosts";
+import { GetPostResolver } from "./graphql/resolvers/post/getPost/getPost";
 import { LoginResolver } from "./graphql/resolvers/user/login/login";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/logout";
 import { MeResolver } from "./graphql/resolvers/user/me/me";
@@ -44,12 +41,11 @@ export const main: () => any = async () => {
       LogoutResolver,
       GiveRoleResolver,
       CreatePostResolver,
-      UpdatePostResolver,
       //Queries
+      GetPostsResolver,
+      GetPostResolver,
       HelloResolver,
       MeResolver,
-      GetPostResolver,
-      GetPostsResolver,
     ],
     validate: false,
   });
