@@ -16,59 +16,51 @@ generator typegraphql {
   emitTranspiledCode = true
 }
 
-model Comment {
-  id        String   @id @default(uuid())
-  content   String
-  userId    String?
-  creator   User     @relation(fields: [creatorId], references: [id])
-  creatorId String
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+// model Comment {
+//   id        String   @id @default(uuid())
+//   content   String
+//   userId    String?
+//   creator   User     @relation(fields: [creatorId], references: [id])
+//   creatorId String
+//   post      Post     @relation(fields: [postId], references: [id])
+//   postId    String
+//   createdAt DateTime @default(now())
+//   updatedAt DateTime @updatedAt
 
-  @@map("comment")
-}
-
-model Tag {
-  id        String   @unique @default(uuid())
-  name      String   @db.VarChar(25)
-  creator   User     @relation(fields: [creatorId], references: [id])
-  creatorId String
-  post      Post     @relation(fields: [postId], references: [id])
-  postId    String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("tag")
-}
+//   @@map("comment")
+// }
 
 model Post {
-  id        String    @unique @default(uuid())
-  title     String    @db.VarChar(255)
+  id        String   @id @default(uuid())
+  title     String   @db.VarChar(255)
   tags      Tag[]
-  creator   User      @relation(fields: [creatorId], references: [id])
+  creator   User     @relation(fields: [creatorId], references: [id])
   creatorId String
   url       String // it can be a picture or video
-  isVideo   Boolean?  @default(false)
+  isVideo   Boolean? @default(false)
   // embededCode String? // iframe
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  comments  Comment[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("post")
 }
 
+model Tag {
+  id    String @id @default(uuid())
+  name  String @unique @db.VarChar(25)
+  posts Post[]
+
+  @@map("tag")
+}
+
 model User {
-  id       String    @id @default(uuid())
-  email    String    @unique @db.VarChar(255)
-  username String    @unique @db.VarChar(50)
+  id       String @id @default(uuid())
+  email    String @unique @db.VarChar(255)
+  username String @unique @db.VarChar(50)
   /// @TypeGraphQL.omit(output: true)
-  password String    @db.Text
+  password String @db.Text
   posts    Post[]
-  role     Role      @default(USER)
-  tags     Tag[]
-  comments Comment[]
+  role     Role   @default(USER)
 
   @@map("user")
 }

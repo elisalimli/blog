@@ -15,7 +15,11 @@ export class CreatePostResolver {
   ) {
     const { userId } = req.session;
     const post = await prisma.post.create({
-      data: { ...input, creatorId: userId as string },
+      data: {
+        ...input,
+        creatorId: userId as string,
+        tags: { create: [{ name: "dev2" }, { name: "prisma2" }] },
+      },
     });
     console.log(post);
     return post;

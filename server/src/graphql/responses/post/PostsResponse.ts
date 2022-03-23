@@ -5,6 +5,7 @@ import { Post } from "../../../../generated";
 export class PostsResponse {
   @Field(() => [Post], { nullable: true })
   posts?: Post[];
+
   @Field(() => Boolean)
   hasMore?: boolean;
 }

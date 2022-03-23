@@ -15,6 +15,8 @@ export class GetPostsResolver {
     const realLimitPlusOne = realLimit + 1;
 
     const posts = await prisma.post.findMany({
+      include: { tags: true },
+
       cursor: input?.cursor
         ? {
             id: input?.cursor,
@@ -23,6 +25,7 @@ export class GetPostsResolver {
 
       take: realLimitPlusOne,
     });
+    console.log(posts);
     return {
       posts: posts.slice(0, realLimit),
       hasMore: posts.length === realLimitPlusOne,
