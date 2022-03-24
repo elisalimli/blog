@@ -4,7 +4,13 @@ query GetPosts($input: GetPostsInput!) {
       id
       title
       url
-      creatorId
+      tags {
+        id
+        tag {
+          id
+          name
+        }
+      }
     }
     hasMore
   }

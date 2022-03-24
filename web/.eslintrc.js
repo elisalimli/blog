@@ -51,8 +51,8 @@ module.exports = {
           ['^@/lib', '^@/hooks'],
           // static data
           ['^@/data'],
-          // components
-          ['^@/components', '^@/container'],
+          // ui
+          ['^@/ui', '^@/container'],
           // zustand store
           ['^@/store'],
           // Other imports

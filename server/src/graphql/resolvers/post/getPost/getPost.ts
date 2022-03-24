@@ -1,16 +1,16 @@
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
-import { Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
+import { PostEntity } from "../../../entitites/Post";
 import { GetPostInput } from "../../../inputs/post/GetPostInput";
 
-@Resolver(Post)
+@Resolver(PostEntity)
 export class GetPostResolver {
-  @Query(() => Post, { nullable: true })
+  @Query(() => PostEntity, { nullable: true })
   async getPost(
     @Ctx() { prisma }: MyContext,
     @Arg("input") { postId }: GetPostInput
-  ): Promise<Post> {
-    const post = (await prisma.post.findUnique({
+  ) {
+    const post = await prisma.post.findUnique({
       where: {
         id: postId,
       },
@@ -21,8 +21,7 @@ export class GetPostResolver {
           },
         },
       },
-    }))!;
-    console.log("post", post);
+    });
     return post;
   }
 }

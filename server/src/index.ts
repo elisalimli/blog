@@ -47,7 +47,6 @@ export const main: () => any = async () => {
       GetPostResolver,
       HelloResolver,
       MeResolver,
-      PostRelationsResolver,
     ],
     validate: false,
   });

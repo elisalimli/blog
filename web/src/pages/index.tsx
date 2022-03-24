@@ -1,17 +1,19 @@
 import { withUrqlClient } from 'next-urql';
 import * as React from 'react';
 
-import Posts from '@/components/Posts';
-import Seo from '@/components/Seo';
+import Seo from '@/ui/Seo';
 
-import SectionContainer from '../components/SectionContainer';
+import Posts from '@/components/Posts';
+
+import SectionContainer from '../ui/SectionContainer';
 import { createUrqlClient } from '../utils/createUrqlClient';
 
 const HomePage = () => {
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
-      <div className='divide-y divide-gray-200'>
+      <Posts />
+      {/* <div className='divide-y divide-gray-200'>
         <iframe
           width='100%'
           height='300px'
@@ -32,7 +34,7 @@ const HomePage = () => {
           allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
           allowFullScreen
         ></iframe>{' '}
-      </div>
+      </div> */}
     </SectionContainer>
   );
 };

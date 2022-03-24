@@ -3,6 +3,5 @@ query GetPost($input:GetPostInput!){
       id
       title
       url
-      creatorId
   }
 }

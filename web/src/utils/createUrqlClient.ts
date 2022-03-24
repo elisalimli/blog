@@ -41,9 +41,14 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
     exchanges: [
       dedupExchange,
       cacheExchange({
+        keys: {
+          PostsResponse: () => null,
+        },
         updates: {
           Query: {
-            posts: relayPagination(),
+            posts: (_result, _, cache, __) => {
+              console.log('result', _result);
+            },
           },
           Mutation: {
             // register: (_result, _, cache, __) => {

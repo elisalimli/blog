@@ -21,9 +21,9 @@ This repository is 🔋 battery packed with:
 - ⚛️ React 17
 - ✨ TypeScript
 - 💨 Tailwind CSS 3 — Configured with CSS Variables to extend the **primary** color
-- 💎 Pre-built Components — Components that will **automatically adapt** with your brand color, [check here for the demo](https://tsnext-tw.thcl.dev/components)
+- 💎 Pre-built ui — ui that will **automatically adapt** with your brand color, [check here for the demo](https://tsnext-tw.thcl.dev/ui)
 - 🃏 Jest — Configured for unit testing
-- 📈 Absolute Import and Path Alias — Import components using `@/` prefix
+- 📈 Absolute Import and Path Alias — Import ui using `@/` prefix
 - 📏 ESLint — Find and fix problems in your code, also will **auto sort** your imports
 - 💖 Prettier — Format your code consistently
 - 🐶 Husky & Lint Staged — Run scripts on your staged files before they are committed
@@ -34,7 +34,7 @@ This repository is 🔋 battery packed with:
 - 🔥 Snippets — A collection of useful snippets
 - 👀 Default Open Graph — Awesome open graph generated using [og.thcl.dev](https://github.com/theodorusclarence/og), fork it and deploy!
 - 🗺 Site Map — Automatically generate sitemap.xml
-- 📦 Expansion Pack — Easily install common libraries, additional components, and configs
+- 📦 Expansion Pack — Easily install common libraries, additional ui, and configs
 
 See the 👉 [feature details and changelog](https://github.com/theodorusclarence/ts-nextjs-tailwind-starter/blob/main/CHANGELOG.md) 👈 for more.
 
@@ -98,7 +98,7 @@ This starter is using [conventional commits](https://www.conventionalcommits.org
 
 This starter is now equipped with an [expansion pack](https://github.com/theodorusclarence/expansion-pack).
 
-You can easily add expansion such as React Hook Form + Components, Storybook, and more just using a single command line.
+You can easily add expansion such as React Hook Form + ui, Storybook, and more just using a single command line.
 
 https://user-images.githubusercontent.com/55318172/146631994-e1cac137-1664-4cfe-950b-a96decc1eaa6.mp4
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from '@/components/Navbar';
-import SectionContainer from '@/components/SectionContainer';
+import Header from '@/ui/Navbar';
+import SectionContainer from '@/ui/SectionContainer';
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (

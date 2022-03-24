@@ -2,19 +2,19 @@
 import clsx from 'clsx';
 import * as React from 'react';
 
-import Button from '@/components/buttons/Button';
-import Layout from '@/components/layout/Layout';
-import ArrowLink from '@/components/links/ArrowLink';
-import ButtonLink from '@/components/links/ButtonLink';
-import PrimaryLink from '@/components/links/PrimaryLink';
-import UnderlineLink from '@/components/links/UnderlineLink';
-import UnstyledLink from '@/components/links/UnstyledLink';
-import NextImage from '@/components/NextImage';
-import Seo from '@/components/Seo';
+import Button from '@/ui/buttons/Button';
+import Layout from '@/ui/layout/Layout';
+import ArrowLink from '@/ui/links/ArrowLink';
+import ButtonLink from '@/ui/links/ButtonLink';
+import PrimaryLink from '@/ui/links/PrimaryLink';
+import UnderlineLink from '@/ui/links/UnderlineLink';
+import UnstyledLink from '@/ui/links/UnstyledLink';
+import NextImage from '@/ui/NextImage';
+import Seo from '@/ui/Seo';
 
 type Color = typeof colorList[number];
 
-export default function ComponentsPage() {
+export default function uiPage() {
   const [mode, setMode] = React.useState<'dark' | 'light'>('light');
   const [color, setColor] = React.useState<Color>('sky');
   function toggleMode() {
@@ -25,10 +25,7 @@ export default function ComponentsPage() {
 
   return (
     <Layout>
-      <Seo
-        templateTitle='Components'
-        description='Pre-built components with awesome default'
-      />
+      <Seo templateTitle='ui' description='Pre-built ui with awesome default' />
 
       <main>
         <section
@@ -40,7 +37,7 @@ export default function ComponentsPage() {
               mode === 'dark' ? 'text-white' : 'text-black'
             )}
           >
-            <h1>Built-in Components</h1>
+            <h1>Built-in ui</h1>
             <ArrowLink direction='left' className='mt-2' href='/'>
               Back to Home
             </ArrowLink>

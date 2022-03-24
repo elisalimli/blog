@@ -2,10 +2,10 @@ import React from 'react';
 
 import { headerNavLinks } from '@/data/headerNavLinks';
 
-import LgLogo from '@/components/icons/LogoIcon';
-import UnstyledLink from '@/components/links/UnstyledLink';
-import Menu from '@/components/Menu';
-import { defaultMeta } from '@/components/Seo';
+import LgLogo from '@/ui/icons/LogoIcon';
+import UnstyledLink from '@/ui/links/UnstyledLink';
+import Menu from '@/ui/Menu';
+import { defaultMeta } from '@/ui/Seo';
 
 const Header = () => {
   return (
