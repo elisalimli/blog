@@ -16,6 +16,7 @@ import { GiveRoleResolver } from "./graphql/resolvers/user/role/giveRole";
 import { prisma } from "./utils/prisma";
 import { redis } from "./utils/redis";
 import { sessionMiddleware } from "./utils/sessionMiddleware";
+import { PostRelationsResolver } from "../generated/";
 
 const PORT = process.env.PORT || 4000;
 
@@ -46,6 +47,7 @@ export const main: () => any = async () => {
       GetPostResolver,
       HelloResolver,
       MeResolver,
+      PostRelationsResolver,
     ],
     validate: false,
   });

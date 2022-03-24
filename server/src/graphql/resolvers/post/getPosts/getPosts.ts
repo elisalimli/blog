@@ -26,6 +26,7 @@ export class GetPostsResolver {
       take: realLimitPlusOne,
     });
     console.log(posts);
+
     return {
       posts: posts.slice(0, realLimit),
       hasMore: posts.length === realLimitPlusOne,

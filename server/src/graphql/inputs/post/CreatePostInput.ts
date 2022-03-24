@@ -10,4 +10,7 @@ export class CreatePostInput {
 
   @Field(() => Boolean, { nullable: true, defaultValue: false })
   isVideo?: boolean;
+
+  @Field(() => [String])
+  tags?: string[];
 }

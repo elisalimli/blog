@@ -6,14 +6,23 @@ import { GetPostInput } from "../../../inputs/post/GetPostInput";
 @Resolver(Post)
 export class GetPostResolver {
   @Query(() => Post, { nullable: true })
-  getPost(
+  async getPost(
     @Ctx() { prisma }: MyContext,
     @Arg("input") { postId }: GetPostInput
-  ) {
-    return prisma.post.findUnique({
+  ): Promise<Post> {
+    const post = (await prisma.post.findUnique({
       where: {
         id: postId,
       },
-    });
+      include: {
+        tags: {
+          include: {
+            tag: true,
+          },
+        },
+      },
+    }))!;
+    console.log("post", post);
+    return post;
   }
 }

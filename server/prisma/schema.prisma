@@ -30,27 +30,33 @@ generator typegraphql {
 //   @@map("comment")
 // }
 
-model Post {
-  id        String   @id @default(uuid())
-  title     String   @db.VarChar(255)
-  tags      Tag[]
-  creator   User     @relation(fields: [creatorId], references: [id])
-  creatorId String
-  url       String // it can be a picture or video
-  isVideo   Boolean? @default(false)
-  // embededCode String? // iframe
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  @@map("post")
+model PostTags {
+  id     String  @id @default(uuid())
+  post   Post?   @relation(fields: [postId], references: [id])
+  tag    Tag?    @relation(fields: [tagId], references: [id])
+  postId String?
+  tagId  String?
 }
 
 model Tag {
-  id    String @id @default(uuid())
-  name  String @unique @db.VarChar(25)
-  posts Post[]
+  id    String     @id @default(uuid())
+  name  String     @unique
+  posts PostTags[]
+}
 
-  @@map("tag")
+model Post {
+  id        String     @id @default(uuid())
+  title     String     @db.VarChar(255)
+  tags      PostTags[]
+  // creator   User       @relation(fields: [creatorId], references: [id])
+  // creatorId String
+  url       String // it can be a picture or video
+  isVideo   Boolean?   @default(false)
+  // embededCode String? // iframe
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  @@map("post")
 }
 
 model User {
@@ -59,7 +65,7 @@ model User {
   username String @unique @db.VarChar(50)
   /// @TypeGraphQL.omit(output: true)
   password String @db.Text
-  posts    Post[]
+  // posts    Post[]
   role     Role   @default(USER)
 
   @@map("user")

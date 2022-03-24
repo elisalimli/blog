@@ -5,20 +5,43 @@ import { CreatePostInput } from "../../../inputs/post/CreatePostInput";
 import { isAuth } from "../../../middlewares/isAuth";
 import { isAuthor } from "../../../middlewares/isAuthor";
 
+//UPDATE "user" SET role = 'ADMIN';
 @Resolver(Post)
 export class CreatePostResolver {
   @Mutation(() => Post)
   @UseMiddleware(isAuth, isAuthor)
   async createPost(
-    @Ctx() { prisma, req }: MyContext,
+    @Ctx() { prisma }: MyContext,
     @Arg("input") input: CreatePostInput
-  ) {
-    const { userId } = req.session;
+  ): Promise<Post> {
+    console.log(input?.tags);
+
+    const tagsArr: {
+      tag: {
+        connectOrCreate: { create: { name: string }; where: { name: string } };
+      };
+    }[] = [];
+    input?.tags?.map((t) =>
+      tagsArr.push({
+        tag: {
+          connectOrCreate: {
+            create: {
+              name: t,
+            },
+            where: {
+              name: t,
+            },
+          },
+        },
+      })
+    );
+
     const post = await prisma.post.create({
       data: {
         ...input,
-        creatorId: userId as string,
-        tags: { create: [{ name: "dev2" }, { name: "prisma2" }] },
+        tags: {
+          create: tagsArr,
+        },
       },
     });
     console.log(post);
