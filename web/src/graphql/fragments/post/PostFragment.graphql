@@ -1,4 +1,4 @@
-fragment PostFragment on PostEntity {
+fragment PostSnippet on PostEntity {
       id
       title
       url
