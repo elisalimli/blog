@@ -1,10 +1,10 @@
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
+import { Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
-import { PostEntity } from "../../../entitites/Post";
 import { GetPostsInput } from "../../../inputs/post/GetPostsInput";
 import { PostsResponse } from "../../../responses/post/PostsResponse";
 
-@Resolver(PostEntity)
+@Resolver(Post)
 export class GetPostsResolver {
   @Query(() => PostsResponse, { nullable: true })
   async getPosts(

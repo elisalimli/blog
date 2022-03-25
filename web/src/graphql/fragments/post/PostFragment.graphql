@@ -2,7 +2,8 @@ fragment PostSnippet on PostEntity {
       id
       title
       url
-      tags {
+      isVideo
+     tags {
         id
         tag {
           id

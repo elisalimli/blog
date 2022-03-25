@@ -14,6 +14,8 @@ generator typegraphql {
   provider           = "typegraphql-prisma"
   output             = "../generated"
   emitTranspiledCode = true
+  emitOnly           = "models"
+
 }
 
 // model Comment {
@@ -63,7 +65,6 @@ model User {
   id       String @id @default(uuid())
   email    String @unique @db.VarChar(255)
   username String @unique @db.VarChar(50)
-  /// @TypeGraphQL.omit(output: true)
   password String @db.Text
   // posts    Post[]
   role     Role   @default(USER)

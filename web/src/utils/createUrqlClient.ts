@@ -1,6 +1,14 @@
-import { cacheExchange } from '@urql/exchange-graphcache';
-import { relayPagination } from '@urql/exchange-graphcache/extras';
-import { dedupExchange, Exchange, fetchExchange } from 'urql';
+import { cacheExchange, Resolver } from '@urql/exchange-graphcache';
+import {
+  relayPagination,
+  simplePagination,
+} from '@urql/exchange-graphcache/extras';
+import {
+  dedupExchange,
+  Exchange,
+  fetchExchange,
+  stringifyVariables,
+} from 'urql';
 import { pipe, tap } from 'wonka';
 
 import { betterUpdateQuery } from './betterUpdateQuery';
@@ -20,6 +28,53 @@ const errorExchange: Exchange =
       })
     );
   };
+// const cursorPagination = (): Resolver => {
+//   return (_parent, fieldArgs, cache, info) => {
+//     const { parentKey: entityKey, fieldName } = info;
+//     const allFields = cache.inspectFields(entityKey);
+//     const fieldInfos = allFields.filter((info) => info.fieldName === fieldName);
+//     const size = fieldInfos.length;
+//     if (size === 0) {
+//       return undefined;
+//     }
+
+//     const fieldKey = `${fieldName}(${stringifyVariables(fieldArgs)})`;
+//     const isItInTheCache = cache.resolve({ __typename: entityKey }, 'posts');
+//     info.partial = !isItInTheCache;
+//     let hasMore = true;
+//     const results: string[] = [];
+//     fieldInfos.forEach((fi) => {
+//       const data = cache.resolve(
+//         { __typename: 'PostsResponse' },
+//         'getPosts'
+//       ) as string[];
+//       const _hasMore = cache.resolve(
+//         { __typename: 'PostsResponse' },
+//         'hasMore'
+//       );
+//       if (!_hasMore) {
+//         hasMore = _hasMore as boolean;
+//       }
+//       results.push(...data);
+//     });
+
+//     return {
+//       __typename: 'PostsResponse',
+//       hasMore,
+//       posts: results,
+//     };
+//   };
+// };
+import { stringifyVariables } from '@urql/core';
+import { Resolver, Variables, NullArray } from '../types';
+
+export type MergeMode = 'before' | 'after';
+
+export interface PaginationParams {
+  offsetArgument?: string;
+  limitArgument?: string;
+  mergeMode?: MergeMode;
+}
 
 export const createUrqlClient = (ssrExchange: any, ctx: any) => {
   let cookie = '';
@@ -35,7 +90,7 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
       headers: cookie
         ? {
             cookie,
-          }
+        }
         : undefined,
     },
     exchanges: [
@@ -43,6 +98,11 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
       cacheExchange({
         keys: {
           PostsResponse: () => null,
+        },
+        resolvers: {
+          Query: {
+            // getPosts: cursorPagination(),
+          },
         },
         updates: {
           Mutation: {

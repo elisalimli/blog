@@ -1,7 +1,8 @@
 https://github.com/MichalLytek/typegraphql-prisma/issues/263
-- [x] Fix tags bug
-- [ ] Use pages for pagination
+- [ ] Create add new post(front)
 - [ ] Check typegraphql docs(for auth)
-- [ ] Complete tags
-- [ ] Write post queries for web
 - [ ] Filter posts tags
+- [x] Fix tags bug
+- [x] Use pages for pagination
+- [x] Complete tags
+- [x] Write post queries for web

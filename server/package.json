@@ -8,11 +8,11 @@
     "watch": "tsc -w",
     "dev": "nodemon dist/index.js",
     "start": "node dist/index.js",
-    "gen": "prisma generate",
+    "gen": "prisma generate SKIP_PRISMA_VERSION_CHECK=true",
     "migrate": "prisma migrate dev --name my_migrate"
   },
   "dependencies": {
-    "@prisma/client": "3.7.0",
+    "@prisma/client": "^3.11.1",
     "argon2": "^0.28.3",
     "connect-redis": "^6.0.0",
     "cors": "^2.8.5",
@@ -34,8 +34,8 @@
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",
     "@types/ioredis": "^4.28.5",
-    "prisma": "3.7.0",
-    "typegraphql-prisma": "^0.18.3",
+    "prisma": "^3.11.1",
+    "typegraphql-prisma": "^0.19.2",
     "typescript": "^4.5.4"
   }
 }

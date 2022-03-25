@@ -1,10 +1,10 @@
 import { Field, ObjectType } from "type-graphql";
-import { PostEntity } from "../../entitites/Post";
+import { Post } from "../../../../generated";
 
 @ObjectType()
 export class PostsResponse {
-  @Field(() => [PostEntity], { nullable: true })
-  posts?: PostEntity[];
+  @Field(() => [Post], { nullable: true })
+  posts?: Post[];
 
   @Field(() => Boolean)
   hasMore?: boolean;

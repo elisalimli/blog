@@ -1,28 +1,10 @@
 import { ObjectType, Field } from "type-graphql";
-import { Post } from "../../../generated";
-
-@ObjectType()
-export class Tag {
-  @Field()
-  id: string;
-
-  @Field()
-  name: string;
-}
-
-@ObjectType()
-export class PostTags {
-  @Field()
-  id: string;
-
-  @Field(() => Tag)
-  tag: Tag;
-}
+import { Post, Tag } from "../../../generated";
 
 @ObjectType()
 export class PostEntity extends Post {
-  @Field(() => [PostTags], {
+  @Field(() => [Tag], {
     nullable: true,
   })
-  tags?: PostTags[];
+  tags?: Tag[];
 }
