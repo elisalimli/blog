@@ -38,4 +38,4 @@ const HomePage = () => {
     </SectionContainer>
   );
 };
-export default withUrqlClient(createUrqlClient)(HomePage);
+export default withUrqlClient(createUrqlClient, { ssr: true })(HomePage);

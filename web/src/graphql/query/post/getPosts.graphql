@@ -1,16 +1,7 @@
 query GetPosts($input: GetPostsInput!) {
   getPosts(input: $input) {
     posts {
-      id
-      title
-      url
-      tags {
-        id
-        tag {
-          id
-          name
-        }
-      }
+      ...PostFragment
     }
     hasMore
   }

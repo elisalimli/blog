@@ -45,11 +45,6 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
           PostsResponse: () => null,
         },
         updates: {
-          Query: {
-            posts: (_result, _, cache, __) => {
-              console.log('result', _result);
-            },
-          },
           Mutation: {
             // register: (_result, _, cache, __) => {
             //   betterUpdateQuery<RegisterMutation, MeQuery>(

@@ -1,0 +1,13 @@
+fragment PostFragment on Post {
+      id
+      title
+      url
+      tags {
+        id
+        tag {
+          id
+          name
+        }
+      }
+
+}

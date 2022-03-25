@@ -33,8 +33,9 @@ export class GetPostsResolver {
     });
     console.log(posts[1]);
 
+    const start = input?.cursor ? 1 : 0;
     return {
-      posts: posts.slice(0, realLimit),
+      posts: posts.slice(start, realLimit),
       hasMore: posts.length === realLimitPlusOne,
     };
   }
