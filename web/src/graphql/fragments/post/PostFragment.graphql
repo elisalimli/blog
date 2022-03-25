@@ -1,4 +1,4 @@
-fragment PostFragment on Post {
+fragment PostFragment on PostEntity {
       id
       title
       url
