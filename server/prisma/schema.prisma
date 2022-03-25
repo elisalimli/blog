@@ -55,7 +55,7 @@ model Post {
   url       String // it can be a picture or video
   isVideo   Boolean?   @default(false)
   // embededCode String? // iframe
-  createdAt DateTime   @default(now())
+  createdAt String
   updatedAt DateTime   @updatedAt
 
   @@map("post")

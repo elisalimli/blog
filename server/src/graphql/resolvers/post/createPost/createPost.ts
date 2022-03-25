@@ -42,6 +42,7 @@ export class CreatePostResolver {
         tags: {
           create: tagsArr,
         },
+        createdAt: new Date().toISOString(),
       },
     });
     console.log(post);
