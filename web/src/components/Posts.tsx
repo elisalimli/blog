@@ -8,6 +8,7 @@ import {
   usePostsQuery,
 } from '@/generated/graphql';
 import Post from '@/components/Post';
+import { isServer } from '../utils/isServer';
 
 // interface PageProps {
 //   variables: GetPostsInput;
@@ -44,14 +45,13 @@ const Posts = () => {
     limit: LIMIT,
     cursor: null,
   });
-  const [{ data, fetching }] = usePostsQuery({
+  const [{ data, stale }] = usePostsQuery({
     variables: { input: variables },
   });
 
   const onLoadMore = ({ limit, cursor }: GetPostsInput) => {
     setVariables({ cursor, limit });
   };
-
   return (
     <>
       <ul className='grid grid-cols-1 gap-4  md:grid-cols-2 xl:grid-cols-3'>
@@ -60,21 +60,24 @@ const Posts = () => {
         ))}
       </ul>
       {data?.posts?.hasMore && (
-        <Button
-          className='grid px-2 py-1 text-sm'
-          onClick={() => {
-            const posts = data?.posts?.posts;
-            if (posts?.length) {
-              onLoadMore({
-                limit: LIMIT,
-                cursor: posts[posts.length - 1].createdAt,
-              });
-            }
-          }}
-          isLoading={fetching}
-        >
-          Load more
-        </Button>
+        <div className='mt-4 flex justify-center'>
+          <Button
+            className='grid px-2 py-1 text-sm'
+            variant='outline'
+            onClick={() => {
+              const posts = data?.posts?.posts;
+              if (posts?.length) {
+                onLoadMore({
+                  limit: LIMIT,
+                  cursor: posts[posts.length - 1].createdAt,
+                });
+              }
+            }}
+            isLoading={stale}
+          >
+            Load more
+          </Button>
+        </div>
       )}
     </>
   );

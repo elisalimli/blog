@@ -6,9 +6,9 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className='bg-gray-50'>
       <SectionContainer>
-        <div className='flex h-screen flex-col justify-between'>
+        <div className='flex h-screen flex-col justify-between '>
           <Header />
-          <main className='mb-auto'>{children}</main>
+          <main className='mb-auto pb-24'>{children}</main>
           {/* <Footer /> */}
         </div>
       </SectionContainer>
