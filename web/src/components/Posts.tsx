@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 
 import Button from '@/ui/buttons/Button';
 
-import {
-  GetPostsInput,
-  useGetPostsQuery,
-  usePostsQuery,
-} from '@/generated/graphql';
 import Post from '@/components/Post';
-import { isServer } from '../utils/isServer';
+import { GetPostsInput, usePostsQuery } from '@/generated/graphql';
 
 // interface PageProps {
 //   variables: GetPostsInput;

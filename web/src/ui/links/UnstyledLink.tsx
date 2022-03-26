@@ -1,4 +1,4 @@
-import { LinkProps } from 'next/link';
+import Link, { LinkProps } from 'next/link';
 import * as React from 'react';
 
 export type UnstyledLinkProps = {
@@ -11,16 +11,18 @@ export type UnstyledLinkProps = {
 const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
   ({ children, href, className, ...rest }, ref) => {
     return (
-      <a
+      // <a
+      // >
+      // </a>
+      <Link
         ref={ref}
         // target='_blank'
         rel='noopener noreferrer'
         href={href}
         {...rest}
-        className={className}
       >
-        {children}
-      </a>
+        <a className={className}>{children}</a>
+      </Link>
     );
   }
 );

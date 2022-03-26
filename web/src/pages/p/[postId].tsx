@@ -1,26 +1,35 @@
+import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
 import * as React from 'react';
 
 import Seo from '@/ui/Seo';
 
-import Posts from '@/components/Posts';
+import { usePostQuery } from '@/generated/graphql';
+
+import IndividalPost from '../../components/IndividalPost';
 import SectionContainer from '../../ui/SectionContainer';
 import { createUrqlClient } from '../../utils/createUrqlClient';
-import { useRouter } from 'next/router';
 
 const Post = () => {
   const router = useRouter();
   console.log(router.query);
+  const [{ data, stale }] = usePostQuery({
+    variables: { input: { postId: router.query.postId as string } },
+  });
+
+  console.log('data', data);
+  if (!data?.post) {
+    return <div>no post </div>;
+  }
+
+  console.log('is f : ', stale);
   return (
     <SectionContainer>
-      <Seo title='Home' description='Home' />
-      <h1 className='mb-2 text-gray-900'>Latest</h1>
-      <p className='mb-3 text-lg text-gray-500'>
-        A blog created with Next.js and Tailwind.css
-      </p>
-      <hr className='mt-8 mb-10' />
-
-      <Posts />
+      <Seo
+        title={data?.post?.title || "Couldn't find the post"}
+        description={data?.post?.title || "Couldn't find the post"}
+      />
+      <IndividalPost post={data?.post} />
     </SectionContainer>
   );
 };
