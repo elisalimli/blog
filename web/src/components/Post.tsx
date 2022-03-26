@@ -19,10 +19,10 @@ const Post: React.FC<PostProps> = ({ post: { title, url, tags, isVideo } }) => {
         <div className='absolute bottom-0 right-0 z-10 flex h-10  w-full items-center justify-end'>
           {tags?.map((tag) => (
             <button
-              key={`tag-${tag.tag.id}`}
+              key={`tag-${tag.id}`}
               className='mr-2 rounded-lg bg-gray-100 bg-opacity-80  p-1 text-sm text-gray-700'
             >
-              {tag?.tag?.name}
+              {tag?.name}
             </button>
           ))}
         </div>

@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 
 import Button from '@/ui/buttons/Button';
 
-import { GetPostsInput, useGetPostsQuery } from '@/generated/graphql';
+import {
+  GetPostsInput,
+  useGetPostsQuery,
+  usePostsQuery,
+} from '@/generated/graphql';
 import Post from '@/components/Post';
 
 // interface PageProps {
@@ -40,7 +44,7 @@ const Posts = () => {
     limit: LIMIT,
     cursor: null,
   });
-  const [{ data, fetching }] = useGetPostsQuery({
+  const [{ data, fetching }] = usePostsQuery({
     variables: { input: variables },
   });
 
@@ -52,28 +56,26 @@ const Posts = () => {
   return (
     <>
       <ul className='grid grid-cols-1 gap-4  md:grid-cols-2 xl:grid-cols-3'>
-        {data?.getPosts?.posts?.map((post) => (
+        {data?.posts?.posts?.map((post) => (
           <Post post={post} key={`post-${post.id}`} />
         ))}
       </ul>
 
-      {data?.getPosts?.hasMore || fetching ? (
-        <Button
-          className='grid px-2 py-1 text-sm'
-          onClick={() => {
-            const posts = data?.getPosts?.posts;
-            if (posts?.length) {
-              onLoadMore({
-                limit: LIMIT,
-                cursor: posts[posts.length - 1].id,
-              });
-            }
-          }}
-          isLoading={fetching}
-        >
-          Load more
-        </Button>
-      ) : null}
+      <Button
+        className='grid px-2 py-1 text-sm'
+        onClick={() => {
+          const posts = data?.posts?.posts;
+          if (posts?.length) {
+            onLoadMore({
+              limit: LIMIT,
+              cursor: posts[posts.length - 1].createdAt,
+            });
+          }
+        }}
+        isLoading={fetching}
+      >
+        Load more
+      </Button>
     </>
   );
 };

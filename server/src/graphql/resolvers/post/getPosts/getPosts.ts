@@ -43,6 +43,7 @@ export class GetPostsResolver {
     }
     GROUP BY p.id
     ORDER BY p."createdAt" DESC
+    LIMIT ${realLimitPlusOne}
     `;
     return {
       posts: posts.slice(0, realLimit),

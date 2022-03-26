@@ -65,17 +65,6 @@ const errorExchange: Exchange =
 //     };
 //   };
 // };
-import { stringifyVariables } from '@urql/core';
-import { Resolver, Variables, NullArray } from '../types';
-
-export type MergeMode = 'before' | 'after';
-
-export interface PaginationParams {
-  offsetArgument?: string;
-  limitArgument?: string;
-  mergeMode?: MergeMode;
-}
-
 export const createUrqlClient = (ssrExchange: any, ctx: any) => {
   let cookie = '';
   if (isServer) {
@@ -90,7 +79,7 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
       headers: cookie
         ? {
             cookie,
-        }
+          }
         : undefined,
     },
     exchanges: [

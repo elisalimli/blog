@@ -1,8 +1,0 @@
-query GetPosts($input: GetPostsInput!) {
-  getPosts(input: $input) {
-    posts {
-      ...PostSnippet
-    }
-    hasMore
-  }
-}
