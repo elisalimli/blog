@@ -60,7 +60,7 @@ const Posts = () => {
         ))}
       </ul>
       {data?.posts?.hasMore && (
-        <div className='mt-4 flex justify-center'>
+        <div className='mt-12 flex justify-center'>
           <Button
             className='grid px-2 py-1 text-sm'
             variant='outline'
