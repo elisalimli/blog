@@ -4,26 +4,30 @@ import { RiAlarmWarningFill } from 'react-icons/ri';
 import Layout from '@/ui/layout/Layout';
 import ArrowLink from '@/ui/links/ArrowLink';
 import Seo from '@/ui/Seo';
+import Button from '../ui/buttons/Button';
+import UnstyledLink from '../ui/links/UnstyledLink';
 
 export default function NotFoundPage() {
   return (
     <Layout>
-      <Seo templateTitle='Not Found' />
-
-      <main>
-        <section className='bg-white'>
-          <div className='layout flex min-h-screen flex-col items-center justify-center text-center text-black'>
-            <RiAlarmWarningFill
-              size={60}
-              className='drop-shadow-glow animate-flicker text-red-500'
-            />
-            <h1 className='mt-8 text-4xl md:text-6xl'>Page Not Found</h1>
-            <ArrowLink className='mt-4 md:text-lg' href='/'>
-              Back to Home
-            </ArrowLink>
-          </div>
-        </section>
-      </main>
+      <Seo description='Not found page' templateTitle='Not Found' />
+      <div className='mt-24 flex flex-col py-10 px-2 md:flex-row md:justify-center'>
+        <h1 className='leading-16 mr-6 border-gray-300 px-6 text-8xl font-extrabold tracking-tight text-gray-900 md:border-r-2'>
+          404
+        </h1>
+        <div>
+          <p className='mb-2 text-3xl font-bold leading-normal'>
+            Sorry we couldn't find this page.
+          </p>
+          <p className='mb-6 font-light'>
+            But don't worry, you can find plenty of other things on our
+            homepage.
+          </p>
+          <UnstyledLink href='/'>
+            <Button variant='primary'>Back To Homepage</Button>
+          </UnstyledLink>
+        </div>
+      </div>
     </Layout>
   );
 }
