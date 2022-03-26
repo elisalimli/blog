@@ -12,7 +12,6 @@ const Post: React.FC<PostProps> = ({ post: { title, url, tags, isVideo } }) => {
   const youtube_video_id = url
     .match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/)
     .pop();
-  console.log(isVideo);
   return (
     <UnstyledLink href='#'>
       <li className='relative max-w-full rounded-md border border-gray-300'>

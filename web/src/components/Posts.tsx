@@ -51,7 +51,6 @@ const Posts = () => {
   const onLoadMore = ({ limit, cursor }: GetPostsInput) => {
     setVariables({ cursor, limit });
   };
-  console.log(data);
 
   return (
     <>
@@ -60,22 +59,23 @@ const Posts = () => {
           <Post post={post} key={`post-${post.id}`} />
         ))}
       </ul>
-
-      <Button
-        className='grid px-2 py-1 text-sm'
-        onClick={() => {
-          const posts = data?.posts?.posts;
-          if (posts?.length) {
-            onLoadMore({
-              limit: LIMIT,
-              cursor: posts[posts.length - 1].createdAt,
-            });
-          }
-        }}
-        isLoading={fetching}
-      >
-        Load more
-      </Button>
+      {data?.posts?.hasMore && (
+        <Button
+          className='grid px-2 py-1 text-sm'
+          onClick={() => {
+            const posts = data?.posts?.posts;
+            if (posts?.length) {
+              onLoadMore({
+                limit: LIMIT,
+                cursor: posts[posts.length - 1].createdAt,
+              });
+            }
+          }}
+          isLoading={fetching}
+        >
+          Load more
+        </Button>
+      )}
     </>
   );
 };

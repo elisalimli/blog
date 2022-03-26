@@ -12,8 +12,8 @@ const Menu = (props: any) => {
       </MyIcon> */}
       <button onClick={handleClick}>open</button>
       <div
-        style={{ left: open ? 0 : '100%' }}
-        className='opacity-95x fixed top-0 z-40 min-h-full w-full bg-white p-6  transition-all duration-700'
+        style={{ left: open ? '50%' : '100%' }}
+        className='fixed top-0 z-40 min-h-full w-full bg-white p-6 opacity-95  transition-all duration-700'
       >
         <div className='flex justify-between'>
           {/* <Brand /> */}
