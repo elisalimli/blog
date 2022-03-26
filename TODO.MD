@@ -1,4 +1,7 @@
 https://github.com/MichalLytek/typegraphql-prisma/issues/263
+- [ ] Fix CREATED AT PAGINATION
+- [ ] Add Pagination(Backend)
+- [ ] Add Pagination(Front)
 - [ ] Create add new post(front)
 - [ ] Check typegraphql docs(for auth)
 - [ ] Filter posts tags

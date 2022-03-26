@@ -1,6 +1,8 @@
+import { Prisma } from "@prisma/client";
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
 import { Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
+import { PostEntity } from "../../../entity/Post";
 import { GetPostsInput } from "../../../inputs/post/GetPostsInput";
 import { PostsResponse } from "../../../responses/post/PostsResponse";
 
@@ -19,7 +21,7 @@ export class GetPostsResolver {
     //     tags: {
     //       include: {
     //         tag: true,
-    //       },
+    //       },[]
     //     },
     //   },
 
@@ -30,14 +32,18 @@ export class GetPostsResolver {
     //     : undefined,
 
     //   take: realLimitPlusOne,
-    // });WHERE p."createdAt" > ${input?.cursor}
+    // });
+
+    const { cursor } = input;
     const posts = await prisma.$queryRaw<PostEntity[]>`
     SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags 
     FROM post p join "PostTags" pt on pt."postId" = p.id 
-    join "Tag" t on t.id = pt."tagId" 
+    join "Tag" t on t.id = pt."tagId" ${
+      cursor ? Prisma.sql`WHERE p."createdAt" < ${cursor}` : Prisma.empty
+    }
     GROUP BY p.id
+    ORDER BY p."createdAt" DESC
     `;
-    console.log(posts);
     return {
       posts: posts.slice(0, realLimit),
       hasMore: posts.length === realLimitPlusOne,
