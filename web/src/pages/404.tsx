@@ -1,9 +1,8 @@
 import * as React from 'react';
-import { RiAlarmWarningFill } from 'react-icons/ri';
 
 import Layout from '@/ui/layout/Layout';
-import ArrowLink from '@/ui/links/ArrowLink';
 import Seo from '@/ui/Seo';
+
 import Button from '../ui/buttons/Button';
 import UnstyledLink from '../ui/links/UnstyledLink';
 

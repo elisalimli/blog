@@ -45,6 +45,8 @@ export class GetPostsResolver {
     ORDER BY p."createdAt" DESC
     LIMIT ${realLimitPlusOne}
     `;
+
+    console.log(posts);
     return {
       posts: posts.slice(0, realLimit),
       hasMore: posts.length === realLimitPlusOne,

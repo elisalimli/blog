@@ -1,0 +1,5 @@
+query PostsByTag($input: GetPostsByTagInput!) {
+  posts(input: $input) {
+      ...PostSnippet
+  }
+}
