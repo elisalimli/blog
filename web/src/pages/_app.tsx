@@ -4,6 +4,7 @@ import Head from 'next/head';
 import '@/styles/globals.css';
 
 import LayoutWrapper from '../ui/LayoutWrapper';
+import NextNProgress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,6 +12,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <meta content='width=device-width, initial-scale=1' name='viewport' />
       </Head>
+      <NextNProgress />
+
       <LayoutWrapper>
         <Component {...pageProps} />
       </LayoutWrapper>

@@ -1,12 +1,12 @@
 import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
-import * as React from 'react';
+import { useEffect } from 'react';
 
 import Seo from '@/ui/Seo';
 
 import { usePostQuery } from '@/generated/graphql';
 
-import IndividalPost from '@/components/IndividualPost';
+import IndividualPost from '@/components/IndividualPost';
 import SectionContainer from '@/ui/SectionContainer';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 import NotFound from '@/components/404';
@@ -14,8 +14,7 @@ import { ImSpinner2 } from 'react-icons/im';
 
 const Post = () => {
   const router = useRouter();
-  console.log(router.query);
-  const [{ data, fetching }] = usePostQuery({
+  const [{ data, fetching, stale }] = usePostQuery({
     variables: { input: { postId: router.query.postId as string } },
   });
 
@@ -26,21 +25,15 @@ const Post = () => {
       </div>
     );
   } else if (!data?.post && !fetching) {
-    return (
-      <div>
-        <Seo description='Not found post' templateTitle='Not Found post' />
-        <NotFound />
-      </div>
-    );
+    return <NotFound />;
   }
-
   return (
     <SectionContainer>
       <Seo
-        title={data?.post?.title}
-        description={data?.post?.title as string}
+        title={'data?.post?.title'}
+        description={'data?.post?.title' as string}
       />
-      <IndividalPost post={data?.post} />
+      <IndividualPost post={data?.post} />
     </SectionContainer>
   );
 };

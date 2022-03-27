@@ -11,7 +11,7 @@ interface PostProps {
 }
 
 const IndividalPost: React.FC<PostProps> = ({
-  post: { id, title, url, tags, isVideo },
+  post: { title, url, tags, isVideo },
 }) => {
   const ytId = useGetVideoId(url);
 

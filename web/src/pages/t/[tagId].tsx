@@ -1,32 +1,39 @@
 import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
-import * as React from 'react';
+import { useEffect } from 'react';
+import { ImSpinner2 } from 'react-icons/im';
 
-import Seo from '@/ui/Seo';
+import SectionContainer from '@/ui/SectionContainer';
 
-import { usePostQuery, usePostsByTagQuery } from '@/generated/graphql';
-
-import IndividalPost from '../../components/IndividualPost';
-import SectionContainer from '../../ui/SectionContainer';
-import { createUrqlClient } from '../../utils/createUrqlClient';
-import Post from '../../components/Post';
+import Post from '@/components/Post';
+import { usePostsByTagQuery } from '@/generated/graphql';
+import { createUrqlClient } from '@/utils/createUrqlClient';
 
 const PostPyTag = () => {
   const router = useRouter();
-  const [{ data, stale }] = usePostsByTagQuery({
+  const [{ data, fetching }] = usePostsByTagQuery({
     variables: { input: { tagId: router?.query?.tagId as string } },
   });
+  useEffect(() => {
+    if (!data?.postsByTag?.length && !fetching) {
+      router.replace('/404');
+    }
+  }, [router, fetching, data?.postsByTag]);
 
-  console.log(data, stale);
-  if (!data?.postsByTag?.length && !stale) {
-    router.replace('/404');
+  if (fetching) {
+    return (
+      <div className='flex items-center justify-center py-8'>
+        <ImSpinner2 className='animate-spin text-6xl' />
+      </div>
+    );
   }
-
   return (
     <SectionContainer>
+      {/* @todo fix this  */}
       {/* <Seo
-        title={data?.postsByTag?.title || "Couldn't find the post"}
-        description={data?.post?.title || "Couldn't find the post"}
+        title={data?.postsByTag[0]?.tags?.filter(())}
+        description={data?.postsByTag[0]?.tags[0].name}
+        // description={data?.post?.title}
       /> */}
       {/* <IndividalPost post={data?.post} /> */}
       <ul className='grid grid-cols-1 gap-4  md:grid-cols-2 xl:grid-cols-3'>
