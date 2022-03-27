@@ -6,28 +6,39 @@ import Seo from '@/ui/Seo';
 
 import { usePostQuery } from '@/generated/graphql';
 
-import IndividalPost from '../../components/IndividualPost';
-import SectionContainer from '../../ui/SectionContainer';
-import { createUrqlClient } from '../../utils/createUrqlClient';
+import IndividalPost from '@/components/IndividualPost';
+import SectionContainer from '@/ui/SectionContainer';
+import { createUrqlClient } from '@/utils/createUrqlClient';
+import NotFound from '@/components/404';
+import { ImSpinner2 } from 'react-icons/im';
 
 const Post = () => {
   const router = useRouter();
   console.log(router.query);
-  const [{ data, stale }] = usePostQuery({
+  const [{ data, fetching }] = usePostQuery({
     variables: { input: { postId: router.query.postId as string } },
   });
 
-  console.log('data', data);
-  if (!data?.post) {
-    return <div>no post </div>;
+  if (fetching) {
+    return (
+      <div className='flex items-center justify-center py-8'>
+        <ImSpinner2 className='animate-spin text-6xl' />
+      </div>
+    );
+  } else if (!data?.post && !fetching) {
+    return (
+      <div>
+        <Seo description='Not found post' templateTitle='Not Found post' />
+        <NotFound />
+      </div>
+    );
   }
 
-  console.log('is f : ', stale);
   return (
     <SectionContainer>
       <Seo
-        title={data?.post?.title || "Couldn't find the post"}
-        description={data?.post?.title || "Couldn't find the post"}
+        title={data?.post?.title}
+        description={data?.post?.title as string}
       />
       <IndividalPost post={data?.post} />
     </SectionContainer>

@@ -2,8 +2,8 @@ https://github.com/MichalLytek/typegraphql-prisma/issues/263
 
 - [ ] Complete 404 page
 - [ ] Create add new post(front)
-- [ ] Filter posts by tags
 - [ ] Check typegraphql docs(for auth)
+- [x] Filter posts by tags
 - [x] Add Pagination(Front)
 - [x] Add Pagination(Backend)
 - [x] Fix CREATED AT PAGINATION
