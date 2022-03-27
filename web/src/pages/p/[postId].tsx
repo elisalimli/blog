@@ -6,7 +6,7 @@ import Seo from '@/ui/Seo';
 
 import { usePostQuery } from '@/generated/graphql';
 
-import IndividalPost from '../../components/IndividalPost';
+import IndividalPost from '../../components/IndividualPost';
 import SectionContainer from '../../ui/SectionContainer';
 import { createUrqlClient } from '../../utils/createUrqlClient';
 

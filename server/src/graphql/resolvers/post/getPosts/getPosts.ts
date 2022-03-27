@@ -16,24 +16,6 @@ export class GetPostsResolver {
     const realLimit = Math.min(50, input.limit);
     const realLimitPlusOne = realLimit + 1;
 
-    // const posts = await prisma.post.findMany({
-    //   include: {
-    //     tags: {
-    //       include: {
-    //         tag: true,
-    //       },[]
-    //     },
-    //   },
-
-    //   cursor: input?.cursor
-    //     ? {
-    //         id: input?.cursor,
-    //       }
-    //     : undefined,
-
-    //   take: realLimitPlusOne,
-    // });
-
     const { cursor } = input;
     const posts = await prisma.$queryRaw<PostEntity[]>`
     SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags 

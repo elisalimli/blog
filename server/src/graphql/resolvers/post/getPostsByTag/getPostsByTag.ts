@@ -19,7 +19,6 @@ export class GetPostsByTagResolver {
     WHERE pt."tagId"= ${tagId}
     GROUP BY p.id
     `;
-    console.log("posts", posts);
 
     return posts;
   }

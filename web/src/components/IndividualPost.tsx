@@ -4,6 +4,7 @@ import { PostSnippetFragment } from '../generated/graphql';
 import NextImage from '@/ui/NextImage';
 import UnstyledLink from '../ui/links/UnstyledLink';
 import { ImPlay3 } from 'react-icons/im';
+import { useGetVideoId } from '../utils/useGetVideoId';
 
 interface PostProps {
   post: PostSnippetFragment;
@@ -12,16 +13,14 @@ interface PostProps {
 const IndividalPost: React.FC<PostProps> = ({
   post: { id, title, url, tags, isVideo },
 }) => {
-  const youtube_video_id = url
-    .match(/youtube\.com.*(\?v=|\/embed\/)(.{11})/)
-    .pop();
+  const ytId = useGetVideoId(url);
 
   return (
     <article>
       <h1 className='mb-2 text-center text-gray-900'>{title}</h1>
       <iframe
         width='100%'
-        src={`https://www.youtube.com/embed/${youtube_video_id}`}
+        src={`https://www.youtube.com/embed/${ytId}`}
         // src={data?.post?.url}
         title='YouTube video player'
         frameBorder={0}
