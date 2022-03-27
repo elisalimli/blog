@@ -5,7 +5,7 @@ import Button from '@/ui/buttons/Button';
 import SectionContainer from '@/ui/SectionContainer';
 import Seo from '@/ui/Seo';
 
-import Posts from '@/components/Posts';
+import Posts from '@/components/Posts/Posts';
 import { GetPostsInput, PostSnippetFragment } from '@/generated/graphql';
 import { usePostsQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';

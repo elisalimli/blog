@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Post from '@/components/Post';
+import Post from '@/components/Posts/Post';
 import { PostSnippetFragment } from '@/generated/graphql';
 interface PostProps {
   posts: PostSnippetFragment[];
