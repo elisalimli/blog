@@ -5,9 +5,16 @@ import SectionContainer from '@/ui/SectionContainer';
 import Seo from '@/ui/Seo';
 
 import Posts from '@/components/Posts';
+import { PostSnippetFragment } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 
+import { usePostsQuery } from '../generated/graphql';
+
+const LIMIT = 9;
 const HomePage = () => {
+  const [{ data }] = usePostsQuery({
+    variables: { input: { limit: LIMIT } },
+  });
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
@@ -16,30 +23,7 @@ const HomePage = () => {
         A blog created with Next.js and Tailwind.css
       </p>
       <hr className='mt-8 mb-10' />
-
-      <Posts />
-      {/* <div className='divide-y divide-gray-200'>
-        <iframe
-          width='100%'
-          height='300px'
-          src='https://www.youtube.com/embed/LnlKwzc_TNA'
-          title='YouTube video player'
-          frameBorder={0}
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowFullScreen
-          className='py-12'
-        ></iframe>{' '}
-        <iframe
-          className='py-12'
-          width='100%'
-          height='300px'
-          src='https://www.youtube.com/embed/LnlKwzc_TNA'
-          title='YouTube video player'
-          frameBorder={0}
-          allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-          allowFullScreen
-        ></iframe>{' '}
-      </div> */}
+      <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
     </SectionContainer>
   );
 };
