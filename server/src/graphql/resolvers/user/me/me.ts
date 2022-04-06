@@ -6,14 +6,7 @@ import { User } from "../../../../../generated";
 export class MeResolver {
   @Query(() => User, { nullable: true })
   me(@Ctx() { req, prisma }: MyContext): Promise<any> | null {
-    console.log("r", req.session.userId);
-    console.log("req.session.userId 2");
-    const id = req.session.userId;
-    if (!id) return null;
-    return prisma.user.findUnique({
-      where: {
-        id,
-      },
-    });
+    if (!req?.user?.id) return null;
+    return req?.user;
   }
 }

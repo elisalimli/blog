@@ -1,5 +1,6 @@
 https://github.com/MichalLytek/typegraphql-prisma/issues/263
-
+- [ ] Add react-video-player instead of iframe
+- [ ] Add Register/Login page
 - [ ] Add Search Posts
 - [ ] Complete 404 page
 - [ ] Create add new post(front)

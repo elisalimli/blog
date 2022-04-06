@@ -17,7 +17,8 @@ import { GiveRoleResolver } from "./graphql/resolvers/user/role/giveRole";
 import { prisma } from "./utils/prisma";
 import { redis } from "./utils/redis";
 import { sessionMiddleware } from "./utils/sessionMiddleware";
-
+import passport from "passport";
+import router from "./utils/passportAuth";
 const PORT = process.env.PORT || 4000;
 
 export const main: () => any = async () => {
@@ -31,6 +32,9 @@ export const main: () => any = async () => {
   );
 
   app.use(sessionMiddleware);
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(router);
   //   for cookie
   //   app.set("trust proxy", 1);
 
@@ -51,7 +55,7 @@ export const main: () => any = async () => {
     ],
     validate: false,
   });
-
+  // app.use(auth);
   app.use(
     "/graphql",
     graphqlHTTP((req, res) => ({

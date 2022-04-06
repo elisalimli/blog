@@ -2,7 +2,7 @@
 dist/
 node_modules/
 generated/
-# .env
+.env
 .env.local
 .env.production
 .next/

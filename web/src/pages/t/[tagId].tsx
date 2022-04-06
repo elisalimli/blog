@@ -5,7 +5,7 @@ import { ImSpinner2 } from 'react-icons/im';
 
 import SectionContainer from '@/ui/SectionContainer';
 
-import Post from '@/components/Post';
+import Post from '@/components/Posts/Post';
 import { usePostsByTagQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 
