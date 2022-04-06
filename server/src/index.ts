@@ -2,6 +2,7 @@ import cors from "cors";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import expressPlayground from "graphql-playground-middleware-express";
+import passport from "passport";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
 import { HelloResolver } from "./graphql/resolvers/hello";
@@ -9,16 +10,13 @@ import { CreatePostResolver } from "./graphql/resolvers/post/createPost/createPo
 import { GetPostResolver } from "./graphql/resolvers/post/getPost/getPost";
 import { GetPostsResolver } from "./graphql/resolvers/post/getPosts/getPosts";
 import { GetPostsByTagResolver } from "./graphql/resolvers/post/getPostsByTag/getPostsByTag";
-import { LoginResolver } from "./graphql/resolvers/user/login/login";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/logout";
 import { MeResolver } from "./graphql/resolvers/user/me/me";
-import { RegisterResolver } from "./graphql/resolvers/user/register/register";
 import { GiveRoleResolver } from "./graphql/resolvers/user/role/giveRole";
+import router from "./utils/passportAuth";
 import { prisma } from "./utils/prisma";
 import { redis } from "./utils/redis";
 import { sessionMiddleware } from "./utils/sessionMiddleware";
-import passport from "passport";
-import router from "./utils/passportAuth";
 const PORT = process.env.PORT || 4000;
 
 export const main: () => any = async () => {
@@ -41,8 +39,6 @@ export const main: () => any = async () => {
   const schema = await buildSchema({
     resolvers: [
       // Mutations
-      RegisterResolver,
-      LoginResolver,
       LogoutResolver,
       GiveRoleResolver,
       CreatePostResolver,

@@ -1,10 +1,6 @@
+import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
-
 import { PostSnippetFragment } from '../generated/graphql';
-import NextImage from '@/ui/NextImage';
-import UnstyledLink from '../ui/links/UnstyledLink';
-import { ImPlay3 } from 'react-icons/im';
-import { useGetVideoId } from '../utils/useGetVideoId';
 
 interface PostProps {
   post: PostSnippetFragment;

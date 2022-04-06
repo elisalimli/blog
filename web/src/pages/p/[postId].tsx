@@ -6,7 +6,7 @@ import Seo from '@/ui/Seo';
 
 import { usePostQuery } from '@/generated/graphql';
 
-import IndividualPost from '@/components/IndividualPost';
+import IndividualPost from '@/components/Posts/IndividualPost';
 import SectionContainer from '@/ui/SectionContainer';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 import NotFound from '@/components/404';
@@ -30,7 +30,7 @@ const Post = () => {
   return (
     <SectionContainer>
       <Seo
-        title={'data?.post?.title'}
+        title={data?.post?.title}
         description={'data?.post?.title' as string}
       />
       <IndividualPost post={data?.post} />
