@@ -1,10 +1,11 @@
 import React from 'react';
+
 import Header from '@/ui/Navbar';
 import SectionContainer from '@/ui/SectionContainer';
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className='bg-gray-50'>
+    <div className='bg-gray-100'>
       <SectionContainer>
         <div className='min-h-screen'>
           <Header />

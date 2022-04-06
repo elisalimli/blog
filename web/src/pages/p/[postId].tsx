@@ -2,12 +2,13 @@ import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
 import { ImSpinner2 } from 'react-icons/im';
 
-import SectionContainer from '@/ui/SectionContainer';
 import Seo from '@/ui/Seo';
 
 import NotFound from '@/components/404';
 import IndividualPost from '@/components/Posts/IndividualPost';
+import PostSidebar from '@/components/Posts/PostSidebar';
 import { usePostQuery } from '@/generated/graphql';
+import { PostSnippetFragment } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 
 const Post = () => {
@@ -26,13 +27,18 @@ const Post = () => {
     return <NotFound />;
   }
   return (
-    <SectionContainer>
+    <>
       <Seo
         title={data?.post?.title}
         description={'data?.post?.title' as string}
       />
-      <IndividualPost post={data?.post} />
-    </SectionContainer>
+      <div className='grid grid-cols-4 gap-8'>
+        <div className='col-span-3 rounded-xl bg-white py-4 px-2 shadow-inner'>
+          <IndividualPost post={data?.post as PostSnippetFragment} />
+        </div>
+        <PostSidebar />
+      </div>
+    </>
   );
 };
 export default withUrqlClient(createUrqlClient, { ssr: true })(Post);

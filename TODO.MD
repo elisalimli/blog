@@ -1,9 +1,10 @@
-- [ ] Complete Register/Login page
+- [ ] Add post feed(sidebar) to [postId].tsx
 - [ ] Add react-video-player instead of iframe
 - [ ] Add Search Posts
 - [ ] Complete 404 page
 - [ ] Create add new post(front)
 - [ ] Check typegraphql docs(for auth)
+- [x] Complete Register/Login page
 - [x] Google auth
 - [x] Filter posts by tags
 - [x] Add Pagination(Front)
