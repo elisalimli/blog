@@ -64,9 +64,6 @@ model Post {
 model User {
   id   String @id @unique
   role Role   @default(USER)
-  // email    String @unique @db.VarChar(255)
-  // username String @unique @db.VarChar(50)
-  // password String @db.Text
   // posts    Post[]
 
   @@map("user")
