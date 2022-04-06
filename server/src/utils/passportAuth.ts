@@ -36,7 +36,7 @@ router.get(
 router.get(
   "/oauth2/redirect/google",
   passport.authenticate("google", {
-    successRedirect: "/protected",
+    successRedirect: "http://localhost:3000/",
     failureRedirect: "/auth/google/failure",
   })
 );

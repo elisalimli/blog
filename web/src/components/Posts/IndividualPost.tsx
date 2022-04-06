@@ -1,14 +1,13 @@
-import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
-import { PostSnippetFragment } from '../generated/graphql';
+
+import { PostSnippetFragment } from '@/generated/graphql';
+import { useGetVideoId } from '@/utils/useGetVideoId';
 
 interface PostProps {
   post: PostSnippetFragment;
 }
 
-const IndividalPost: React.FC<PostProps> = ({
-  post: { title, url, tags, isVideo },
-}) => {
+const IndividalPost: React.FC<PostProps> = ({ post: { title, url } }) => {
   const ytId = useGetVideoId(url);
 
   return (

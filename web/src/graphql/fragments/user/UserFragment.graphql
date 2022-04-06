@@ -1,4 +1,6 @@
-fragment UserFragment on User {
-      id 
-      username
+fragment UserFragment on UserEntity {
+  id
+  name
+  email
+  picture
 }

@@ -5,8 +5,8 @@ import { openGraph } from '@/lib/helper';
 
 // !STARTERCONF Change these default meta
 export const defaultMeta = {
-  title: 'Video Blog',
-  siteName: 'Video Blog',
+  title: "Anar's Blog",
+  siteName: "Anar's Blog",
   description: 'A video blog',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
   url: 'https://tsnext-tw.thcl.dev',

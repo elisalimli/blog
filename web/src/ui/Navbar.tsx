@@ -5,6 +5,7 @@ import { headerNavLinks } from '@/data/headerNavLinks';
 import LgLogo from '@/ui/icons/LogoIcon';
 import UnstyledLink from '@/ui/links/UnstyledLink';
 import Menu from '@/ui/Menu';
+import NavbarBrand from '@/ui/NavbarBrand';
 import { defaultMeta } from '@/ui/Seo';
 
 const Header = () => {
@@ -17,9 +18,7 @@ const Header = () => {
               <div className='mr-3'>
                 <LgLogo width={36} height={36} />
               </div>
-              <div className='hidden h-6 items-center  text-2xl font-semibold  sm:flex sm:items-center'>
-                {defaultMeta.title}
-              </div>
+              <NavbarBrand />
             </div>
           </UnstyledLink>
         </div>

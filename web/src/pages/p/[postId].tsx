@@ -1,20 +1,18 @@
 import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
-import { useEffect } from 'react';
+import { ImSpinner2 } from 'react-icons/im';
 
+import SectionContainer from '@/ui/SectionContainer';
 import Seo from '@/ui/Seo';
 
-import { usePostQuery } from '@/generated/graphql';
-
-import IndividualPost from '@/components/Posts/IndividualPost';
-import SectionContainer from '@/ui/SectionContainer';
-import { createUrqlClient } from '@/utils/createUrqlClient';
 import NotFound from '@/components/404';
-import { ImSpinner2 } from 'react-icons/im';
+import IndividualPost from '@/components/Posts/IndividualPost';
+import { usePostQuery } from '@/generated/graphql';
+import { createUrqlClient } from '@/utils/createUrqlClient';
 
 const Post = () => {
   const router = useRouter();
-  const [{ data, fetching, stale }] = usePostQuery({
+  const [{ data, fetching }] = usePostQuery({
     variables: { input: { postId: router.query.postId as string } },
   });
 

@@ -1,4 +1,4 @@
-- [ ] Add Register/Login page
+- [ ] Complete Register/Login page
 - [ ] Add react-video-player instead of iframe
 - [ ] Add Search Posts
 - [ ] Complete 404 page
