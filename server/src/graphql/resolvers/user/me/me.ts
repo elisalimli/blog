@@ -1,12 +1,15 @@
 import { Ctx, Query, Resolver } from "type-graphql";
 import { MyContext } from "../../../../utils/MyContext";
-import { User } from "../../../../../generated";
+import { UserEntity } from "../../../entity/User";
 
-@Resolver(User)
+@Resolver(UserEntity)
 export class MeResolver {
-  @Query(() => User, { nullable: true })
-  me(@Ctx() { req, prisma }: MyContext): Promise<any> | null {
-    if (!req?.user?.id) return null;
-    return req?.user;
+  @Query(() => UserEntity, { nullable: true })
+  me(@Ctx() { req }: MyContext) {
+    const user = req?.user?._json as UserEntity;
+
+    user?.id = req?.user?.id;
+    if (!user?.id) return null;
+    return user;
   }
 }

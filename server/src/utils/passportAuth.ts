@@ -1,3 +1,4 @@
+import { prisma } from "./prisma";
 import express from "express";
 import passport from "passport";
 import { Strategy } from "passport-google-oauth2";
@@ -11,8 +12,17 @@ passport.use(
       callbackURL: "http://localhost:4000/oauth2/redirect/google",
       passReqToCallback: true,
     },
-    function (request, accessToken, refreshToken, profile, done) {
-      console.log("profile : ", profile);
+    async function (request, accessToken, refreshToken, profile, done) {
+      const upsertUser = await prisma.user.upsert({
+        where: {
+          id: profile?.id,
+        },
+        update: {},
+        create: {
+          id: profile?.id,
+        },
+      });
+      console.log("user : ", upsertUser);
       return done(null, profile);
     }
   )
@@ -30,10 +40,6 @@ router.get(
     failureRedirect: "/auth/google/failure",
   })
 );
-
-router.get("/protected", (req, res) => {
-  res.send(`Hello ${req.user.displayName}`);
-});
 
 router.get("/auth/google/failure", (req, res) => {
   res.send("Failed to authenticate..");

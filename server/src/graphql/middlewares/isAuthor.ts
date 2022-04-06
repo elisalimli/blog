@@ -5,10 +5,12 @@ export const isAuthor: MiddlewareFn<MyContext> = async (
   { context: { prisma, req } },
   next
 ) => {
-  const { userId } = req.session;
-  console.log("userId", userId);
+  const { id } = req.user;
+
+  console.log("userId");
+  console.log("userId");
   const user = await prisma.user.findUnique({
-    where: { id: userId },
+    where: { id },
     select: {
       role: true,
     },
