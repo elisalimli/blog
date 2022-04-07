@@ -1,4 +1,4 @@
-import { defaultMeta } from './Seo';
+import { defaultMeta } from '@/ui/Seo';
 
 const NavbarBrand = () => {
   return (

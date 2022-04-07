@@ -4,8 +4,8 @@ import { headerNavLinks } from '@/data/headerNavLinks';
 
 import LgLogo from '@/ui/icons/LogoIcon';
 import UnstyledLink from '@/ui/links/UnstyledLink';
-import Menu from '@/ui/Menu';
-import NavbarBrand from '@/ui/NavbarBrand';
+import Menu from '@/components/Menu';
+import NavbarBrand from '@/components/NavbarBrand';
 import { defaultMeta } from '@/ui/Seo';
 
 const Header = () => {

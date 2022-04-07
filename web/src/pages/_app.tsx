@@ -3,7 +3,7 @@ import Head from 'next/head';
 
 import '@/styles/globals.css';
 
-import LayoutWrapper from '../ui/LayoutWrapper';
+import LayoutWrapper from '@/components/LayoutWrapper';
 import NextNProgress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps }: AppProps) {

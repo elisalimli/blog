@@ -3,7 +3,7 @@ import { ImPlay3 } from 'react-icons/im';
 
 import Button from '@/ui/buttons/Button';
 import UnstyledLink from '@/ui/links/UnstyledLink';
-import NextImage from '@/ui/NextImage';
+import NextImage from '@/components/NextImage';
 
 import { PostSnippetFragment } from '@/generated/graphql';
 import { useGetVideoId } from '@/utils/useGetVideoId';
