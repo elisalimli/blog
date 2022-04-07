@@ -11,7 +11,7 @@ import { createUrqlClient } from '@/utils/createUrqlClient';
 import { usePostsQuery } from '../generated/graphql';
 import Divider from '@/ui/Divider';
 
-const LIMIT = 9;
+const LIMIT = 4;
 const HomePage = () => {
   const [{ data }] = usePostsQuery({
     variables: { input: { limit: LIMIT } },
