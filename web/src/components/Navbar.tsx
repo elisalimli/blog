@@ -4,7 +4,7 @@ import { headerNavLinks } from '@/data/headerNavLinks';
 
 import LgLogo from '@/ui/icons/LogoIcon';
 import UnstyledLink from '@/ui/links/UnstyledLink';
-import Menu from '@/components/Menu';
+import Menu from '@/components/Menu/Menu';
 import NavbarBrand from '@/components/NavbarBrand';
 import { defaultMeta } from '@/ui/Seo';
 import Divider from '@/ui/Divider';
