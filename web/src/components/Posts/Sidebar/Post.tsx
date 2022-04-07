@@ -5,8 +5,8 @@ import { useGetVideoId } from '@/utils/useGetVideoId';
 import { PostSnippetFragment } from '../../../generated/graphql';
 
 const Post: React.FC<PostSnippetFragment> = ({ title, url, id }) => {
-  const videoUrl = useGetVideoId(url);
-  console.log('video', videoUrl);
+  const videoUrl = useMemo(() => useGetVideoId(url), [url]);
+
   return (
     <li className='mt-2 flex'>
       <NextImage

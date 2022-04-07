@@ -1,4 +1,4 @@
-- [ ] Add post feed(sidebar) to [postId].tsx
+- [x?] Add post feed(sidebar) to [postId].tsx
 - [ ] Add react-video-player instead of iframe
 - [ ] Add Search Posts
 - [ ] Complete 404 page
