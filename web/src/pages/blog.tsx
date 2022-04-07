@@ -9,6 +9,7 @@ import Posts from '@/components/Posts/Posts';
 import { GetPostsInput, PostSnippetFragment } from '@/generated/graphql';
 import { usePostsQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
+import Divider from '@/ui/Divider';
 
 const LIMIT = 9;
 const HomePage = () => {
@@ -30,7 +31,7 @@ const HomePage = () => {
       <p className='mb-3 text-lg text-gray-500'>
         A blog created with Next.js and Tailwind.css
       </p>
-      <hr className='mt-8 mb-10' />
+      <Divider className='mt-8 mb-10' />
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
       {data?.posts?.hasMore && (
         <div className='mt-12 flex justify-center'>

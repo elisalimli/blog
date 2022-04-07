@@ -1,8 +1,9 @@
 import React from 'react';
 
+import Divider from '@/ui/Divider';
+
 import Header from '@/components/Navbar';
 import SectionContainer from '@/components/SectionContainer';
-import Divider from '@/ui/Divider';
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (

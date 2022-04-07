@@ -7,6 +7,7 @@ import UnstyledLink from '@/ui/links/UnstyledLink';
 import Menu from '@/components/Menu';
 import NavbarBrand from '@/components/NavbarBrand';
 import { defaultMeta } from '@/ui/Seo';
+import Divider from '@/ui/Divider';
 
 const Header = () => {
   return (
@@ -39,7 +40,7 @@ const Header = () => {
         </div>
         <Menu />
       </nav>
-      <hr className='mt-4 pb-8' />
+      <Divider className='mt-4 pb-8' />
     </header>
   );
 };

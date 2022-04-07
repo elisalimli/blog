@@ -9,6 +9,7 @@ import { PostSnippetFragment } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 
 import { usePostsQuery } from '../generated/graphql';
+import Divider from '@/ui/Divider';
 
 const LIMIT = 9;
 const HomePage = () => {
@@ -18,11 +19,11 @@ const HomePage = () => {
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
-      <h1 className='mb-2 text-gray-900'>Latest 2</h1>
+      <h1 className='mb-2  text-gray-900'>Latest 2</h1>
       <p className='mb-3 text-lg text-gray-500'>
         A blog created with Next.js and Tailwind.css 2
       </p>
-      <hr className='mt-8 mb-10' />
+      <Divider className='mt-8 mb-10' />
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
     </SectionContainer>
   );
