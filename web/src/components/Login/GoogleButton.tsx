@@ -13,7 +13,6 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({
   backToSamePage,
   children,
 }) => {
-  console.log('back to some ', backToSamePage);
   return (
     <UnstyledLink
       href={`http://localhost:4000/auth/google?next=${

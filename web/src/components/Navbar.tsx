@@ -1,15 +1,25 @@
-import React from 'react';
-
-import { headerNavLinks } from '@/data/headerNavLinks';
-
-import LgLogo from '@/ui/icons/LogoIcon';
-import UnstyledLink from '@/ui/links/UnstyledLink';
 import Menu from '@/components/Menu/Menu';
 import NavbarBrand from '@/components/NavbarBrand';
-import { defaultMeta } from '@/ui/Seo';
+import { headerNavLinks } from '@/data/headerNavLinks';
+import Button from '@/ui/buttons/Button';
 import Divider from '@/ui/Divider';
+import LgLogo from '@/ui/icons/LogoIcon';
+import UnstyledLink from '@/ui/links/UnstyledLink';
+import { defaultMeta } from '@/ui/Seo';
+import React from 'react';
+import { useLogoutMutation, useMeQuery } from '../generated/graphql';
 
 const Header = () => {
+  const [{ data }] = useMeQuery();
+  const [_, logout] = useLogoutMutation();
+  let content = (
+    <UnstyledLink href='/login'>
+      <Button variant='light'>Sign in</Button>
+    </UnstyledLink>
+  );
+  if (data?.me) {
+    content = <Button onClick={() => logout()}>Logout</Button>;
+  }
   return (
     <header>
       <nav className='flex items-center justify-between pt-10'>
@@ -34,6 +44,7 @@ const Header = () => {
                 {link.title}
               </UnstyledLink>
             ))}
+            {content}{' '}
           </div>
           {/* <ThemeSwitch /> */}
           {/* <MobileNav /> */}

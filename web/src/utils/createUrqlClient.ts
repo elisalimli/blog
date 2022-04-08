@@ -1,6 +1,8 @@
 import { cacheExchange } from '@urql/exchange-graphcache';
 import { dedupExchange, Exchange, fetchExchange } from 'urql';
 import { pipe, tap } from 'wonka';
+import { LogoutMutation, MeDocument, MeQuery } from '../generated/graphql';
+import { betterUpdateQuery } from './betterUpdateQuery';
 
 import { cursorPagination } from './cursorPagination';
 import { isServer } from './isServer';
@@ -51,19 +53,18 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
         },
         updates: {
           Mutation: {
-            // register: (_result, _, cache, __) => {
-            //   betterUpdateQuery<RegisterMutation, MeQuery>(
-            //     cache,
-            //     { query: MeDocument },
-            //     _result,
-            //     (result, data) => {
-            //       if (result.register.errors) return data;
-            //       return {
-            //         me: result.register.user,
-            //       };
-            //     }
-            //   );
-            // },
+            logout: (_result, _, cache, __) => {
+              betterUpdateQuery<LogoutMutation, MeQuery>(
+                cache,
+                { query: MeDocument },
+                _result,
+                () => {
+                  return {
+                    me: null,
+                  };
+                }
+              );
+            },
           },
         },
       }),

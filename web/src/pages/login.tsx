@@ -22,4 +22,5 @@ const Login = () => {
   }
   return <LoginPage />;
 };
+
 export default withUrqlClient(createUrqlClient, { ssr: false })(Login);

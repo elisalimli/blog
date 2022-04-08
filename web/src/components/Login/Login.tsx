@@ -3,13 +3,17 @@ import Divider from '@/ui/Divider';
 import Layout from '@/ui/layout/Layout';
 import Post from '@/components/Posts/Post';
 import GoogleButton from './GoogleButton';
-import { useMeQuery } from '../../generated/graphql';
+import { useLogoutMutation, useMeQuery } from '../../generated/graphql';
 import Loading from '@/ui/Loading';
 import Button from '../../ui/buttons/Button';
 
 const Login: React.FC = () => {
   const [{ data, fetching }] = useMeQuery();
+  const [{}, logout] = useLogoutMutation();
   console.log('me', data);
+  const logoutOnClick = () => {
+    logout();
+  };
   let content = <Loading />;
   if (data?.me) {
     const { name } = data?.me;
@@ -25,7 +29,7 @@ const Login: React.FC = () => {
           </p>
           <p className='text-center text-primary-800'>Click to logout.</p>
         </div>
-        <Button className='w-full' variant='outline'>
+        <Button onClick={logoutOnClick} className='w-full' variant='outline'>
           Logout
         </Button>
       </div>

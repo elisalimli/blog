@@ -5,6 +5,8 @@ import '@/styles/globals.css';
 
 import LayoutWrapper from '@/components/LayoutWrapper';
 import NextNProgress from 'nextjs-progressbar';
+import { createUrqlClient } from '../utils/createUrqlClient';
+import { withUrqlClient } from 'next-urql';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -21,4 +23,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default withUrqlClient(createUrqlClient)(MyApp);
