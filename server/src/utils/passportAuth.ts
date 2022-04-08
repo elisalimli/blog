@@ -12,7 +12,7 @@ passport.use(
       callbackURL: "http://localhost:4000/oauth2/redirect/google",
       passReqToCallback: true,
     },
-    async function (request, accessToken, refreshToken, profile, done) {
+    async function (_, __, ___, profile, done) {
       const upsertUser = await prisma.user.upsert({
         where: {
           id: profile?.id,
@@ -30,15 +30,27 @@ passport.use(
 
 router.get(
   "/auth/google",
+  (req, res, next) => {
+    // Save the url of the user's current page so the app can redirect back to it after authorization
+    if (req.query.next) {
+      req.session.oauth2return = req.query.next;
+    }
+    next();
+  },
+
   passport.authenticate("google", { scope: ["email", "profile"] })
 );
 
 router.get(
   "/oauth2/redirect/google",
-  passport.authenticate("google", {
-    successRedirect: "http://localhost:3000/",
-    failureRedirect: "/auth/google/failure",
-  })
+  passport.authenticate("google"),
+  (req, res) => {
+    // Redirect back to the original page, if any
+    console.log("seession", req.session);
+    const redirect = req.session.oauth2return || "/";
+    delete req.session.oauth2return;
+    res.redirect(redirect);
+  }
 );
 
 router.get("/auth/google/failure", (req, res) => {

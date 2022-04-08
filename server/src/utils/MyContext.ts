@@ -7,7 +7,11 @@ import { UserEntity } from "../graphql/entity/User";
 export interface MyContext {
   req: Request & {
     session: Session &
-      Partial<SessionData> & { userId?: string; user: UserEntity };
+      Partial<SessionData> & {
+        userId?: string;
+        user: UserEntity;
+        oauth2return?: string;
+      };
   };
   res: Response;
   redis: Redis;

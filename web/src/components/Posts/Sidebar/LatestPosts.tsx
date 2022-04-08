@@ -2,6 +2,8 @@ import React from 'react';
 
 import { usePostsQuery } from '@/generated/graphql';
 import Post from '@/components/Posts/Sidebar/Post';
+import Layout from '@/ui/layout/Layout';
+import Divider from '@/ui/Divider';
 
 const LIMIT = 4;
 
@@ -9,14 +11,20 @@ const LatestPosts: React.FC = () => {
   const [{ data }] = usePostsQuery({
     variables: { input: { limit: LIMIT } },
   });
-  return data?.posts?.posts?.length ? (
-    <ul className='mb-2 space-y-4 divide-y '>
-      {data?.posts.posts?.map((p) => (
-        <Post key={`sidebar-latest-${p.id}`} {...p} />
-      ))}
-    </ul>
-  ) : (
-    <div>No posts added yet</div>
+  return (
+    <Layout>
+      <h2 className='text-lg font-semibold'>Latest</h2>
+      <Divider className='my-2' />
+      {data?.posts?.posts?.length ? (
+        <ul className='mb-2 space-y-4 divide-y '>
+          {data?.posts.posts?.map((p) => (
+            <Post key={`sidebar-latest-${p.id}`} {...p} />
+          ))}
+        </ul>
+      ) : (
+        <div>No posts added yet</div>
+      )}
+    </Layout>
   );
 };
 export default LatestPosts;

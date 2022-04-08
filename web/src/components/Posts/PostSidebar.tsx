@@ -1,18 +1,19 @@
-import React from 'react';
-
-import Divider from '@/ui/Divider';
-
+import Login from '@/components/Login/Login';
 import LatestPosts from '@/components/Posts/Sidebar/LatestPosts';
+import React from 'react';
 
 const PostSidebar = () => {
   return (
-    <div className='rounded-xl pb-2'>
-      <div className='sticky top-6 bg-white'>
-        <div className='rounded-t-md border-2 border-t-primary-500  px-3 py-4'>
-          <h2 className='text-lg font-semibold'>Latest</h2>
-          <Divider className='my-2' />
-          <LatestPosts />
-        </div>
+    <div className='col-span-1 rounded-xl pb-2 2xl:col-span-2'>
+      <div className='sticky top-6 space-y-4'>
+        {[Login, LatestPosts].map((C, i) => (
+          <div
+            key={`sidebar-section-${i}`}
+            className='rounded-t-md border-2 border-t-primary-500 bg-white px-3 py-4'
+          >
+            <C />
+          </div>
+        ))}
       </div>
     </div>
   );

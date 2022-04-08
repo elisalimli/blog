@@ -2,7 +2,7 @@ import { withUrqlClient } from 'next-urql';
 import { useState } from 'react';
 
 import Button from '@/ui/buttons/Button';
-import SectionContainer from '@/ui/SectionContainer';
+import SectionContainer from '@/components/SectionContainer';
 import Seo from '@/ui/Seo';
 
 import Posts from '@/components/Posts/Posts';

@@ -10,11 +10,13 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className='bg-gray-100'>
       <SectionContainer>
-        <div className='min-h-screen'>
-          <Header />
+        <Header />
+        <div className='flex min-h-screen flex-col justify-between'>
           <main>{children}</main>
-          <Divider className='my-4' />
-          <Footer />
+          <div>
+            <Divider className='my-4' />
+            <Footer />
+          </div>
         </div>
       </SectionContainer>
     </div>
