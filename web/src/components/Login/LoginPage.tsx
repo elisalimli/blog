@@ -26,7 +26,7 @@ const LoginPage: React.FC = () => {
             <NextImage className='mt-2' alt='some people' src={Image} />
           </div>
           <div className='m-4 flex justify-center'>
-            <GoogleButton backToSamePage>Continue with google</GoogleButton>
+            <GoogleButton>Continue with google</GoogleButton>
           </div>
         </div>
       </div>

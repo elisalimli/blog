@@ -8,9 +8,8 @@ const Post: React.FC<PostSnippetFragment> = ({ title, url, id }) => {
   const videoUrl = useMemo(() => useGetVideoId(url), [url]);
 
   return (
-    <li className='mt-2 flex'>
+    <li className='mt-2 flex items-center'>
       <NextImage
-        className='mt-2'
         priority
         src={`http://i.ytimg.com/vi/${videoUrl}/mqdefault.jpg`}
         width={80}
@@ -18,10 +17,10 @@ const Post: React.FC<PostSnippetFragment> = ({ title, url, id }) => {
         alt='Icon'
       />
       <UnderlineLink
-        className='ml-2 uppercase text-primary-600'
+        className='ml-2 break-words uppercase  text-primary-600'
         href={`/p/${id}`}
       >
-        {title}
+        {title.slice(0, 16)}...
       </UnderlineLink>
     </li>
   );

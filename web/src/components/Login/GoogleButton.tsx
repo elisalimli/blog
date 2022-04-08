@@ -10,14 +10,15 @@ interface GoogleButtonProps {
 }
 
 const GoogleButton: React.FC<GoogleButtonProps> = ({
-  backToSamePage = false,
+  backToSamePage,
   children,
 }) => {
+  console.log('back to some ', backToSamePage);
   return (
     <UnstyledLink
       href={`http://localhost:4000/auth/google?next=${
         !isServer
-          ? !backToSamePage
+          ? backToSamePage
             ? window?.location?.href
             : window?.location?.origin
           : ''

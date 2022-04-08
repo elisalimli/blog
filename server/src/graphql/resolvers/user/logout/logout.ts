@@ -10,6 +10,8 @@ export class LogoutResolver {
     return new Promise((resolve) =>
       req.session.destroy((err: Error) => {
         (res as any).clearCookie(COOKIE_NAME);
+        req.logout();
+
         if (err) {
           console.log(err);
           resolve(false);

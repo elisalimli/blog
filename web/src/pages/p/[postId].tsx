@@ -32,7 +32,7 @@ const Post = () => {
         title={data?.post?.title}
         description={'data?.post?.title' as string}
       />
-      <div className='flex flex-col space-y-12   lg:grid lg:grid-cols-4 lg:gap-8 2xl:grid-cols-5'>
+      <div className='flex flex-col space-y-12 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0 2xl:grid-cols-5'>
         <div className='col-span-3 rounded-xl bg-white py-4 px-2 shadow-inner'>
           <IndividualPost post={data?.post as PostSnippetFragment} />
         </div>

@@ -1,12 +1,16 @@
+
 - [x?] Add post feed(sidebar) to [postId].tsx
     - [x?] Add if user isn't auth suggest him/her to be logged in
         - [ ] Complete logout button 
         - [ ] Check for page responsibilety(grid)    
+- [ ] Add navbar profile/login button
 - [ ] Add react-video-player instead of iframe
 - [ ] Add Search Posts
 - [ ] Complete 404 page
 - [ ] Create add new post(front)
+
 - [ ] Check typegraphql docs(for auth)
+- [ ] Remove redis???
 - [x] Complete Register/Login page
 - [x] Google auth
 - [x] Filter posts by tags
