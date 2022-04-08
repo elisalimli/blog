@@ -1,6 +1,7 @@
 - [x?] Add post feed(sidebar) to [postId].tsx
-    - [ ] Add if user isn't auth suggest him/her to be logged in
-    - [ ] Using some <Unprottected /> ???
+    - [x?] Add if user isn't auth suggest him/her to be logged in
+        - [ ] Complete logout button 
+        - [ ] Check for page responsibilety(grid)    
 - [ ] Add react-video-player instead of iframe
 - [ ] Add Search Posts
 - [ ] Complete 404 page

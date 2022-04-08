@@ -36,7 +36,7 @@ const Login: React.FC = () => {
         <h2 className='text-center text-lg font-semibold'>Sign in</h2>
         <Divider className='my-2' />
         <div className='mt-6 mb-2 flex justify-center'>
-          <GoogleButton />
+          <GoogleButton>Sign in</GoogleButton>
         </div>
       </Layout>
     );

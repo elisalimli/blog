@@ -11,6 +11,7 @@ interface GoogleButtonProps {
 
 const GoogleButton: React.FC<GoogleButtonProps> = ({
   backToSamePage = false,
+  children,
 }) => {
   return (
     <UnstyledLink
@@ -25,7 +26,7 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({
       <Button variant='light'>
         <div className='flex flex-row  items-center px-4'>
           <ImGoogle className='mr-2' />
-          Continue with google
+          {children}
         </div>
       </Button>
     </UnstyledLink>
