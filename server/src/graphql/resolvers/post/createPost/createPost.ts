@@ -42,6 +42,16 @@ export class CreatePostResolver {
         tags: {
           create: tagsArr,
         },
+        category: {
+          create: {
+            category: {
+              connectOrCreate: {
+                create: { name: input?.category },
+                where: { name: input?.category },
+              },
+            },
+          },
+        },
         createdAt: new Date().toISOString(),
       },
     });

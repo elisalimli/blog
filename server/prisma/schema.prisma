@@ -32,31 +32,43 @@ generator typegraphql {
 //   @@map("comment")
 // }
 
-model PostTags {
-  id     String  @id @default(uuid())
-  post   Post?   @relation(fields: [postId], references: [id])
-  tag    Tag?    @relation(fields: [tagId], references: [id])
-  postId String?
-  tagId  String?
+model PostCategory {
+  id         String    @id @default(uuid())
+  post       Post?     @relation(fields: [postId], references: [id])
+  category   Category? @relation(fields: [categoryId], references: [id])
+  postId     String?
+  categoryId String?
+}
+
+model CategoryTag {
+  id         String    @id @default(uuid())
+  tag        Tag?      @relation(fields: [tagId], references: [id])
+  category   Category? @relation(fields: [categoryId], references: [id])
+  tagId      String?
+  categoryId String?
+}
+
+model Category {
+  id    String         @id @default(uuid())
+  name  String         @unique
+  posts PostCategory[]
+  tags  CategoryTag[]
 }
 
 model Tag {
-  id    String     @id @default(uuid())
-  name  String     @unique
-  posts PostTags[]
+  id         String        @id @default(uuid())
+  name       String        @unique
+  categories CategoryTag[]
 }
 
 model Post {
-  id        String     @id @default(uuid())
-  title     String     @db.VarChar(255)
-  tags      PostTags[]
-  // creator   User       @relation(fields: [creatorId], references: [id])
-  // creatorId String
+  id        String         @id @default(uuid())
+  title     String         @db.VarChar(255)
+  category  PostCategory[]
   url       String // it can be a picture or video
-  isVideo   Boolean?   @default(false)
-  // embededCode String? // iframe
+  isVideo   Boolean?       @default(false)
   createdAt String
-  updatedAt DateTime   @updatedAt
+  updatedAt DateTime       @updatedAt
 
   @@map("post")
 }

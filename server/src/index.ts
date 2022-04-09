@@ -9,6 +9,7 @@ import { HelloResolver } from "./graphql/resolvers/hello";
 import { CreatePostResolver } from "./graphql/resolvers/post/createPost/createPost";
 import { GetPostResolver } from "./graphql/resolvers/post/getPost/getPost";
 import { GetPostsResolver } from "./graphql/resolvers/post/getPosts/getPosts";
+import { GetPostsByCategoryResolver } from "./graphql/resolvers/post/getPostsByCategory/getPostsByCategory";
 import { GetPostsByTagResolver } from "./graphql/resolvers/post/getPostsByTag/getPostsByTag";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/logout";
 import { MeResolver } from "./graphql/resolvers/user/me/me";
@@ -17,6 +18,7 @@ import router from "./utils/passportAuth";
 import { prisma } from "./utils/prisma";
 import { redis } from "./utils/redis";
 import { sessionMiddleware } from "./utils/sessionMiddleware";
+
 const PORT = process.env.PORT || 4000;
 
 export const main: () => any = async () => {
@@ -46,6 +48,7 @@ export const main: () => any = async () => {
       GetPostsResolver,
       GetPostResolver,
       GetPostsByTagResolver,
+      GetPostsByCategoryResolver,
       HelloResolver,
       MeResolver,
     ],

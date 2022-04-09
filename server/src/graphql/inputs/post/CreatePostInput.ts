@@ -13,4 +13,7 @@ export class CreatePostInput {
 
   @Field(() => [String])
   tags?: string[];
+
+  @Field(() => String)
+  category: string;
 }

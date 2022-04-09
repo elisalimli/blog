@@ -7,4 +7,8 @@ export class PostEntity extends Post {
     nullable: true,
   })
   tags?: Tag[];
+  @Field(() => String, {
+    nullable: true,
+  })
+  category?: string;
 }

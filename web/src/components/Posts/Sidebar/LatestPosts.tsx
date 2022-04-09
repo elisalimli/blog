@@ -17,7 +17,7 @@ const LatestPosts: React.FC = () => {
       <Divider className='my-2' />
       {data?.posts?.posts?.length ? (
         <ul className='mb-2 space-y-4 divide-y '>
-          {data?.posts.posts?.map((p) => (
+          {data?.posts.posts?.slice(0, LIMIT).map((p) => (
             <Post key={`sidebar-latest-${p.id}`} {...p} />
           ))}
         </ul>
