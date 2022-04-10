@@ -2,17 +2,19 @@ import { Arg, Ctx, Query, Resolver } from "type-graphql";
 import { Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
 import { PostEntity } from "../../../entity/Post";
-import { GetPostsByTagInput } from "../../../inputs/post/GetPostByTagInput";
+import { GetPostsByCategoryInput } from "../../../inputs/post/GetPostsByCategoryInput";
 
 @Resolver(Post)
 export class GetPostsByCategoryResolver {
   @Query(() => [PostEntity], { nullable: true })
   async postsByCategory(
     @Ctx() { prisma }: MyContext,
-    @Arg("input") { tagId }: GetPostsByTagInput
+    @Arg("input") { categoryId }: GetPostsByCategoryInput
   ): Promise<PostEntity[]> {
     const posts = await prisma.$queryRaw<PostEntity[]>`
-      SELECT * from post where;
+      SELECT p.* FROM post p
+      join posts_categories pc on pc."categoryId" = ${categoryId}
+      WHERE p.id = pc."postId";
     `;
 
     return posts;

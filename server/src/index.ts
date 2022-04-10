@@ -5,6 +5,7 @@ import expressPlayground from "graphql-playground-middleware-express";
 import passport from "passport";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
+import { GetCategoriesResolver } from "./graphql/resolvers/category/getAllCategories/getCategories";
 import { HelloResolver } from "./graphql/resolvers/hello";
 import { CreatePostResolver } from "./graphql/resolvers/post/createPost/createPost";
 import { GetPostResolver } from "./graphql/resolvers/post/getPost/getPost";
@@ -49,8 +50,9 @@ export const main: () => any = async () => {
       GetPostResolver,
       GetPostsByTagResolver,
       GetPostsByCategoryResolver,
-      HelloResolver,
+      GetCategoriesResolver,
       MeResolver,
+      HelloResolver,
     ],
     validate: false,
   });

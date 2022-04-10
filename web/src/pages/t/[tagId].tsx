@@ -3,7 +3,7 @@ import { withUrqlClient } from 'next-urql';
 import { useEffect } from 'react';
 import { ImSpinner2 } from 'react-icons/im';
 
-import SectionContainer from '@/ui/SectionContainer';
+import SectionContainer from '@/components/SectionContainer';
 
 import Post from '@/components/Posts/Post';
 import { usePostsByTagQuery } from '@/generated/graphql';
