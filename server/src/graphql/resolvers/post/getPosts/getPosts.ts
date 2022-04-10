@@ -18,17 +18,17 @@ export class GetPostsResolver {
 
     const { cursor } = input;
     const posts = await prisma.$queryRaw<PostEntity[]>`
-    SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags 
-    FROM post p join "PostTags" pt on pt."postId" = p.id 
-    join "Tag" t on t.id = pt."tagId" ${
-      cursor ? Prisma.sql`WHERE p."createdAt" < ${cursor}` : Prisma.empty
-    }
+    SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags FROM post p
+    join posts_categories pc on pc."postId" = p.id
+    join categories_tags ct on ct."categoryId" = pc."categoryId"
+    join tag t on t.id = ct."tagId"
+     ${cursor ? Prisma.sql`WHERE p."createdAt" < ${cursor}` : Prisma.empty}
     GROUP BY p.id
     ORDER BY p."createdAt" DESC
     LIMIT ${realLimitPlusOne}
     `;
 
-    console.log(posts);
+    console.log("getposts : ", posts);
     return {
       posts: posts.slice(0, realLimit),
       hasMore: posts.length === realLimitPlusOne,

@@ -32,43 +32,53 @@ generator typegraphql {
 //   @@map("comment")
 // }
 
-model PostCategory {
+model PostsCategories {
   id         String    @id @default(uuid())
   post       Post?     @relation(fields: [postId], references: [id])
   category   Category? @relation(fields: [categoryId], references: [id])
   postId     String?
   categoryId String?
+
+  @@map("posts_categories")
 }
 
-model CategoryTag {
+model CategoriesTags {
   id         String    @id @default(uuid())
   tag        Tag?      @relation(fields: [tagId], references: [id])
   category   Category? @relation(fields: [categoryId], references: [id])
   tagId      String?
   categoryId String?
+
+
+  @@map("categories_tags")
 }
 
 model Category {
-  id    String         @id @default(uuid())
-  name  String         @unique
-  posts PostCategory[]
-  tags  CategoryTag[]
+  id    String            @id @default(uuid())
+  name  String            @unique
+  posts PostsCategories[]
+  tags  CategoriesTags[]
+
+
+  @@map("category")
 }
 
 model Tag {
-  id         String        @id @default(uuid())
-  name       String        @unique
-  categories CategoryTag[]
+  id         String           @id @default(uuid())
+  name       String           @unique
+  categories CategoriesTags[]
+
+  @@map("tag")
 }
 
 model Post {
-  id        String         @id @default(uuid())
-  title     String         @db.VarChar(255)
-  category  PostCategory[]
-  url       String // it can be a picture or video
-  isVideo   Boolean?       @default(false)
-  createdAt String
-  updatedAt DateTime       @updatedAt
+  id         String            @id @default(uuid())
+  title      String            @db.VarChar(255)
+  categories PostsCategories[]
+  url        String // it can be a picture or video
+  isVideo    Boolean?          @default(false)
+  createdAt  String
+  updatedAt  DateTime          @updatedAt
 
   @@map("post")
 }

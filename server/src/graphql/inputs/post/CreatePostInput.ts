@@ -11,9 +11,9 @@ export class CreatePostInput {
   @Field(() => Boolean, { nullable: true, defaultValue: false })
   isVideo?: boolean;
 
-  @Field(() => [String])
+  @Field(() => [String], { nullable: true })
   tags?: string[];
 
   @Field(() => String)
-  category: string;
+  category!: string;
 }

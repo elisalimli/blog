@@ -14,14 +14,14 @@ export class CreatePostResolver {
     @Ctx() { prisma }: MyContext,
     @Arg("input") input: CreatePostInput
   ): Promise<Post> {
-    console.log(input?.tags);
-
+    console.log("inpuut", input);
+    const { tags, category, ...rest } = input;
     const tagsArr: {
       tag: {
         connectOrCreate: { create: { name: string }; where: { name: string } };
       };
     }[] = [];
-    input?.tags?.map((t) =>
+    tags?.map((t) =>
       tagsArr.push({
         tag: {
           connectOrCreate: {
@@ -38,16 +38,20 @@ export class CreatePostResolver {
 
     const post = await prisma.post.create({
       data: {
-        ...input,
-        tags: {
-          create: tagsArr,
-        },
-        category: {
+        ...rest,
+        categories: {
           create: {
             category: {
               connectOrCreate: {
-                create: { name: input?.category },
-                where: { name: input?.category },
+                create: {
+                  name: category,
+                  tags: {
+                    create: tagsArr,
+                  },
+                },
+                where: {
+                  name: category,
+                },
               },
             },
           },
@@ -55,7 +59,6 @@ export class CreatePostResolver {
         createdAt: new Date().toISOString(),
       },
     });
-    console.log(post);
     return post;
   }
 }
