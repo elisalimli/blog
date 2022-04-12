@@ -5,7 +5,7 @@ import { ImSpinner2 } from 'react-icons/im';
 import Seo from '@/ui/Seo';
 
 import NotFound from '@/components/404';
-import IndividualPost from '@/components/Posts/IndividualPost';
+import PostPage from '@/components/Posts/PostPage';
 import PostSidebar from '@/components/Posts/PostSidebar';
 import { usePostQuery } from '@/generated/graphql';
 import { PostSnippetFragment } from '@/generated/graphql';
@@ -34,7 +34,7 @@ const Post = () => {
       />
       <div className='flex flex-col space-y-12 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0 2xl:grid-cols-5'>
         <div className='col-span-3 rounded-xl bg-white py-4 px-2 shadow-inner'>
-          <IndividualPost post={data?.post as PostSnippetFragment} />
+          <PostPage post={data?.post as PostSnippetFragment} />
         </div>
         <PostSidebar />
       </div>

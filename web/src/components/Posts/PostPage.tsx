@@ -7,7 +7,7 @@ interface PostProps {
   post: PostSnippetFragment;
 }
 
-const IndividalPost: React.FC<PostProps> = ({ post: { title, url } }) => {
+const PostPage: React.FC<PostProps> = ({ post: { title, url } }) => {
   const ytId = useGetVideoId(url);
 
   return (
@@ -26,4 +26,4 @@ const IndividalPost: React.FC<PostProps> = ({ post: { title, url } }) => {
     </article>
   );
 };
-export default IndividalPost;
+export default PostPage;

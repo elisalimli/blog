@@ -77,7 +77,7 @@ model Post {
   categories PostsCategories[]
   url        String // it can be a picture or video
   isVideo    Boolean?          @default(false)
-  createdAt  String
+  createdAt  DateTime
   updatedAt  DateTime          @updatedAt
 
   @@map("post")

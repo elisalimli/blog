@@ -1,8 +1,9 @@
-import * as React from 'react';
-import { ImSpinner2 } from 'react-icons/im';
-
 import clsxm from '@/lib/clsxm';
+import * as React from 'react';
 import Loading from '../Loading';
+
+export const buttonFocusClass =
+  'focus:outline-none focus-visible:ring focus-visible:ring-primary-500';
 
 enum ButtonVariant {
   'primary',
@@ -40,7 +41,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         disabled={disabled}
         className={clsxm(
           'inline-flex  items-center justify-center rounded-md px-4 py-2 font-semibold',
-          'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
+          buttonFocusClass,
           'shadow-sm',
           'transition-colors duration-75',
           //#region  //*=========== Variants ===========

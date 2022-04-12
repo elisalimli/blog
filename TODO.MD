@@ -1,15 +1,20 @@
-- [] complete getpostsbycategory and check if we can use filter by name in get posts by tag
-- [x?] Add post feed(sidebar) to [postId].tsx
-    - [x?] Add if user isn't auth suggest him/her to be logged in
-        - [x] Complete logout button 
-        - [ ] Check for page responsibilety(grid)    
+
+- [ ] Add dropdown for categories in mobile
+- [ ] Seperate post parts into components
+- [ ] Check 'join'-s maybe use [left/right/inner] join
 - [ ] Add react-video-player instead of iframe
 - [ ] Add Search Posts
 - [ ] Complete 404 page
 - [ ] Create add new post(front)
 - [ ] Check typegraphql docs(for auth)
-- [x] Add navbar profile/login button
 - [ ] Remove redis???
+- [x] Add chevron to active post
+- [x] Add post feed(sidebar) to [postId].tsx
+    - [x] Add if user isn't auth suggest him/her to be logged in
+        - [x] Complete logout button 
+        - [x] Check for page responsibilety(grid)    
+- [x] Add navbar profile/login button
+- [x] complete getpostsbycategory and check if we can use filter by name in get posts by tag
 - [x] Complete Register/Login page
 - [x] Google auth
 - [x] Filter posts by tags

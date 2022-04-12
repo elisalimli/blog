@@ -10,8 +10,18 @@ import { createUrqlClient } from '@/utils/createUrqlClient';
 
 import { usePostsQuery } from '../generated/graphql';
 import Divider from '@/ui/Divider';
-
-const LIMIT = 4;
+import PostsWithCategories from '../components/Posts/PostsWithCategories';
+import Dropdown, { DropdownProps } from '../ui/Dropdown/Dropdown';
+import DropdownElement from '../ui/Dropdown/DropdownElement';
+const dropdownElements = Array.from({ length: 5 }).map((_, i) => (
+  <DropdownElement key={`dropdown-element-${i}`}>Profile</DropdownElement>
+));
+const dropdownButton = <div>hello</div>;
+export const userDropdownProps: DropdownProps = {
+  button: dropdownButton,
+  elements: dropdownElements,
+};
+const LIMIT = 8;
 const HomePage = () => {
   const [{ data }] = usePostsQuery({
     variables: { input: { limit: LIMIT } },
@@ -19,12 +29,14 @@ const HomePage = () => {
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
-      <h1 className='mb-2  text-gray-900'>Latest 2</h1>
-      <p className='mb-3 text-lg text-gray-500'>
-        A blog created with Next.js and Tailwind.css 2
-      </p>
-      <Divider className='mt-8 mb-10' />
+      <Dropdown
+        fixed={false}
+        button={dropdownButton}
+        elements={dropdownElements}
+      />
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
+      <Divider className='my-8' />
+      <PostsWithCategories />
     </SectionContainer>
   );
 };

@@ -1,3 +1,4 @@
+import { Prisma } from "@prisma/client";
 import { Arg, Ctx, Query, Resolver } from "type-graphql";
 import { Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
@@ -13,8 +14,14 @@ export class GetPostsByCategoryResolver {
   ): Promise<PostEntity[]> {
     const posts = await prisma.$queryRaw<PostEntity[]>`
       SELECT p.* FROM post p
-      join posts_categories pc on pc."categoryId" = ${categoryId}
-      WHERE p.id = pc."postId";
+     ${
+       categoryId
+         ? Prisma.sql`
+           full join posts_categories pc on pc."categoryId" = ${categoryId}
+            WHERE p.id = pc."postId"
+          `
+         : Prisma.empty
+     }  
     `;
 
     return posts;

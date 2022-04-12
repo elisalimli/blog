@@ -2,7 +2,7 @@ import { Ctx, Query, Resolver } from "type-graphql";
 import { Category, Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
 
-@Resolver(Post)
+@Resolver(Category)
 export class GetCategoriesResolver {
   @Query(() => [Category], { nullable: true })
   async categories(@Ctx() { prisma }: MyContext) {
