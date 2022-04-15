@@ -1,14 +1,9 @@
 import React from 'react';
-
-import Category from './Category';
 import { useCategoriesQuery } from '../../generated/graphql';
-import Loading from '../../ui/Loading';
+import Category from './Category';
 
 const Categories: React.FC = () => {
-  const [{ data, fetching }] = useCategoriesQuery();
-  if (fetching) {
-    return <Loading />;
-  }
+  const [{ data }] = useCategoriesQuery();
 
   return (
     <div className='mb-2 flex border'>

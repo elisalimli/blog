@@ -13,14 +13,12 @@ import Divider from '@/ui/Divider';
 import PostsWithCategories from '../components/Posts/PostsWithCategories';
 import Dropdown, { DropdownProps } from '../ui/Dropdown/Dropdown';
 import DropdownElement from '../ui/Dropdown/DropdownElement';
+
 const dropdownElements = Array.from({ length: 5 }).map((_, i) => (
   <DropdownElement key={`dropdown-element-${i}`}>Profile</DropdownElement>
 ));
+
 const dropdownButton = <div>hello</div>;
-export const userDropdownProps: DropdownProps = {
-  button: dropdownButton,
-  elements: dropdownElements,
-};
 const LIMIT = 8;
 const HomePage = () => {
   const [{ data }] = usePostsQuery({
@@ -29,14 +27,14 @@ const HomePage = () => {
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
-      <Dropdown
+      {/* <Dropdown
         fixed={false}
         button={dropdownButton}
         elements={dropdownElements}
       />
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
       <Divider className='my-8' />
-      <PostsWithCategories />
+      <PostsWithCategories /> */}
     </SectionContainer>
   );
 };

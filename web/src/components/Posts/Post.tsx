@@ -17,8 +17,8 @@ const Post: React.FC<PostProps> = ({
 
   const [{ data }] = useMeQuery();
   return (
-    <UnstyledLink href={`/p/${id}`}>
-      <li className='max-w-full'>
+    <li className='relative max-w-full'>
+      <UnstyledLink href={`/p/${id}`}>
         <div className='absolute top-0 right-0 z-50'>
           <ImPlay3 className='text-3xl text-white' />
         </div>
@@ -56,7 +56,10 @@ const Post: React.FC<PostProps> = ({
             src={data?.me?.picture as string}
           />
           <div className='flex flex-col text-xs text-gray-500'>
-            <h2 className='text-base font-medium text-gray-900'>{title}</h2>
+            <h2 className='text-base font-medium text-gray-900'>
+              {/* {title} */}
+              {title.slice(0, 24)}...
+            </h2>
             <a href='/' rel='author'>
               @anarrashidov
             </a>
@@ -67,8 +70,8 @@ const Post: React.FC<PostProps> = ({
             </div>
           </div>
         </div>
-      </li>
-    </UnstyledLink>
+      </UnstyledLink>
+    </li>
   );
 };
 export default Post;

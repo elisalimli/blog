@@ -1,4 +1,5 @@
 
+- [ ] Fix console problems
 - [ ] Add dropdown for categories in mobile
 - [ ] Seperate post parts into components
 - [ ] Check 'join'-s maybe use [left/right/inner] join

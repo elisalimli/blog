@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import Button from '@/ui/buttons/Button';
 import Layout from '@/ui/layout/Layout';
@@ -16,10 +16,10 @@ export default function NotFound() {
         </h1>
         <div>
           <p className='mb-2 text-3xl font-bold leading-normal'>
-            Sorry we couldn't find this page.
+            Sorry we couldn&apos;t find this page.
           </p>
           <p className='mb-6 font-light'>
-            But don't worry, you can find plenty of other things on our
+            But don&apos;t worry, you can find plenty of other things on our
             homepage.
           </p>
           <UnstyledLink href='/'>

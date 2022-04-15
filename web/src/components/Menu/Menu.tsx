@@ -9,7 +9,7 @@ const Menu = () => {
   const [open, setOpen] = useState(false);
   const handleClick = () => setOpen(!open);
   return (
-    <div className='relative sm:hidden'>
+    <div className='relative'>
       {/* <MyIcon onClick={handleClick} borderRadius='full' className='home-icon'>
         <MenuIcon />
       </MyIcon> */}
@@ -17,8 +17,8 @@ const Menu = () => {
         <HamburgerMenu />
       </button>
       <div
-        style={{ left: open ? '50%' : '100%' }}
-        className='fixed top-0 z-40 min-h-full w-full bg-white p-6 opacity-95  transition-all duration-700'
+        style={{ left: open ? '50%' : '-100%' }}
+        className={`fixed top-0 z-40 min-h-full w-full bg-red-400 p-6 opacity-95 transition-all duration-500 `}
       >
         <div className='flex justify-between'>
           {/* <Brand /> */}
@@ -39,14 +39,6 @@ const Menu = () => {
               />
             </svg>
           </button>
-          {/* 
-          <MyIcon
-            onClick={handleClick}
-            borderRadius='full'
-            className='home-icon'
-          >
-            <CloseIcon />
-          </MyIcon> */}
         </div>
         <div className='mt-8 flex flex-col space-y-4'>
           {headerNavLinks.map((link) => (

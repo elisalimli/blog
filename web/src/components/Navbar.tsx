@@ -6,17 +6,31 @@ import Divider from '@/ui/Divider';
 import LgLogo from '@/ui/icons/LogoIcon';
 import UnstyledLink from '@/ui/links/UnstyledLink';
 import { defaultMeta } from '@/ui/Seo';
-import React from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { useLogoutMutation, useMeQuery } from '../generated/graphql';
+import { isServer } from '../utils/isServer';
 
+const maxWidth = '480px';
 const Header = () => {
   const [{ data }] = useMeQuery();
   const [_, logout] = useLogoutMutation();
+  const [mobile, setMobile] = useState(false);
+  const screen = useMediaQuery({ maxWidth });
+
+  useEffect(() => {
+    // for server side rendering
+    if (!isServer) {
+      setMobile(screen);
+    }
+  }, [screen]);
+
   let content = (
     <UnstyledLink href='/login'>
       <Button variant='light'>Sign in</Button>
     </UnstyledLink>
   );
+  console.log('content', content, screen);
   if (data?.me) {
     content = <Button onClick={() => logout()}>Logout</Button>;
   }
@@ -33,23 +47,24 @@ const Header = () => {
             </div>
           </UnstyledLink>
         </div>
-        <div className='flex items-center text-base leading-5'>
-          <div className='hidden sm:block'>
-            {headerNavLinks.map((link) => (
-              <UnstyledLink
-                key={link.title}
-                href={link.href}
-                className='p-1 font-medium uppercase text-gray-900  sm:px-4'
-              >
-                {link.title}
-              </UnstyledLink>
-            ))}
-            {content}{' '}
+        {mobile ? (
+          <Menu />
+        ) : (
+          <div className='flex items-center text-base leading-5'>
+            <div>
+              {headerNavLinks.map((link) => (
+                <UnstyledLink
+                  key={link.title}
+                  href={link.href}
+                  className='py-1 px-4 font-medium uppercase text-gray-900'
+                >
+                  {link.title}
+                </UnstyledLink>
+              ))}
+              {content}
+            </div>
           </div>
-          {/* <ThemeSwitch /> */}
-          {/* <MobileNav /> */}
-        </div>
-        <Menu />
+        )}
       </nav>
       <Divider className='mt-4 pb-8' />
     </header>
