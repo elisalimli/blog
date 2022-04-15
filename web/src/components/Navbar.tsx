@@ -8,8 +8,8 @@ import UnstyledLink from '@/ui/links/UnstyledLink';
 import { defaultMeta } from '@/ui/Seo';
 import React, { Fragment, useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { useLogoutMutation, useMeQuery } from '../generated/graphql';
-import { isServer } from '../utils/isServer';
+import { useLogoutMutation, useMeQuery } from '@/generated/graphql';
+import { isServer } from '@/utils/isServer';
 
 const maxWidth = '480px';
 const Header = () => {
@@ -30,7 +30,7 @@ const Header = () => {
       <Button variant='light'>Sign in</Button>
     </UnstyledLink>
   );
-  console.log('content', content, screen);
+
   if (data?.me) {
     content = <Button onClick={() => logout()}>Logout</Button>;
   }

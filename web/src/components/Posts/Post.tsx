@@ -19,7 +19,7 @@ const Post: React.FC<PostProps> = ({
   return (
     <li className='relative max-w-full'>
       <UnstyledLink href={`/p/${id}`}>
-        <div className='absolute top-0 right-0 z-50'>
+        <div className='absolute top-0 right-0 z-10'>
           <ImPlay3 className='text-3xl text-white' />
         </div>
         <div className='relative'>

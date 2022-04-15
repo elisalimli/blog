@@ -4,6 +4,7 @@ import { headerNavLinks } from '@/data/headerNavLinks';
 
 import HamburgerMenu from '@/components/Menu/HamburgerMenu';
 import UnderlineLink from '@/ui/links/UnderlineLink';
+import UnstyledLink from '../../ui/links/UnstyledLink';
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
@@ -17,8 +18,8 @@ const Menu = () => {
         <HamburgerMenu />
       </button>
       <div
-        style={{ left: open ? '50%' : '-100%' }}
-        className={`fixed top-0 z-40 min-h-full w-full bg-red-400 p-6 opacity-95 transition-all duration-500 `}
+        style={{ left: open ? '50%' : '100%' }}
+        className={`fixed top-0 z-40 min-h-full w-full bg-white p-6 opacity-95 transition-all duration-700 `}
       >
         <div className='flex justify-between'>
           {/* <Brand /> */}
@@ -42,17 +43,17 @@ const Menu = () => {
         </div>
         <div className='mt-8 flex flex-col space-y-4'>
           {headerNavLinks.map((link) => (
-            <UnderlineLink
+            <UnstyledLink
               href={link.href}
+              className='text-xl font-semibold'
               key={`nav-menu-link-${link.href}`}
-              className='flex justify-start'
             >
-              {/* <MyLink href={link.to} scroll> */}
-              <span className='rounded-sm text-lg font-semibold'>
+              <span className='animated-underline'>
+                {/* <MyLink href={link.to} scroll> */}
                 {link.title}
+                {/* </MyLink> */}
               </span>
-              {/* </MyLink> */}
-            </UnderlineLink>
+            </UnstyledLink>
           ))}
         </div>
       </div>

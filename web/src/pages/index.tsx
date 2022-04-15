@@ -27,14 +27,14 @@ const HomePage = () => {
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
-      {/* <Dropdown
+      <Dropdown
         fixed={false}
         button={dropdownButton}
         elements={dropdownElements}
       />
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
       <Divider className='my-8' />
-      <PostsWithCategories /> */}
+      <PostsWithCategories />
     </SectionContainer>
   );
 };
