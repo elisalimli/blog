@@ -12,7 +12,7 @@ import { createUrqlClient } from '@/utils/createUrqlClient';
 import Divider from '@/ui/Divider';
 
 const LIMIT = 9;
-const HomePage = () => {
+const BlogPage = () => {
   const [variables, setVariables] = useState<GetPostsInput>({
     limit: LIMIT,
     cursor: null,
@@ -56,4 +56,4 @@ const HomePage = () => {
     </SectionContainer>
   );
 };
-export default withUrqlClient(createUrqlClient, { ssr: true })(HomePage);
+export default withUrqlClient(createUrqlClient, { ssr: true })(BlogPage);

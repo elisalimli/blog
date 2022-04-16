@@ -1,14 +1,9 @@
-import React from 'react';
-import { ImGoogle } from 'react-icons/im';
-
-import Button from '@/ui/buttons/Button';
-import UnstyledLink from '@/ui/links/UnstyledLink';
+import Image from '@/../public/images/people.png';
+import GoogleButton from '@/components/Login/GoogleButton';
 import NextImage from '@/components/NextImage';
 import SectionContainer from '@/components/SectionContainer';
 import Seo from '@/ui/Seo';
-
-import Image from '@/../public/images/people.png';
-import GoogleButton from '@/components/Login/GoogleButton';
+import React from 'react';
 
 const LoginPage: React.FC = () => {
   return (

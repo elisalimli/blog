@@ -19,7 +19,6 @@ const HomePage = () => {
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
-
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
       <Divider className='my-8' />
       <PostsWithCategories />

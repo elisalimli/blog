@@ -15,8 +15,6 @@ const Post: React.FC<PostProps> = ({
 }) => {
   const ytId = useGetVideoId(url);
 
-  const [{ data }] = useMeQuery();
-  console.log(data?.me);
   return (
     <li className='relative max-w-full'>
       <UnstyledLink href={`/p/${id}`}>
@@ -75,4 +73,4 @@ const Post: React.FC<PostProps> = ({
     </li>
   );
 };
-export default Post;
+export default React.memo(Post);

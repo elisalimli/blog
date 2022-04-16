@@ -1,13 +1,14 @@
 
 - [ ] Use high order component for auth(like <Protected/>)
     - [x] render props(dropdown)(react docs)
-- [ ] Fix console problems
-- [ ] Seperate post parts into components
-- [ ] Check 'join'-s maybe use [left/right/inner] join
 - [ ] Add react-video-player instead of iframe
+- [ ] Fix console problems
+- [x?] Seperate post parts into components
+- [ ] Check 'join'-s maybe use [left/right/inner] join
 - [ ] Add Search Posts
 - [ ] Complete 404 page
 - [ ] Create add new post(front)
+- [ ] Increasing performance ???
 - [ ] Check typegraphql docs(for auth)
 - [ ] Remove redis???
 - [x] Add dropdown for categories in mobile

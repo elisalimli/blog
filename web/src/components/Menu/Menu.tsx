@@ -1,11 +1,12 @@
-import HamburgerMenu from '@/components/Menu/HamburgerMenu';
-import { headerNavLinks } from '@/data/headerNavLinks';
-import { useClickOutside } from '@/utils/hooks/useClickOutside';
-import React, { useEffect, useRef, useState } from 'react';
-import UnstyledLink from '../../ui/links/UnstyledLink';
-
+import React, { useState } from 'react';
 import { GrClose } from 'react-icons/gr';
+
+import { headerNavLinks } from '@/data/headerNavLinks';
+
+import HamburgerMenu from '@/components/Menu/HamburgerMenu';
+
 import { withAuthButton } from '../utils/withAuthButton';
+import UnstyledLink from '../../ui/links/UnstyledLink';
 
 const Menu: React.FC = ({ children }) => {
   const [open, setOpen] = useState(false);

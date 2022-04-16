@@ -27,4 +27,4 @@ const UnstyledLink = React.forwardRef<HTMLAnchorElement, UnstyledLinkProps>(
   }
 );
 
-export default UnstyledLink;
+export default React.memo(UnstyledLink);
