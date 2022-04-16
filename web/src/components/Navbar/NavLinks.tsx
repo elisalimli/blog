@@ -1,7 +1,7 @@
 import React from 'react';
 import { headerNavLinks } from '../../data/headerNavLinks';
 import UnstyledLink from '../../ui/links/UnstyledLink';
-import { higherOrderComponent } from '../utils/withAuthButton';
+import { withAuthButton } from '../utils/withAuthButton';
 
 const NavLinks: React.FC = ({ children }) => {
   return (
@@ -21,4 +21,4 @@ const NavLinks: React.FC = ({ children }) => {
     </div>
   );
 };
-export default higherOrderComponent(NavLinks);
+export default withAuthButton(NavLinks);

@@ -1,8 +1,6 @@
 
-- [ ] Add dropdown for categories in mobile
-    - [ ] Add screen breakpoints to the tailwind.config file and get screen breakpoints using that
 - [ ] Use high order component for auth(like <Protected/>)
-    - [ ] render props(dropdown)(react docs)
+    - [x] render props(dropdown)(react docs)
 - [ ] Fix console problems
 - [ ] Seperate post parts into components
 - [ ] Check 'join'-s maybe use [left/right/inner] join
@@ -12,6 +10,8 @@
 - [ ] Create add new post(front)
 - [ ] Check typegraphql docs(for auth)
 - [ ] Remove redis???
+- [x] Add dropdown for categories in mobile
+    - [x] Add screen breakpoints to the tailwind.config file and get screen breakpoints using that
 - [x] Add chevron to active post
 - [x] Add post feed(sidebar) to [postId].tsx
     - [x] Add if user isn't auth suggest him/her to be logged in

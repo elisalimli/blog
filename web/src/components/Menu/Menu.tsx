@@ -5,7 +5,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import UnstyledLink from '../../ui/links/UnstyledLink';
 
 import { GrClose } from 'react-icons/gr';
-import { higherOrderComponent } from '../utils/withAuthButton';
+import { withAuthButton } from '../utils/withAuthButton';
 
 const Menu: React.FC = ({ children }) => {
   const [open, setOpen] = useState(false);
@@ -43,4 +43,4 @@ const Menu: React.FC = ({ children }) => {
   );
 };
 
-export default higherOrderComponent(Menu);
+export default withAuthButton(Menu);
