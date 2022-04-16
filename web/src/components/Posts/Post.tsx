@@ -16,7 +16,7 @@ const Post: React.FC<PostProps> = ({
   const ytId = useGetVideoId(url);
 
   return (
-    <li className='relative max-w-full'>
+    <li className='relative max-w-full transition duration-500 hover:scale-105'>
       <UnstyledLink href={`/p/${id}`}>
         <div className='absolute top-0 right-0 z-10'>
           <ImPlay3 className='text-3xl text-white' />
@@ -29,7 +29,7 @@ const Post: React.FC<PostProps> = ({
                 key={`tag-${tag.id}`}
                 href={`/t/${tag.id}`}
               >
-                <Button className=' rounded-lg border-gray-200 bg-gray-100 bg-opacity-80  p-1 text-sm text-gray-700'>
+                <Button className='rounded-lg border-0  bg-gray-100 bg-opacity-80 p-1 text-sm text-gray-600 hover:bg-gray-200 hover:text-gray-700'>
                   {tag?.name}
                 </Button>
               </UnstyledLink>
@@ -55,10 +55,10 @@ const Post: React.FC<PostProps> = ({
             src='https://lh3.googleusercontent.com/a-/AOh14GiSINvYwuxOvaE-6xcAcI2OeGXRXwhF7TN5Zqtz=s96-c'
           />
           <div className='flex flex-col text-xs text-gray-500'>
-            <h2 className='text-base font-medium text-gray-900'>
+            <h4 className='text-base font-medium text-gray-900'>
               {/* {title} */}
               {title.slice(0, 24)}...
-            </h2>
+            </h4>
             <a href='/' rel='author'>
               @anarrashidov
             </a>

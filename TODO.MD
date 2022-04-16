@@ -1,4 +1,5 @@
 
+- [ ] Fix dropdown in mobile
 - [ ] Use high order component for auth(like <Protected/>)
     - [x] render props(dropdown)(react docs)
 - [ ] Add react-video-player instead of iframe

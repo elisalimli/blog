@@ -10,6 +10,7 @@ import SectionContainer from '@/components/SectionContainer';
 import { PostSnippetFragment } from '@/generated/graphql';
 import { usePostsQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
+import Tags from '@/components/Tags/Tags';
 
 const LIMIT = 8;
 const HomePage = () => {
@@ -19,6 +20,7 @@ const HomePage = () => {
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
+
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
       <Divider className='my-8' />
       <PostsWithCategories />

@@ -29,6 +29,7 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-is": "^17.0.2",
+    "react-player": "^2.10.0",
     "react-responsive": "^9.0.0-beta.6",
     "tailwind-merge": "^1.2.0",
     "urql": "^2.2.0",

@@ -12,6 +12,7 @@ import { GetPostResolver } from "./graphql/resolvers/post/getPost/getPost";
 import { GetPostsResolver } from "./graphql/resolvers/post/getPosts/getPosts";
 import { GetPostsByCategoryResolver } from "./graphql/resolvers/post/getPostsByCategory/getPostsByCategory";
 import { GetPostsByTagResolver } from "./graphql/resolvers/post/getPostsByTag/getPostsByTag";
+import { GetTagsResolver } from "./graphql/resolvers/tags/getTags/tags";
 import { LogoutResolver } from "./graphql/resolvers/user/logout/logout";
 import { MeResolver } from "./graphql/resolvers/user/me/me";
 import { GiveRoleResolver } from "./graphql/resolvers/user/role/giveRole";
@@ -51,6 +52,7 @@ export const main: () => any = async () => {
       GetPostsByTagResolver,
       GetPostsByCategoryResolver,
       GetCategoriesResolver,
+      GetTagsResolver,
       MeResolver,
       HelloResolver,
     ],

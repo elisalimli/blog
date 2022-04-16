@@ -36,7 +36,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div className={clsxm('relative', className)} {...rest}>
       <div
-        onMouseLeave={onHover ? () => setOpen(true) : undefined}
+        onMouseLeave={onHover ? () => setOpen(false) : undefined}
         onMouseEnter={onHover ? () => setOpen(true) : undefined}
         className='flex justify-end'
       >
@@ -52,7 +52,7 @@ const Dropdown: React.FC<DropdownProps> = ({
       </div>
       {open ? (
         <div
-          onMouseLeave={onHover ? () => setOpen(true) : undefined}
+          onMouseLeave={onHover ? () => setOpen(false) : undefined}
           onMouseEnter={onHover ? () => setOpen(true) : undefined}
           className='absolute -left-1/2 top-9 z-50'
         >

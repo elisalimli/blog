@@ -1,0 +1,4 @@
+fragment TagSnippet on Tag {
+  id
+  name
+}

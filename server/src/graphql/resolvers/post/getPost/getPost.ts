@@ -12,10 +12,7 @@ export class GetPostResolver {
     @Arg("input") { postId }: GetPostInput
   ) {
     const post = await prisma.$queryRaw<PostEntity[]>`
-    SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags 
-    FROM post p join "PostTags" pt on pt."postId" = ${postId} 
-    join "Tag" t on t.id = pt."tagId" WHERE p.id = ${postId}
-    GROUP BY p.id
+    SELECT p.* from post p WHERE p.id = ${postId}
     `;
     console.log("post", post[0]?.tags);
 

@@ -25,7 +25,7 @@ const Category: React.FC<ICategoryProps> = ({
       <button
         className={clsxm(
           `w-full p-2 capitalize ${
-            isActive ? 'bg-gray-200 font-semibold' : 'hover:bg-gray-100'
+            isActive ? 'bg-gray-200 font-medium' : 'hover:bg-gray-100'
           } ${isDropdown ? '' : 'border-r'}`,
           buttonFocusClass
         )}
