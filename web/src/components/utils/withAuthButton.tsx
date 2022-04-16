@@ -6,7 +6,7 @@ import UnstyledLink from '@/ui/links/UnstyledLink';
 import { useLogoutMutation, useMeQuery } from '@/generated/graphql';
 
 export const withAuthButton = (WrappedComponent: React.FC) => {
-  const HOC = () => {
+  const HOC = React.memo(() => {
     const [_, logout] = useLogoutMutation();
     const [{ data }] = useMeQuery();
     let content = (
@@ -25,6 +25,6 @@ export const withAuthButton = (WrappedComponent: React.FC) => {
       );
     }
     return <WrappedComponent>{content}</WrappedComponent>;
-  };
+  });
   return HOC;
 };

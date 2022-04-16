@@ -36,7 +36,7 @@ const Post: React.FC<PostProps> = ({
             ))}
           </div>
           <NextImage
-            priority
+            // priority
             src={`http://i.ytimg.com/vi/${ytId}/mqdefault.jpg`}
             // src='https://theodorusclarence.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Ftheodorusclarence%2Fimage%2Fupload%2Fq_auto%2Cf_auto%2Cc_fill%2Car_5%3A2%2Cw_1200%2Ftheodorusclarence%2Fbanner%2Fmarkus-winkler-EcgyryGygeE-unsplash_vuovbv&w=3840&q=75'
             width={320}
@@ -48,7 +48,7 @@ const Post: React.FC<PostProps> = ({
         </div>
         <div className='flex items-center space-x-2 bg-white p-2'>
           <NextImage
-            alt='profile photo'
+            alt='author photo'
             imgClassName='rounded-full'
             width={32}
             height={32}
