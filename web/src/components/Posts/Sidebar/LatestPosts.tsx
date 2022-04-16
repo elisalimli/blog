@@ -1,9 +1,10 @@
 import React from 'react';
 
-import { usePostsQuery } from '@/generated/graphql';
-import Post from '@/components/Posts/Sidebar/Post';
-import Layout from '@/ui/layout/Layout';
 import Divider from '@/ui/Divider';
+import Layout from '@/ui/layout/Layout';
+
+import Post from '@/components/Posts/Sidebar/Post';
+import { usePostsQuery } from '@/generated/graphql';
 
 const LIMIT = 4;
 

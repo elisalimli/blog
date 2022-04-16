@@ -16,6 +16,7 @@ const Post: React.FC<PostProps> = ({
   const ytId = useGetVideoId(url);
 
   const [{ data }] = useMeQuery();
+  console.log(data?.me);
   return (
     <li className='relative max-w-full'>
       <UnstyledLink href={`/p/${id}`}>
@@ -53,7 +54,7 @@ const Post: React.FC<PostProps> = ({
             imgClassName='rounded-full'
             width={32}
             height={32}
-            src={data?.me?.picture as string}
+            src='https://lh3.googleusercontent.com/a-/AOh14GiSINvYwuxOvaE-6xcAcI2OeGXRXwhF7TN5Zqtz=s96-c'
           />
           <div className='flex flex-col text-xs text-gray-500'>
             <h2 className='text-base font-medium text-gray-900'>

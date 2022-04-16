@@ -1,6 +1,9 @@
 
-- [ ] Fix console problems
 - [ ] Add dropdown for categories in mobile
+    - [ ] Add screen breakpoints to the tailwind.config file and get screen breakpoints using that
+- [ ] Use high order component for auth(like <Protected/>)
+    - [ ] render props(dropdown)(react docs)
+- [ ] Fix console problems
 - [ ] Seperate post parts into components
 - [ ] Check 'join'-s maybe use [left/right/inner] join
 - [ ] Add react-video-player instead of iframe

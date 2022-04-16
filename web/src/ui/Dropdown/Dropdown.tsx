@@ -2,14 +2,13 @@ import React, { useEffect, useRef, useState, FC } from 'react';
 import { useClickOutside } from '@/utils/hooks/useClickOutside';
 
 export interface DropdownProps {
-  button: any;
-  elements: any;
+  button: () => any;
   fixed?: boolean;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   button,
-  elements,
+  children,
   fixed = true,
 }) => {
   const [open, setOpen] = useState(false);
@@ -35,24 +34,24 @@ const Dropdown: React.FC<DropdownProps> = ({
             type='button'
             className='focus:outline-none'
           >
-            {button}
+            {button()}
           </button>
         </div>
       </div>
       {open ? (
-        <div className={`absolute right-3 z-50 md:right-0 `}>
+        <div className={`translate-x-1/5 absolute z-50 transform md:right-0 `}>
           <div
             className={`${fixed ? 'fixed -translate-x-full transform' : ''}`}
           >
             <div
               ref={wrapperRef}
               style={{
-                width: 200,
+                maxWidth: 200,
                 minHeight: 100,
               }}
               className='rounded-8 relative overflow-hidden border  bg-white'
             >
-              {elements}
+              {children}
             </div>
           </div>
         </div>

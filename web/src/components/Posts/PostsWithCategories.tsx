@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
-
 import Post from '@/components/Posts/Post';
-import {
-  PostSnippetFragment,
-  useCategoriesQuery,
-  usePostsByCategoryQuery,
-} from '@/generated/graphql';
 import PostSection from '@/components/Posts/PostSection/PostSection';
-import SectionHeader from './PostSection/SectionHeader';
+import { usePostsByCategoryQuery } from '@/generated/graphql';
+import React from 'react';
+import { useCategoryIdStore } from '../../stores/useCategoryIdStore';
 import Divider from '../../ui/Divider';
 import Categories from '../Categories/Categories';
-import Button from '../../ui/buttons/Button';
-import { useCategoryIdStore } from '../../stores/useCategoryIdStore';
-import Loading from '@/ui/Loading';
 import CenteredLoading from '../CenteredLoading';
+import SectionHeader from './PostSection/SectionHeader';
 
 const PostsWithCategories = () => {
   const { categoryId } = useCategoryIdStore();
   const [{ data, fetching }] = usePostsByCategoryQuery({
     variables: { input: { categoryId } },
   });
+  console.log(data);
 
   let content = (
     <ul className='grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4'>

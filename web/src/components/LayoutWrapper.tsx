@@ -3,7 +3,7 @@ import React from 'react';
 import Divider from '@/ui/Divider';
 
 import Footer from '@/components/Footer/Footer';
-import Navbar from '@/components/Navbar';
+import Navbar from '@/components/Navbar/Navbar';
 import SectionContainer from '@/components/SectionContainer';
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
