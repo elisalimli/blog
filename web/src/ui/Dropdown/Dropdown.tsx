@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState, FC } from 'react';
 import { useClickOutside } from '@/utils/hooks/useClickOutside';
+import clsxm from '../../lib/clsxm';
 
-export interface DropdownProps {
+export type DropdownProps = {
   button: () => any;
   fixed?: boolean;
   onHover?: boolean;
-}
+} & React.ComponentProps<'div'>;
 
 const Dropdown: React.FC<DropdownProps> = ({
   button,
   children,
   fixed = true,
   onHover = false,
+  className,
+  ...rest
 }) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
@@ -31,7 +34,7 @@ const Dropdown: React.FC<DropdownProps> = ({
   });
 
   return (
-    <div className='relative'>
+    <div className={clsxm('relative', className)} {...rest}>
       <div
         onMouseLeave={onHover ? () => setOpen(false) : undefined}
         onMouseEnter={onHover ? () => setOpen(true) : undefined}
@@ -51,7 +54,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         <div
           onMouseLeave={onHover ? () => setOpen(false) : undefined}
           onMouseEnter={onHover ? () => setOpen(true) : undefined}
-          className='absolute left-3 top-9 z-50'
+          className='absolute -left-1/2 top-9 z-50'
         >
           <div
             className={`${fixed ? 'fixed -translate-x-full transform' : ''}`}

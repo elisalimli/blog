@@ -8,34 +8,32 @@ import { buttonFocusClass } from '../../ui/buttons/Button';
 interface ICategoryProps {
   category?: CategorySnippetFragment;
   isCategory?: boolean;
+  isDropdown?: boolean;
 }
 
 const Category: React.FC<ICategoryProps> = ({
   children,
   category,
   isCategory = true,
+  isDropdown = false,
 }) => {
   const { setCategoryId, categoryId } = useCategoryIdStore();
   const isActive = categoryId === category?.id;
 
   return (
-    <div className='relative flex items-center'>
+    <div className='relative'>
       <button
         className={clsxm(
-          ` p-2 capitalize hover:bg-gray-100 ${isActive ? 'bg-gray-200' : ''}`,
+          `w-full p-2 capitalize ${
+            isActive ? 'bg-gray-200' : 'hover:bg-gray-100'
+          } ${isDropdown ? '' : 'border-r'}`,
           buttonFocusClass
         )}
-        onClick={
-          isCategory
-            ? async () => {
-                const a = await setCategoryId(category!.id);
-              }
-            : undefined
-        }
+        onClick={isCategory ? () => setCategoryId(category!.id) : undefined}
       >
         {children}
       </button>
-      {isActive ? (
+      {isActive && !isDropdown ? (
         <div className='absolute left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-gray-200' />
       ) : null}
     </div>
