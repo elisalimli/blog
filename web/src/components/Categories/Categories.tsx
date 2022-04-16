@@ -29,7 +29,7 @@ const Categories: React.FC = () => {
       ))}
 
       {isMobile && (
-        <Dropdown button={DropdownButton} fixed={false}>
+        <Dropdown button={DropdownButton} onHover={true} fixed={false}>
           {data!.categories!.slice(2, data?.categories?.length).map((c) => (
             <Category key={`category-${c.id}`} category={c}>
               {c.name}

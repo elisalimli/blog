@@ -4,12 +4,14 @@ import { useClickOutside } from '@/utils/hooks/useClickOutside';
 export interface DropdownProps {
   button: () => any;
   fixed?: boolean;
+  onHover?: boolean;
 }
 
 const Dropdown: React.FC<DropdownProps> = ({
   button,
   children,
   fixed = true,
+  onHover = false,
 }) => {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef(null);
@@ -19,15 +21,22 @@ const Dropdown: React.FC<DropdownProps> = ({
     const useHandleClick = (e: MouseEvent) => {
       useClickOutside(wrapperRef, buttonRef, e.target, setOpen);
     };
-    document.addEventListener('mousedown', useHandleClick);
-    return () => {
-      document.removeEventListener('mousedown', useHandleClick);
-    };
+    if (!onHover) {
+      document.addEventListener('mousedown', useHandleClick);
+
+      return () => {
+        document.removeEventListener('mousedown', useHandleClick);
+      };
+    }
   });
 
   return (
     <div className='relative'>
-      <div className='flex justify-end'>
+      <div
+        onMouseLeave={onHover ? () => setOpen(false) : undefined}
+        onMouseEnter={onHover ? () => setOpen(true) : undefined}
+        className='flex justify-end'
+      >
         <div ref={buttonRef}>
           <button
             onClick={() => setOpen(!open)}
@@ -39,7 +48,11 @@ const Dropdown: React.FC<DropdownProps> = ({
         </div>
       </div>
       {open ? (
-        <div className={`translate-x-1/5 absolute z-50 transform md:right-0 `}>
+        <div
+          onMouseLeave={onHover ? () => setOpen(false) : undefined}
+          onMouseEnter={onHover ? () => setOpen(true) : undefined}
+          className='absolute left-3 top-9 z-50'
+        >
           <div
             className={`${fixed ? 'fixed -translate-x-full transform' : ''}`}
           >
@@ -49,7 +62,7 @@ const Dropdown: React.FC<DropdownProps> = ({
                 maxWidth: 200,
                 minHeight: 100,
               }}
-              className='rounded-8 relative overflow-hidden border  bg-white'
+              className='rounded-8 relative overflow-hidden border bg-white'
             >
               {children}
             </div>

@@ -16,7 +16,6 @@ const Category: React.FC<ICategoryProps> = ({
   isCategory = true,
 }) => {
   const { setCategoryId, categoryId } = useCategoryIdStore();
-
   const isActive = categoryId === category?.id;
 
   return (
@@ -26,7 +25,13 @@ const Category: React.FC<ICategoryProps> = ({
           ` p-2 capitalize hover:bg-gray-100 ${isActive ? 'bg-gray-200' : ''}`,
           buttonFocusClass
         )}
-        onClick={isCategory ? () => setCategoryId(category?.id) : undefined}
+        onClick={
+          isCategory
+            ? async () => {
+                const a = await setCategoryId(category!.id);
+              }
+            : undefined
+        }
       >
         {children}
       </button>
