@@ -5,11 +5,11 @@ import clsxm from '../../lib/clsxm';
 import { useCategoryIdStore } from '../../stores/useCategoryIdStore';
 import { buttonFocusClass } from '../../ui/buttons/Button';
 
-interface ICategoryProps {
+type ICategoryProps = {
   category?: CategorySnippetFragment;
   isCategory?: boolean;
   isDropdown?: boolean;
-}
+};
 
 const Category: React.FC<ICategoryProps> = ({
   children,
@@ -21,11 +21,11 @@ const Category: React.FC<ICategoryProps> = ({
   const isActive = categoryId === category?.id;
 
   return (
-    <div className='relative'>
+    <div className='relative flex'>
       <button
         className={clsxm(
           `w-full p-2 capitalize ${
-            isActive ? 'bg-gray-200' : 'hover:bg-gray-100'
+            isActive ? 'bg-gray-200 font-semibold' : 'hover:bg-gray-100'
           } ${isDropdown ? '' : 'border-r'}`,
           buttonFocusClass
         )}

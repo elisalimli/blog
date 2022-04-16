@@ -1,15 +1,20 @@
 import React from 'react';
-import { useCategoriesQuery } from '@/generated/graphql';
-import CenteredLoading from '@/components/CenteredLoading';
-import Category from './Category';
 import { useMediaQuery } from 'react-responsive';
-import DropdownElement from '@/ui/Dropdown/DropdownElement';
-import Dropdown from '@/ui/Dropdown/Dropdown';
 import defaultTheme from 'tailwindcss/defaultTheme';
+
+import Dropdown from '@/ui/Dropdown/Dropdown';
+import { MdArrowDropDown } from 'react-icons/md';
+import CenteredLoading from '@/components/CenteredLoading';
+import { useCategoriesQuery } from '@/generated/graphql';
+
+import Category from './Category';
 
 const DropdownButton = () => (
   <Category isDropdown isCategory={false}>
-    Others
+    <div className='flex items-center'>
+      Others
+      <MdArrowDropDown className='h-6 w-6' />
+    </div>
   </Category>
 );
 
@@ -36,7 +41,7 @@ const Categories: React.FC = () => {
       <div>
         {isMobile && (
           <Dropdown
-            className='ml-auto border-l px-2'
+            className='ml-auto border-l'
             button={DropdownButton}
             onHover
             fixed={false}
