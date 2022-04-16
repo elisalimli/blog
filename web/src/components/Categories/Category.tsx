@@ -34,7 +34,7 @@ const Category: React.FC<ICategoryProps> = ({
         {children}
       </button>
       {isActive && !isDropdown ? (
-        <div className='absolute left-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rotate-45 bg-gray-200' />
+        <div className='absolute top-full left-1/2 h-2 w-2  -translate-x-1/2 -translate-y-1/2  rotate-45 bg-gray-200' />
       ) : null}
     </div>
   );
