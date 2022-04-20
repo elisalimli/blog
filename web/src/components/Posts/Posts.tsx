@@ -12,7 +12,7 @@ interface PostProps {
 const Posts = ({ posts }: PostProps) => {
   return (
     <PostSection>
-      <SectionHeader>Featured Posts</SectionHeader>
+      <SectionHeader>Featured</SectionHeader>
       <Divider className='my-2' />
       <ul className='grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4'>
         {posts?.map((post) => (

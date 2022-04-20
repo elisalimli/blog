@@ -1,3 +1,13 @@
+- [ ] Add Search Posts
+    - [ ] Find a way filtering posts bby tag in search query 
+    - [ ] Fix postByTag page
+    - [ ] Create searchbar in navbar
+    - [ ] Create /search?query="..." page 
+
+
+
+------------------
+
 
 - [ ] Fix dropdown in mobile
 - [ ] Use high order component for auth(like <Protected/>)
@@ -6,7 +16,6 @@
 - [ ] Fix console problems
 - [x?] Seperate post parts into components
 - [ ] Check 'join'-s maybe use [left/right/inner] join
-- [ ] Add Search Posts
 - [ ] Complete 404 page
 - [ ] Create add new post(front)
 - [ ] Increasing performance ???

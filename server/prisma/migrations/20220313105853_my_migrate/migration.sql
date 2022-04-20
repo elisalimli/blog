@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE "post" ALTER COLUMN "isVideo" DROP NOT NULL,
-ALTER COLUMN "isVideo" SET DEFAULT false;

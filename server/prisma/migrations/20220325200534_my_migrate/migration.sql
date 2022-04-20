@@ -1,3 +1,0 @@
--- AlterTable
-ALTER TABLE "post" ALTER COLUMN "createdAt" DROP DEFAULT,
-ALTER COLUMN "createdAt" SET DATA TYPE TEXT;

@@ -22,7 +22,8 @@ export class GetPostsByCategoryResolver {
           `
          : Prisma.empty
      }  
-    `;
+      LIMIT 8
+     `;
 
     return posts;
   }

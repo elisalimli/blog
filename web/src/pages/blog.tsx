@@ -10,6 +10,7 @@ import { GetPostsInput, PostSnippetFragment } from '@/generated/graphql';
 import { usePostsQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 import Divider from '@/ui/Divider';
+import debounce from 'debounce';
 
 const LIMIT = 9;
 const BlogPage = () => {
@@ -24,10 +25,11 @@ const BlogPage = () => {
   const onLoadMore = ({ limit, cursor }: GetPostsInput) => {
     setVariables({ cursor, limit });
   };
+
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
-      <h1 className='mb-2 text-6xl text-gray-900'>All Posts</h1>
+      <h1 className='mb-2 text-gray-900'>All Posts</h1>
       <p className='mb-3 text-lg text-gray-500'>
         A blog created with Next.js and Tailwind.css
       </p>
