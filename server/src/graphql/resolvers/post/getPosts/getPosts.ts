@@ -27,24 +27,25 @@ export class GetPostsResolver {
     @Ctx() { prisma }: MyContext,
     @Arg("input") input: GetPostsInput
   ) {
-    // ${cursor && query ? Prisma.sql`and` : Prisma.empty}
-    // ${
-    //   query
-    //     ? Prisma.sql`
-    //      to_tsvector(t.name  || ' ' || p.title || ' ' || p.url) @@ to_tsquery('${query}')
-    //       `
-    //     : Prisma.empty
-    // }
     const realLimit = Math.min(50, input.limit);
     const realLimitPlusOne = realLimit + 1;
 
-    const { cursor } = input;
+    const { cursor, query } = input;
     const posts = await prisma.$queryRaw<PostEntity[]>`
     SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags FROM post p
     join posts_categories pc on pc."postId" = p.id
-    join categories_tags ct on ct."categoryId" = pc."categoryId"
+    join categories_tags ct on ct."categoryId" =  pc."categoryId"
     join tag t on t.id = ct."tagId"
-    ${cursor ? Prisma.sql`WHERE p."createdAt" < ${cursor}` : Prisma.empty}
+    ${cursor || query ? Prisma.sql`WHERE` : Prisma.empty}
+    ${cursor ? Prisma.sql`p."createdAt" < ${cursor}` : Prisma.empty}
+    ${cursor && query ? Prisma.sql`and` : Prisma.empty}
+    ${
+      query
+        ? Prisma.sql`
+         to_tsvector(t.name  || ' ' || p.title || ' ' || p.url) @@ plainto_tsquery(${query})
+          `
+        : Prisma.empty
+    }
     GROUP BY p.id
     ORDER BY p."createdAt" DESC
     LIMIT ${realLimitPlusOne}

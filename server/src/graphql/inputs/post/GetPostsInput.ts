@@ -7,4 +7,7 @@ export class GetPostsInput {
 
   @Field(() => String, { nullable: true })
   cursor?: string;
+
+  @Field(() => String, { nullable: true })
+  query?: string;
 }

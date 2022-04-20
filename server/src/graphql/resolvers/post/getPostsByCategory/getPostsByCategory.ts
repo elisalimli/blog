@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { Arg, Ctx, FieldResolver, Query, Resolver, Root } from "type-graphql";
+import { Arg, Ctx, Query, Resolver } from "type-graphql";
 import { Post } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
 import { PostEntity } from "../../../entity/Post";
