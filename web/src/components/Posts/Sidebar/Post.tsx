@@ -20,7 +20,7 @@ const Post: React.FC<PostSnippetFragment> = ({ title, url, id }) => {
         className='ml-2 break-words uppercase  text-primary-600'
         href={`/p/${id}`}
       >
-        {title.slice(0, 16)}...
+        {title.slice(0, 32)}...
       </UnderlineLink>
     </li>
   );
