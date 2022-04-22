@@ -14,7 +14,6 @@ export class CreatePostResolver {
     @Ctx() { prisma }: MyContext,
     @Arg("input") input: CreatePostInput
   ): Promise<Post> {
-    console.log("inpuut", input);
     const { tags, category, ...rest } = input;
     const tagsArr: {
       tag: {

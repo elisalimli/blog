@@ -22,7 +22,6 @@ passport.use(
           id: profile?.id,
         },
       });
-      console.log("user : ", upsertUser);
       return done(null, profile);
     }
   )
@@ -46,7 +45,6 @@ router.get(
   passport.authenticate("google"),
   (req, res) => {
     // Redirect back to the original page, if any
-    console.log("seession", req.session);
     const redirect = req.session.oauth2return || "/";
     delete req.session.oauth2return;
     res.redirect(redirect);

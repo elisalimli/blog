@@ -1,4 +1,5 @@
 import { cacheExchange } from '@urql/exchange-graphcache';
+import { Router } from 'next/router';
 import { dedupExchange, Exchange, fetchExchange } from 'urql';
 import { pipe, tap } from 'wonka';
 import { LogoutMutation, MeDocument, MeQuery } from '../generated/graphql';

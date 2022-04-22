@@ -6,7 +6,6 @@ export const isAdmin: MiddlewareFn<MyContext> = async (
   next
 ) => {
   const { userId } = req.session;
-  console.log("userId", userId);
   const user = await prisma.user.findUnique({
     where: { id: userId },
     select: {

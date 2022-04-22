@@ -10,7 +10,6 @@ import Button from '../../ui/buttons/Button';
 const Login: React.FC = () => {
   const [{ data, fetching }] = useMeQuery();
   const [{}, logout] = useLogoutMutation();
-  console.log('me', data);
   const logoutOnClick = () => {
     logout();
   };

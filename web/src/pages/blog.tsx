@@ -22,6 +22,8 @@ const BlogPage = () => {
     variables: { input: variables },
   });
 
+  console.log('data', data);
+
   const onLoadMore = ({ limit, cursor }: GetPostsInput) => {
     setVariables({ cursor, limit });
   };

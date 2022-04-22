@@ -10,13 +10,14 @@ import SectionContainer from '@/components/SectionContainer';
 import { PostSnippetFragment } from '@/generated/graphql';
 import { usePostsQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
-import Tags from '@/components/Tags/Tags';
 
 const LIMIT = 8;
 const HomePage = () => {
   const [{ data }] = usePostsQuery({
-    variables: { input: { limit: LIMIT } },
+    variables: { input: { limit: LIMIT, cursor: null } },
   });
+
+  console.log('index data ->>', data);
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />

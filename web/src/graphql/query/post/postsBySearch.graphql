@@ -1,0 +1,8 @@
+query PostsBySearch($input: GetPostsBySearchInput!) {
+  postsBySearch(input: $input) {
+    posts {
+      ...PostSnippet
+    }
+    hasMore
+  }
+}

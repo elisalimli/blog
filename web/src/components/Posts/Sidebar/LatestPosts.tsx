@@ -10,7 +10,7 @@ const LIMIT = 4;
 
 const LatestPosts: React.FC = () => {
   const [{ data }] = usePostsQuery({
-    variables: { input: { limit: LIMIT } },
+    variables: { input: { limit: LIMIT, cursor: null } },
   });
   return (
     <Layout>

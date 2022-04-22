@@ -55,9 +55,8 @@ const Post: React.FC<PostProps> = ({
             src='https://lh3.googleusercontent.com/a-/AOh14GiSINvYwuxOvaE-6xcAcI2OeGXRXwhF7TN5Zqtz=s96-c'
           />
           <div className='flex flex-col text-xs text-gray-500'>
-            <h4 className='text-base font-medium text-gray-900'>
-              {/* {title} */}
-              {title.slice(0, 24)}...
+            <h4 className='truncate text-base font-medium text-gray-900'>
+              {title}
             </h4>
             <a href='/' rel='author'>
               @anarrashidov

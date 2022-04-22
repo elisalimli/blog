@@ -6,6 +6,7 @@ export const cursorPagination = (): Resolver => {
     const allFields = cache.inspectFields(entityKey);
     const fieldInfos = allFields.filter((info) => info.fieldName === fieldName);
     const size = fieldInfos.length;
+
     if (size === 0) {
       return undefined;
     }

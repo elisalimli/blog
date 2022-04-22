@@ -13,7 +13,6 @@ const PostsWithCategories = () => {
   const [{ data, fetching }] = usePostsByCategoryQuery({
     variables: { input: { categoryId } },
   });
-  console.log(data);
 
   let content = (
     <ul className='grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4'>

@@ -11,7 +11,6 @@ export class GiveRoleResolver {
     @Ctx() { prisma }: MyContext,
     @Arg("input") { userId, role }: GiveRoleInput
   ) {
-    console.log(role);
     return prisma.user.update({
       data: { role },
       where: { id: userId },

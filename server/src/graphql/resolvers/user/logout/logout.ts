@@ -13,7 +13,6 @@ export class LogoutResolver {
         req.logout();
 
         if (err) {
-          console.log(err);
           resolve(false);
           return;
         }

@@ -14,7 +14,6 @@ export class GetPostResolver {
     const post = await prisma.$queryRaw<PostEntity[]>`
     SELECT p.* from post p WHERE p.id = ${postId}
     `;
-    console.log("post", post[0]?.tags);
 
     return post[0];
   }
