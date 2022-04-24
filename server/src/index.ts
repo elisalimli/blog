@@ -9,6 +9,7 @@ import { GetCategoriesResolver } from "./graphql/resolvers/category/getAllCatego
 import { HelloResolver } from "./graphql/resolvers/hello";
 import { CreatePostResolver } from "./graphql/resolvers/post/createPost/createPost";
 import { GetPostResolver } from "./graphql/resolvers/post/getPost/getPost";
+import { GetLatestPostsResolver } from "./graphql/resolvers/post/getPosts/getLatestPosts";
 import { GetPostsResolver } from "./graphql/resolvers/post/getPosts/getPosts";
 import { GetPostsByCategoryResolver } from "./graphql/resolvers/post/getPostsByCategory/getPostsByCategory";
 import { GetPostsBySearchResolver } from "./graphql/resolvers/post/getPostsBySearch/getPostsBySearch";
@@ -48,6 +49,7 @@ export const main: () => any = async () => {
       GiveRoleResolver,
       CreatePostResolver,
       //Queries
+      GetLatestPostsResolver,
       GetPostsBySearchResolver,
       GetPostsResolver,
       GetPostResolver,

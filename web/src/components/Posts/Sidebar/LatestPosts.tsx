@@ -1,24 +1,30 @@
-import React from 'react';
-
+import Post from '@/components/Posts/Sidebar/Post';
+import { useLatestPostsQuery } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
 import Layout from '@/ui/layout/Layout';
+import { useRouter } from 'next/router';
+import React, { useMemo } from 'react';
 
-import Post from '@/components/Posts/Sidebar/Post';
-import { usePostsQuery } from '@/generated/graphql';
-
-const LIMIT = 4;
+const LIMIT = 6;
 
 const LatestPosts: React.FC = () => {
-  const [{ data }] = usePostsQuery({
-    variables: { input: { limit: LIMIT, cursor: null } },
+  const [{ data }] = useLatestPostsQuery({
+    variables: { input: { limit: LIMIT } },
   });
+  const router = useRouter();
+  const posts = useMemo(
+    () => data?.latestPosts?.filter((p) => p.id != router?.query?.postId),
+    [data, router?.query?.postId]
+  );
+  console.log('datatatata', posts);
+
   return (
     <Layout>
       <h2 className='text-lg font-semibold'>Latest</h2>
       <Divider className='my-2' />
-      {data?.posts?.posts?.length ? (
+      {posts?.length ? (
         <ul className='mb-2 space-y-4 divide-y '>
-          {data?.posts.posts?.slice(0, LIMIT).map((p) => (
+          {posts.map((p) => (
             <Post key={`sidebar-latest-${p.id}`} {...p} />
           ))}
         </ul>

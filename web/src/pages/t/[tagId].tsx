@@ -38,7 +38,7 @@ const PostPyTag = () => {
       {/* <IndividalPost post={data?.post} /> */}
       <ul className='grid grid-cols-1 gap-4  md:grid-cols-2 xl:grid-cols-3'>
         {data?.postsByTag?.map((post) => (
-          <Post post={post} key={`post-${post.id}`} />
+          <Post post={post} key={`postsByTag-${post.id}`} />
         ))}
       </ul>
     </SectionContainer>

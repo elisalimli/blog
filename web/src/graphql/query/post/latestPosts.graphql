@@ -1,0 +1,5 @@
+query LatestPosts($input: GetLatestPostsInput!) {
+  latestPosts(input: $input) {
+      ...PostSnippet
+  }
+}

@@ -17,7 +17,7 @@ const PostsWithCategories = () => {
   let content = (
     <ul className='grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4'>
       {data?.postsByCategory?.map((post) => (
-        <Post post={post} key={`post-${post.id}`} />
+        <Post post={post} key={`postsByCategories-${post.id}`} />
       ))}
     </ul>
   );
