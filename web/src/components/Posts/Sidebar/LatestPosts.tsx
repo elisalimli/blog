@@ -16,7 +16,6 @@ const LatestPosts: React.FC = () => {
     () => data?.latestPosts?.filter((p) => p.id != router?.query?.postId),
     [data, router?.query?.postId]
   );
-  console.log('datatatata', posts);
 
   return (
     <Layout>

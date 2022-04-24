@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Divider from '@/ui/Divider';
@@ -18,9 +18,14 @@ import { createUrqlClient } from '@/utils/createUrqlClient';
 const LIMIT = 20;
 const Results = () => {
   const router = useRouter();
+
+  const searchQuery = useMemo(
+    () => router?.query?.query,
+    [router?.query?.query]
+  );
   const [variables, setVariables] = useState<GetPostsBySearchInput>({
     limit: LIMIT,
-    query: (router?.query?.search as string) || null,
+    query: searchQuery || null,
     cursor: null,
   });
 
@@ -29,7 +34,6 @@ const Results = () => {
       input: variables,
     },
   });
-  console.log('adaoisdajs', data);
 
   const onLoadMore = () => {
     const posts = data?.postsBySearch?.posts;
@@ -45,7 +49,9 @@ const Results = () => {
     <SectionContainer>
       {/* @todo change this */}
       <Seo title='Search' description='Search result' />
-      <h1 className='mb-2 text-gray-900'>Search results for 'C++'</h1>
+      <h1 className='mb-2 text-gray-900'>
+        Search results for &apos;{searchQuery}&apos;
+      </h1>
       <Divider className='mt-8 mb-10' />
       <InfiniteScroll
         loader={undefined}

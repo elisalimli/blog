@@ -14,7 +14,7 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> &
 
 export const textFieldStyle = {
   input:
-    'w-full bg-white border-default rounded-sm border-gray-300 focus:border-primary-200 focus:ring-2 focus:ring-purple-300 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out',
+    'w-full bg-white text-base rounded-lg border border-gray-200 focus:border-primary-400 focus:ring-1 focus:ring-primary-200 outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out',
   error: 'text-red-600 mt-2 text-sm',
   label: 'mt-4 font-medium',
 };

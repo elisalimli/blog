@@ -1,9 +1,9 @@
 - [ ] Add Search Posts
     - [x?] Create searchbar in navbar
-        - [ ] Add pagination to it
+        - [x] Add pagination to it
         - [ ] Style it a bit more
         - [ ] Change /s page to /search?query="..." page 
-    - [ ] Find a way filtering posts bby tag in search query 
+    - [ ] Find a way filtering posts by tag in search query 
     - [ ] Fix postByTag page
 
 
