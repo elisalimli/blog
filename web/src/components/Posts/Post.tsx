@@ -1,10 +1,12 @@
-import NextImage from '@/components/NextImage';
-import { PostSnippetFragment, useMeQuery } from '@/generated/graphql';
-import Button from '@/ui/buttons/Button';
-import UnstyledLink from '@/ui/links/UnstyledLink';
-import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
 import { ImPlay3 } from 'react-icons/im';
+
+import Button from '@/ui/buttons/Button';
+import UnstyledLink from '@/ui/links/UnstyledLink';
+
+import NextImage from '@/components/NextImage';
+import { PostSnippetFragment } from '@/generated/graphql';
+import { useGetVideoId } from '@/utils/useGetVideoId';
 
 interface PostProps {
   post: PostSnippetFragment;

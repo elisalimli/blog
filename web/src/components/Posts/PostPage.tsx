@@ -19,6 +19,7 @@ const PostPage: React.FC<PostProps> = ({ post: { title, url } }) => {
       </h1>
       <Divider className='my-6' />
       <ReactPlayer
+        controls={true}
         width='100%'
         height={500}
         url={`https://www.youtube.com/embed/${ytId}`}

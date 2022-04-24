@@ -45,9 +45,9 @@ const BlogPage = () => {
       <Divider className='mt-8 mb-10' />
       <InfiniteScroll
         loader={undefined}
-        dataLength={data?.posts?.posts?.length as number}
+        dataLength={data?.posts?.posts?.length || 0}
         next={onLoadMore}
-        hasMore={data?.posts?.hasMore as boolean}
+        hasMore={data?.posts?.hasMore || false}
         style={{ overflowY: 'hidden' }}
       >
         <Posts

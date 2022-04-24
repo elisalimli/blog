@@ -45,7 +45,7 @@ const Results = () => {
     <SectionContainer>
       {/* @todo change this */}
       <Seo title='Search' description='Search result' />
-      <h1 className='mb-2 text-gray-900'>Search results</h1>
+      <h1 className='mb-2 text-gray-900'>Search results for 'C++'</h1>
       <Divider className='mt-8 mb-10' />
       <InfiniteScroll
         loader={undefined}
