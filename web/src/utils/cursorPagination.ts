@@ -1,6 +1,6 @@
 import { Resolver } from '@urql/exchange-graphcache';
 
-export const cursorPagination = (): Resolver => {
+export const cursorPagination = (fieldKey: string): Resolver => {
   return (_parent, fieldArgs, cache, info) => {
     const { parentKey: entityKey, fieldName, parentFieldKey } = info;
     const allFields = cache.inspectFields(entityKey);
@@ -14,12 +14,14 @@ export const cursorPagination = (): Resolver => {
     const results: string[] = [];
     info.partial = !isItInTheCache;
     let hasMore = false;
+
     fieldInfos.forEach((fi) => {
       const key = cache.resolve(entityKey, fi.fieldKey) as string;
       const _hasMore = cache.resolve(key, 'hasMore') as boolean;
       hasMore = _hasMore;
-      const data = cache.resolve(key, fieldName) as string[];
-      results.push(...data);
+
+      const data = cache.resolve(key, fieldKey) as string[];
+      results.push(...(data || []));
     });
     return {
       __typename: 'PostsResponse',

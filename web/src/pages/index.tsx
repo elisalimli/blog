@@ -17,7 +17,6 @@ const HomePage = () => {
     variables: { input: { limit: LIMIT, cursor: null } },
   });
 
-  console.log('index data ->>', data);
   return (
     <SectionContainer>
       <Seo title='Home' description='Home' />
