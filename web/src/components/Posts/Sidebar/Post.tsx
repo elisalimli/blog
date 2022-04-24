@@ -10,6 +10,7 @@ const Post: React.FC<PostSnippetFragment> = ({ title, url, id }) => {
   return (
     <li className='mt-2 flex items-center'>
       <NextImage
+        useSkeleton
         priority
         src={`http://i.ytimg.com/vi/${videoUrl}/mqdefault.jpg`}
         width={80}

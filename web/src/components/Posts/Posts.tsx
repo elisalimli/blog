@@ -1,15 +1,16 @@
 import Post from '@/components/Posts/Post';
 import { PostSnippetFragment } from '@/generated/graphql';
 import React from 'react';
-import { content } from 'tailwindcss/defaultTheme';
-import Divider from '../../ui/Divider';
-import PostSection from './PostSection/PostSection';
-import SectionHeader from './PostSection/SectionHeader';
+import Divider from '@/ui/Divider';
+import PostSection from '@/components/Posts/PostSection/PostSection';
+import SectionHeader from '@/components/Posts/PostSection/SectionHeader';
+import Skeleton from '@/components/Posts/PostSkeleton';
 
 interface PostProps {
   posts: PostSnippetFragment[];
+  loading?: boolean;
 }
-const Posts = ({ posts }: PostProps) => {
+const Posts = ({ posts, loading }: PostProps) => {
   return (
     <PostSection>
       <SectionHeader>Featured</SectionHeader>
@@ -18,6 +19,11 @@ const Posts = ({ posts }: PostProps) => {
         {posts?.map((post) => (
           <Post post={post} key={`post-${post.id}`} />
         ))}
+        <br />
+        {loading &&
+          Array.from({ length: 20 }).map((_, i) => (
+            <Skeleton key={`blog-post-skeleton-${i}`} />
+          ))}
       </ul>
     </PostSection>
   );

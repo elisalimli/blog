@@ -18,7 +18,12 @@ const LoginPage: React.FC = () => {
             <p className='text-800 mt-2 text-gray-800'>
               Get access to our fam in a few seconds
             </p>
-            <NextImage className='mt-2' alt='some people' src={Image} />
+            <NextImage
+              useSkeleton
+              className='mt-2'
+              alt='some people'
+              src={Image}
+            />
           </div>
           <div className='m-4 flex justify-center'>
             <GoogleButton>Continue with google</GoogleButton>
