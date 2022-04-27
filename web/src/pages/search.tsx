@@ -29,11 +29,12 @@ const Results = () => {
       input: variables,
     },
   });
-  console.log(variables);
 
   useEffect(() => {
-    setVariables({ ...variables, query: router?.query?.query });
+    setVariables({ ...variables, query: router?.query?.query, cursor: null });
+    console.log('query changed', variables);
   }, [router?.query?.query]);
+
   const onLoadMore = () => {
     const posts = data?.postsBySearch?.posts;
     if (posts)

@@ -38,12 +38,12 @@ const Header = () => {
             initialValues={{ search: '' }}
             onSubmit={async ({ search }, { setErrors }) => {
               // router.push(`/search?query=${values.search}`);
-              // router.push({
-              //   pathname: '/search',
-              //   query: { query: search },
-              // });
+              router.push({
+                pathname: '/search',
+                query: { query: search },
+              });
 
-              window.location.href = `/search?query=${search}`;
+              // window.location.href = `/search?query=${search}`;
               // router.replace(`/s/${values.search}`);
             }}
           >
