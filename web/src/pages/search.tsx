@@ -1,11 +1,3 @@
-import { Router, useRouter } from 'next/router';
-import { withUrqlClient } from 'next-urql';
-import { useEffect, useMemo, useState } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
-
-import Divider from '@/ui/Divider';
-import Seo from '@/ui/Seo';
-
 import Posts from '@/components/Posts/Posts';
 import SectionContainer from '@/components/SectionContainer';
 import {
@@ -13,14 +5,20 @@ import {
   PostSnippetFragment,
   usePostsBySearchQuery,
 } from '@/generated/graphql';
+import Divider from '@/ui/Divider';
+import Seo from '@/ui/Seo';
 import { createUrqlClient } from '@/utils/createUrqlClient';
+import { withUrqlClient } from 'next-urql';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const LIMIT = 20;
 const Results = () => {
   const router = useRouter();
   const [variables, setVariables] = useState<GetPostsBySearchInput>({
     limit: LIMIT,
-    query: router?.query?.query,
+    query: router?.query?.query as string,
     cursor: null,
   });
 
@@ -32,7 +30,6 @@ const Results = () => {
 
   useEffect(() => {
     setVariables({ ...variables, query: router?.query?.query, cursor: null });
-    console.log('query changed', variables);
   }, [router?.query?.query]);
 
   const onLoadMore = () => {

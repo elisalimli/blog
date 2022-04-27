@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import { Formik, Form } from 'formik';
+import defaultTheme from 'tailwindcss/defaultTheme';
+
+import clsxm from '@/lib/clsxm';
 
 import Divider from '@/ui/Divider';
 
 import Menu from '@/components/Menu/Menu';
+import NavbarBrand from '@/components/Navbar/NavbarBrand';
 import NavLinks from '@/components/Navbar/NavLinks';
+import SearchBar from '@/components/Navbar/SearchBar';
 import { isServer } from '@/utils/isServer';
 
-import NavbarBrand from '@/components/Navbar/NavbarBrand';
-import defaultTheme from 'tailwindcss/defaultTheme';
-import InputField from '../../ui/InputField';
-import { useRouter } from 'next/router';
-import clsxm from '../../lib/clsxm';
-
 const Header = () => {
-  const router = useRouter();
   const [mobile, setMobile] = useState(false);
   const screen = useMediaQuery({ maxWidth: defaultTheme?.screens?.lg });
 
@@ -34,25 +31,7 @@ const Header = () => {
           ])}
         >
           <NavbarBrand />
-          <Formik
-            initialValues={{ search: '' }}
-            onSubmit={async ({ search }, { setErrors }) => {
-              // router.push(`/search?query=${values.search}`);
-              router.push({
-                pathname: '/search',
-                query: { query: search },
-              });
-
-              // window.location.href = `/search?query=${search}`;
-              // router.replace(`/s/${values.search}`);
-            }}
-          >
-            {() => (
-              <Form className='mr-4 w-[85%]'>
-                <InputField name='search' placeholder='Search' />
-              </Form>
-            )}
-          </Formik>
+          <SearchBar />
         </div>
         <div className='ml-auto flex items-center'>
           {mobile ? <Menu /> : <NavLinks />}
