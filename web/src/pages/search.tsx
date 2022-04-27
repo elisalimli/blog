@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
 import Divider from '@/ui/Divider';
@@ -18,14 +18,9 @@ import { createUrqlClient } from '@/utils/createUrqlClient';
 const LIMIT = 20;
 const Results = () => {
   const router = useRouter();
-
-  const searchQuery = useMemo(
-    () => router?.query?.query,
-    [router?.query?.query]
-  );
   const [variables, setVariables] = useState<GetPostsBySearchInput>({
     limit: LIMIT,
-    query: searchQuery || null,
+    query: router?.query?.query,
     cursor: null,
   });
 
@@ -34,13 +29,16 @@ const Results = () => {
       input: variables,
     },
   });
+  console.log(variables);
 
+  useEffect(() => {
+    setVariables({ ...variables, query: router?.query?.query });
+  }, [router?.query?.query]);
   const onLoadMore = () => {
     const posts = data?.postsBySearch?.posts;
     if (posts)
       setVariables({
         ...variables,
-        limit: LIMIT,
         cursor: posts[posts.length - 1].createdAt,
       });
   };
@@ -50,7 +48,7 @@ const Results = () => {
       {/* @todo change this */}
       <Seo title='Search' description='Search result' />
       <h1 className='mb-2 text-gray-900'>
-        Search results for &apos;{searchQuery}&apos;
+        Search results for &apos;{router?.query?.query}&apos;
       </h1>
       <Divider className='mt-8 mb-10' />
       <InfiniteScroll

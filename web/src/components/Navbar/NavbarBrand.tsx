@@ -10,7 +10,7 @@ const NavbarBrand = () => {
           <div className='mr-3'>
             <LgLogo width={36} height={36} />
           </div>
-          <h1 className='hidden h-6 items-center text-2xl font-semibold  sm:flex sm:items-center'>
+          <h1 className='hidden w-48 items-center text-2xl font-semibold  sm:flex sm:items-center'>
             {defaultMeta.title}
           </h1>
         </div>
