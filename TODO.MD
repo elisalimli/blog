@@ -1,3 +1,5 @@
+- [ ] Remove 'getPostsByCategory' and concat it with search
+    - [ ] Remove also 'getPostsByTag'
 - [ ] Add Search Posts
     - [x] Create searchbar in navbar
         - [x] Add pagination to it
