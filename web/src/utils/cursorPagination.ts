@@ -13,9 +13,11 @@ export const cursorPagination = (fieldKey: string): Resolver => {
 
     const isItInTheCache = cache.resolve(entityKey, parentFieldKey) as string;
     const results: string[] = [];
+    // for refetching queries if is not in cache
     info.partial = !isItInTheCache;
     let hasMore = false;
 
+    // for searching
     if (!fieldArgs?.input?.cursor)
       fieldInfos = fieldInfos.filter(
         (fi: any) => fi?.arguments?.input?.query == fieldArgs?.input?.query

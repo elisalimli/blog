@@ -1,7 +1,8 @@
-import { Formik, Form } from 'formik';
+import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import React from 'react';
-import InputField from '../../ui/InputField';
+
+import InputField from '@/ui/InputField';
 
 const SearchBar: React.FC = () => {
   const router = useRouter();
@@ -16,7 +17,7 @@ const SearchBar: React.FC = () => {
       }}
     >
       {() => (
-        <Form className='mr-4 w-[85%]'>
+        <Form autoComplete='off' className='mr-4 w-[85%]'>
           <InputField name='search' placeholder='Search' />
         </Form>
       )}

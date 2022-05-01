@@ -1,8 +1,9 @@
 - [ ] Add Search Posts
     - [x] Create searchbar in navbar
+        - [x] Fix autofill input(background color)
         - [x] Add pagination to it
         - [x] Style it a bit more
-            - [ ] Searching doesn't work in frontend
+            - [x] Searching doesn't work in frontend
             - [x] Title doesn't fit in its width -> fix that
         - [x] Change /s page to /search?query="..." page 
     - [ ] Find a way filtering posts by tag in search query 

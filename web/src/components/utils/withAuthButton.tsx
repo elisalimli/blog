@@ -19,7 +19,11 @@ export const withAuthButton = (WrappedComponent: React.FC) => {
 
     if (data?.me) {
       content = (
-        <Button className='w-full sm:w-fit' onClick={() => logout()}>
+        <Button
+          className='w-full sm:w-fit'
+          variant='dark'
+          onClick={() => logout()}
+        >
           Logout
         </Button>
       );

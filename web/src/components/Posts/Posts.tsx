@@ -1,10 +1,10 @@
-import Post from '@/components/Posts/Post';
+import Post from '@/components/Posts/Post/Post';
 import { PostSnippetFragment } from '@/generated/graphql';
 import React from 'react';
 import Divider from '@/ui/Divider';
 import PostSection from '@/components/Posts/PostSection/PostSection';
 import SectionHeader from '@/components/Posts/PostSection/SectionHeader';
-import Skeleton from '@/components/Posts/PostSkeleton';
+import Skeleton from '@/components/Posts/Post/PostSkeleton';
 
 interface PostProps {
   posts: PostSnippetFragment[];

@@ -30,6 +30,8 @@ const Header = () => {
             mobile ? 'w-full' : 'min-w-[60%] max-w-[90%]',
           ])}
         >
+          {/* <span className='notranslate'>&#8203;</span> */}
+
           <NavbarBrand />
           <SearchBar />
         </div>
