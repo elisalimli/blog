@@ -1,3 +1,9 @@
+- [ ] Complete admin panel
+    - [ ] create post 
+        - [ ] create modal for creating post
+    - [ ] remove post
+    - [ ] edit post(with modal??)
+
 - [ ] Remove 'getPostsByCategory' and concat it with search
     - [ ] Remove also 'getPostsByTag'
 - [x] Add Search Posts
