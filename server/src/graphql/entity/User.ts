@@ -1,5 +1,5 @@
-import { ObjectType, Field } from "type-graphql";
-import { Post, Tag } from "../../../generated";
+import { Role } from "@prisma/client";
+import { Field, ObjectType } from "type-graphql";
 
 @ObjectType()
 export class UserEntity {
@@ -14,4 +14,7 @@ export class UserEntity {
 
   @Field()
   picture?: string;
+
+  @Field()
+  role?: Role;
 }

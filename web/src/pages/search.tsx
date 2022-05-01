@@ -29,7 +29,11 @@ const Results = () => {
   });
 
   useEffect(() => {
-    setVariables({ ...variables, query: router?.query?.query, cursor: null });
+    setVariables({
+      ...variables,
+      query: router?.query?.query as string,
+      cursor: null,
+    });
   }, [router?.query?.query]);
 
   const onLoadMore = () => {
@@ -45,8 +49,11 @@ const Results = () => {
     <SectionContainer>
       {/* @todo change this */}
       <Seo title='Search' description='Search result' />
-      <h1 className='mb-2 text-gray-900'>
-        Search results for &apos;{router?.query?.query}&apos;
+      <h1 className='mb-2 break-all text-gray-900'>
+        Search results for{' '}
+        <span className='text-gray-800 underline'>
+          &apos;{router?.query?.query?.slice(0, 20)}&apos;
+        </span>
       </h1>
       <Divider className='mt-8 mb-10' />
       <InfiniteScroll

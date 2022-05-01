@@ -5,7 +5,7 @@ export const isAuthor: MiddlewareFn<MyContext> = async (
   { context: { prisma, req } },
   next
 ) => {
-  const { id } = req.user;
+  const { id } = req.user as any;
 
   const user = await prisma.user.findUnique({
     where: { id },

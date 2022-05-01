@@ -1,5 +1,5 @@
 import { Ctx, Query, Resolver } from "type-graphql";
-import { Category, Post } from "../../../../../generated";
+import { Category } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
 
 @Resolver(Category)

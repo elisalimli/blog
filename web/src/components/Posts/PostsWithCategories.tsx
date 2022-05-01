@@ -4,11 +4,11 @@ import Post from '@/components/Posts/Post/Post';
 import PostSection from '@/components/Posts/PostSection/PostSection';
 import { usePostsByCategoryQuery } from '@/generated/graphql';
 
-import SectionHeader from './PostSection/SectionHeader';
-import Categories from '../Categories/Categories';
-import CenteredLoading from '../CenteredLoading';
-import { useCategoryIdStore } from '../../stores/useCategoryIdStore';
-import Divider from '../../ui/Divider';
+import SectionHeader from '@/components/Posts/PostSection/SectionHeader';
+import Categories from '@/components/Categories/Categories';
+import CenteredLoading from '@/components/CenteredLoading';
+import { useCategoryIdStore } from '@/stores/useCategoryIdStore';
+import Divider from '@/ui/Divider';
 
 const PostsWithCategories = () => {
   const { categoryId } = useCategoryIdStore();

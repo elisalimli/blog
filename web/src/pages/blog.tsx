@@ -14,7 +14,7 @@ import SectionContainer from '../components/SectionContainer';
 import Divider from '../ui/Divider';
 import Seo from '../ui/Seo';
 
-const LIMIT = 15;
+const LIMIT = 16;
 
 const BlogPage = () => {
   const [variables, setVariables] = useState<GetPostsInput>({
