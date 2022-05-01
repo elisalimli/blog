@@ -1,11 +1,12 @@
 import { Role } from "@prisma/client";
-import { Ctx, FieldResolver, Query, Resolver } from "type-graphql";
+import { Ctx, FieldResolver, Query, Resolver, Root } from "type-graphql";
+import { User } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
 import { UserEntity } from "../../../entity/User";
 
 @Resolver(UserEntity)
 export class MeResolver {
-  @Query(() => String, { nullable: true })
+  @Query(() => UserEntity, { nullable: true })
   me(@Ctx() { req }: MyContext) {
     //@ts-ignore
     const user = req?.user?._json as UserEntity;
@@ -15,8 +16,14 @@ export class MeResolver {
     return user;
   }
   @FieldResolver()
-  role() {
-    // ...
-    return Role.ADMIN;
+  async role(@Root() root: UserEntity, @Ctx() { prisma }: MyContext) {
+    console.log(root);
+    const currentUser = await prisma.user.findUnique({
+      where: { id: root.id },
+      select: {
+        role: true,
+      },
+    });
+    return currentUser?.role;
   }
 }
