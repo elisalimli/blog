@@ -1,6 +1,7 @@
 import { Form, Formik } from 'formik';
 import { useRouter } from 'next/router';
 import React from 'react';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 import InputField from '@/ui/InputField';
 
@@ -18,7 +19,7 @@ const SearchBar: React.FC = () => {
     >
       {() => (
         <Form autoComplete='off' className='mr-4 w-[85%]'>
-          <InputField name='search' placeholder='Search' />
+          <InputField Icon={AiOutlineSearch} name='search' placeholder='Search' />
         </Form>
       )}
     </Formik>

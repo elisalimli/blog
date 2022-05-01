@@ -46,13 +46,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           'transition-colors duration-75',
           //#region  //*=========== Variants ===========
           [
-            variant === 'primary' && [
-              'bg-primary-500 text-white',
-              'border border-primary-600',
-              'hover:bg-primary-600 hover:text-white',
-              'active:bg-primary-500',
-              'disabled:bg-primary-400 disabled:hover:bg-primary-400',
-            ],
             variant === 'outline' && [
               'text-primary-500',
               'border border-primary-500',
@@ -73,7 +66,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'hover:bg-gray-100 hover:text-dark',
               'active:bg-white/80 disabled:bg-gray-200',
             ],
-            variant === 'dark' && [
+            variant === 'primary' && [
               'bg-gray-900 text-white',
               'border border-gray-600',
               'hover:bg-gray-800 active:bg-gray-700 disabled:bg-gray-700',

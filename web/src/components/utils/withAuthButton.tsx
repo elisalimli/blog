@@ -21,7 +21,7 @@ export const withAuthButton = (WrappedComponent: React.FC) => {
       content = (
         <Button
           className='w-full sm:w-fit'
-          variant='dark'
+          variant='primary'
           onClick={() => logout()}
         >
           Logout

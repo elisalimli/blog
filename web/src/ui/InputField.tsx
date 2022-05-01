@@ -4,12 +4,12 @@ import React, {
   InputHTMLAttributes,
   TextareaHTMLAttributes,
 } from 'react';
-import { AiOutlineSearch } from 'react-icons/ai';
 import clsxm from '../lib/clsxm';
 
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> &
   TextareaHTMLAttributes<HTMLTextAreaElement> & {
     label?: string | boolean;
+    Icon?: any;
     name: string;
     textarea?: boolean;
   };
@@ -20,7 +20,7 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> &
 export const textFieldStyle = {
   inputWrapper:
     'w-full bg-white text-base rounded-lg border border-gray-200 outline-none text-gray-700 py-1 leading-8 transition-colors duration-200 ease-in-out',
-  input: 'w-full focus:outline-none pr-2',
+  input: 'w-full focus:outline-none px-2',
   error: 'text-red-600 mt-2 text-sm',
   label: 'mt-4 font-medium',
 };
@@ -29,6 +29,7 @@ const InputField: React.FC<InputFieldProps> = ({
   label = false,
   textarea,
   size: _,
+  Icon,
   ...props
 }) => {
   const [field, { error }] = useField(props);
@@ -46,9 +47,9 @@ const InputField: React.FC<InputFieldProps> = ({
           textFieldStyle.inputWrapper,
         ])}
       >
-        {true && (
+        {Icon && (
           <button type='submit' className='outline-none' tabIndex={-1}>
-            <AiOutlineSearch className='mx-2 ' size={25} />
+            <Icon className='ml-2' size={25} />
           </button>
         )}
 
