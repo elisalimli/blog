@@ -1,3 +1,5 @@
+- [ ] Remove 'getPostsByCategory' and concat it with search
+    - [ ] Remove also 'getPostsByTag'
 - [ ] Add Search Posts
     - [x] Create searchbar in navbar
         - [x] Fix autofill input(background color)
@@ -8,7 +10,7 @@
         - [x] Change /s page to /search?query="..." page 
     - [ ] Find a way filtering posts by tag in search query 
     - [ ] Fix postByTag page
-
+- [ ] Add search autocompletion(https://stackoverflow.com/questions/48949638/postgresql-fastest-index-for-autocomplete)
 
 
 ------------------
