@@ -10,6 +10,7 @@ import PostSidebar from '@/components/Posts/PostSidebar';
 import { usePostQuery } from '@/generated/graphql';
 import { PostSnippetFragment } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
+import { withLayout } from '@/components/utils/withLayout';
 
 const Post = () => {
   const router = useRouter();
@@ -43,4 +44,6 @@ const Post = () => {
     </>
   );
 };
-export default withUrqlClient(createUrqlClient, { ssr: true })(Post);
+export default withUrqlClient(createUrqlClient, { ssr: true })(
+  withLayout(Post)
+);

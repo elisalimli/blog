@@ -1,7 +1,3 @@
-import { withUrqlClient } from 'next-urql';
-import React, { useState } from 'react';
-import InfiniteScroll from 'react-infinite-scroll-component';
-
 import Posts from '@/components/Posts/Posts';
 import {
   GetPostsInput,
@@ -9,8 +5,10 @@ import {
   usePostsQuery,
 } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
-
-import SectionContainer from '../components/SectionContainer';
+import { withUrqlClient } from 'next-urql';
+import React, { Fragment, useState } from 'react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { withLayout } from '@/components/utils/withLayout';
 import Divider from '../ui/Divider';
 import Seo from '../ui/Seo';
 
@@ -36,7 +34,7 @@ const BlogPage = () => {
   };
 
   return (
-    <SectionContainer>
+    <Fragment>
       <Seo title='Home' description='Home' />
       <h1 className='mb-2 text-gray-900'>All Posts</h1>
       <p className='mb-3 text-lg text-gray-500'>
@@ -55,7 +53,9 @@ const BlogPage = () => {
           posts={data?.posts?.posts as PostSnippetFragment[]}
         />
       </InfiniteScroll>
-    </SectionContainer>
+    </Fragment>
   );
 };
-export default withUrqlClient(createUrqlClient, { ssr: true })(BlogPage);
+export default withUrqlClient(createUrqlClient, { ssr: true })(
+  withLayout(BlogPage)
+);

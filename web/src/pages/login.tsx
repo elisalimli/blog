@@ -6,7 +6,8 @@ import LoginPage from '@/components/Login/LoginPage';
 import { useMeQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 
-import CenteredLoading from '../components/CenteredLoading';
+import CenteredLoading from '@/components/CenteredLoading';
+import { withLayout } from '@/components/utils/withLayout';
 
 const Login = () => {
   const router = useRouter();
@@ -19,4 +20,6 @@ const Login = () => {
   return <LoginPage />;
 };
 
-export default withUrqlClient(createUrqlClient, { ssr: false })(Login);
+export default withUrqlClient(createUrqlClient, { ssr: false })(
+  withLayout(Login)
+);

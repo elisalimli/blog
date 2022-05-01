@@ -16,9 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <NextNProgress />
 
-      <LayoutWrapper>
-        <Component {...pageProps} />
-      </LayoutWrapper>
+      <Component {...pageProps} />
     </>
   );
 }

@@ -1,6 +1,4 @@
-import { Role } from "@prisma/client";
 import { Ctx, FieldResolver, Query, Resolver, Root } from "type-graphql";
-import { User } from "../../../../../generated";
 import { MyContext } from "../../../../utils/MyContext";
 import { UserEntity } from "../../../entity/User";
 
@@ -15,6 +13,7 @@ export class MeResolver {
     if (!user?.id) return null;
     return user;
   }
+
   @FieldResolver()
   async role(@Root() root: UserEntity, @Ctx() { prisma }: MyContext) {
     console.log(root);

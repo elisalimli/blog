@@ -1,5 +1,4 @@
 import Posts from '@/components/Posts/Posts';
-import SectionContainer from '@/components/SectionContainer';
 import {
   GetPostsBySearchInput,
   PostSnippetFragment,
@@ -10,8 +9,9 @@ import Seo from '@/ui/Seo';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 import { withUrqlClient } from 'next-urql';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { withLayout } from '@/components/utils/withLayout';
 
 const LIMIT = 20;
 const Results = () => {
@@ -46,7 +46,7 @@ const Results = () => {
   };
 
   return (
-    <SectionContainer>
+    <Fragment>
       {/* @todo change this */}
       <Seo title='Search' description='Search result' />
       <h1 className='mb-2 break-all text-gray-900'>
@@ -68,7 +68,9 @@ const Results = () => {
           posts={data?.postsBySearch?.posts as PostSnippetFragment[]}
         />
       </InfiniteScroll>
-    </SectionContainer>
+    </Fragment>
   );
 };
-export default withUrqlClient(createUrqlClient, { ssr: true })(Results);
+export default withUrqlClient(createUrqlClient, { ssr: true })(
+  withLayout(Results)
+);
