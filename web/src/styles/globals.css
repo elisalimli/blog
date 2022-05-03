@@ -70,6 +70,10 @@
     @apply font-primary text-base font-bold md:text-lg;
   }
 
+  .Modal {
+    @apply top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 bg-red-500;
+  }
+
   body,
   .p {
     @apply font-primary text-sm md:text-base;

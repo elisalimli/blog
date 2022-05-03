@@ -6,6 +6,7 @@ import UnstyledLink from '@/ui/links/UnstyledLink';
 import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
+import CreatePostModal from '@/components/Modals/Post/CreatePostModal';
 
 const Admin: React.FC = () => {
   const [{ data }] = useLatestPostsQuery({
@@ -18,7 +19,9 @@ const Admin: React.FC = () => {
         <h1 className='text-5xl text-gray-800'>Posts</h1>
       </header>
       <Divider className='my-4' />
+
       <div className='space-y-8'>
+        <CreatePostModal />
         {data?.latestPosts?.map(({ url, title, id }) => {
           const ytId = useGetVideoId(url);
 

@@ -59,52 +59,6 @@ export const withSidebar = (WrappedComponent: React.FC) => {
           </div>
         </div>
         <div className='col-span-7 bg-white pl-4'>
-          {/* <Formik
-          initialValues={{ title: '', tags: '', url: '', category: '' }}
-          onSubmit={async (props) => {
-            console.log('props', props);
-            //   router.push({
-            //     pathname: '/search',
-            //     query: { query: search },
-            //   });
-          }}
-        >
-          {() => (
-            <Form className='mt-12'>
-              <header className='flex justify-between pb-8'>
-                <h1 className='h2'>Create post</h1>
-                <Button type='submit' className='px-8'>
-                  Post
-                </Button>
-              </header>
-              <InputField
-                name='title'
-                label='Title'
-                placeholder='Enter title...'
-              />
-              <Divider className='mt-2 border-transparent' />
-              <InputField
-                name='url'
-                label='Url'
-                placeholder='Enter youtube video url...'
-              />
-              <Divider className='mt-2 border-transparent' />
-
-              <Divider className='mt-2 border-transparent' />
-              <InputField
-                name='tags'
-                label='Tags'
-                placeholder='Enter video tag(s)...'
-              />
-              <Divider className='mt-2 border-transparent' />
-              <InputField
-                name='category'
-                label='Category'
-                placeholder='Enter video category'
-              />
-            </Form>
-          )}
-        </Formik> */}
           <WrappedComponent />
         </div>
       </div>
