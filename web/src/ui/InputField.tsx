@@ -35,7 +35,7 @@ const InputField: React.FC<InputFieldProps> = ({
   const [field, { error }] = useField(props);
 
   return (
-    <Fragment>
+    <div>
       {label && (
         <label className={textFieldStyle.label} htmlFor={field.name}>
           {label}
@@ -70,7 +70,7 @@ const InputField: React.FC<InputFieldProps> = ({
         )}
       </div>
       {error && <div className={textFieldStyle.error}>{error}</div>}
-    </Fragment>
+    </div>
   );
 };
 export default InputField;
