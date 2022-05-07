@@ -1,6 +1,6 @@
 import { cacheExchange } from '@urql/exchange-graphcache';
 import { Router } from 'next/router';
-import { dedupExchange, Exchange, fetchExchange } from 'urql';
+import { dedupExchange, Exchange, fetchExchange, gql } from 'urql';
 import { pipe, tap } from 'wonka';
 import { LogoutMutation, MeDocument, MeQuery } from '../generated/graphql';
 import { betterUpdateQuery } from './betterUpdateQuery';
@@ -41,6 +41,7 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
           }
         : undefined,
     },
+
     exchanges: [
       dedupExchange,
       cacheExchange({
@@ -66,6 +67,18 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
                   };
                 }
               );
+            },
+
+            createPost(result, args, cache, info) {
+              const key = 'Query';
+
+              //invalidating latest posts when new post created
+              cache
+                .inspectFields(key)
+                .filter((field) => field.fieldName === 'latestPosts')
+                .forEach((field) => {
+                  cache.invalidate(key, field.fieldName, field.arguments);
+                });
             },
           },
         },
