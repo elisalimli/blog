@@ -13,6 +13,7 @@ const HomePage = () => {
   const [{ data }] = usePostsQuery({
     variables: { input: { limit: LIMIT, cursor: null } },
   });
+  console.log('here', data);
 
   return (
     <Fragment>

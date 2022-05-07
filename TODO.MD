@@ -1,6 +1,7 @@
 - [ ] Complete admin panel
     - [ ] create post 
-        - [ ] create modal for creating post
+        - [x] create modal for creating post
+        - [ ] Add react-select for tags
     - [ ] remove post
     - [ ] edit post(with modal??)
 - [ ] Add validation to 'createPost' etc. 

@@ -26,6 +26,7 @@ const Modal: React.FC<{
       left: '50%',
       bottom: 'auto',
       transform: 'translate(-50%, -50%)',
+      height: '600px',
       width: isMobile ? '100%' : '75vw',
       maxWidth: defaultTheme!.screens!.md,
     },

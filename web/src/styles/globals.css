@@ -80,8 +80,11 @@ html {
   }
 
   /* #endregion  /**======== Typography =========== */
+
+  /* #region  /**=========== Form =========== */
+
   .label {
-    @apply mt-4 font-medium;
+    @apply mt-4 mb-1 font-medium;
   }
 
   .error {
@@ -93,13 +96,14 @@ html {
   }
 
   .inputWrapper {
-    @apply roun ded-lg flex w-full
-    items-center border border-gray-200 bg-white py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus-within:border-primary-400 focus-within:ring-1 focus-within:ring-primary-200;
+    @apply flex w-full items-center
+    rounded-lg border border-gray-200 bg-white py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus-within:border-primary-400 focus-within:ring-1 focus-within:ring-primary-200;
   }
 
   .Modal {
     @apply top-1/2 left-1/2 translate-x-1/2 translate-y-1/2 bg-red-500;
   }
+  /* #endregion  /**=========== Typography =========== */
 
   .layout {
     /* 1100px */
