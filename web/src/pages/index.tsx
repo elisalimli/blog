@@ -9,6 +9,7 @@ import { withUrqlClient } from 'next-urql';
 import React, { Fragment } from 'react';
 import { ImPlay3 } from 'react-icons/im';
 import Button from '@/ui/buttons/Button';
+import SectionHeader from '@/components/Posts/PostSection/SectionHeader';
 
 const LIMIT = 8;
 const HomePage = () => {
@@ -45,6 +46,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <SectionHeader>LATEST POSTS</SectionHeader>
 
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
       {/* <Divider className='my-8' /> */}

@@ -21,15 +21,12 @@ const Post: React.FC<PostProps> = ({
 }) => {
   const ytId = useGetVideoId(url);
   return (
-    <li className='relative max-w-full rounded-2xl rounded-b-lg bg-gray-50 shadow-sm transition duration-500 hover:scale-105'>
+    <li className='relative max-w-full rounded-2xl rounded-b-lg bg-gray-50 drop-shadow-md transition duration-500 hover:scale-105'>
       <UnstyledLink href={`/p/${id}`}>
         <div className='absolute top-0 right-0 z-10'>
           <ImPlay3 className='text-3xl text-white' />
         </div>
         <div className='relative'>
-          <div className='absolute bottom-0 right-0 z-10 flex h-10  w-full items-end justify-end space-x-1 p-1'>
-            <Tags tags={tags as TagSnippetFragment[]} />
-          </div>
           <Thumbnail ytId={ytId as string} />
         </div>
         <PostFooter date='1 week ago' title={title} views='200K views' />
