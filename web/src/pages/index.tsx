@@ -2,6 +2,8 @@ import Posts from '@/components/Posts/Posts';
 import PostsWithCategories from '@/components/Posts/PostsWithCategories';
 import { PostSnippetFragment, usePostsQuery } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
+import { ImPlay3 } from 'react-icons/im';
+
 import Seo from '@/ui/Seo';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 import { withUrqlClient } from 'next-urql';
@@ -40,8 +42,14 @@ const HomePage = () => {
         >
           <div className='absolute left-36'>
             <h1>Spider man</h1>
+
+            <Divider className='mb-1 border-transparent' />
             <strong className='ml-1 text-3xl'>Land of the free</strong>
-            <Button variant='primary'>Watch</Button>
+            <Divider className='my-1 border-transparent' />
+            <Button variant='primary' className='px-8 py-3' borderRadius='3xl'>
+              Watch
+              <ImPlay3 className='ml-2' />
+            </Button>
           </div>
         </div>
       </div>

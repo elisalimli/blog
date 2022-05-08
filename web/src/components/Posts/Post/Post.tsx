@@ -20,7 +20,6 @@ const Post: React.FC<PostProps> = ({
   post: { id, title, url, tags, isVideo },
 }) => {
   const ytId = useGetVideoId(url);
-
   return (
     <li className='relative max-w-full transition duration-500 hover:scale-105'>
       <UnstyledLink href={`/p/${id}`}>

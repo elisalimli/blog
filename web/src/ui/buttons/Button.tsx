@@ -10,13 +10,24 @@ enum ButtonVariant {
   'outline',
   'ghost',
   'light',
-  'dark',
+}
+
+enum BorderRadiusVariant {
+  'none',
+  'sm',
+  'rounded',
+  'lg',
+  'xl',
+  '2xl',
+  '3xl',
+  'full',
 }
 
 type ButtonProps = {
   isLoading?: boolean;
   isDarkBg?: boolean;
   variant?: keyof typeof ButtonVariant;
+  borderRadius?: keyof typeof BorderRadiusVariant;
 } & React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -27,6 +38,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled: buttonDisabled,
       isLoading,
       variant = 'primary',
+      borderRadius = 'md',
       isDarkBg = false,
       ...rest
     },
@@ -40,7 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'inline-flex  items-center justify-center rounded-md px-4 py-2 font-semibold',
+          'rounded-  inline-flex items-center justify-center px-4 py-2 font-semibold',
           buttonFocusClass,
           'shadow-sm',
           'transition-colors duration-75',
@@ -73,6 +85,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ],
           ],
           //#endregion  //*======== Variants ===========
+          `rounded-${borderRadius}`,
           'disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',

@@ -104,6 +104,7 @@ const CreatePostModal = () => {
                   maxMenuHeight={200}
                   name='category'
                   onChange={(myCategoriesArr) =>
+                    // for formik
                     setFieldValue('category', myCategoriesArr)
                   }
                   options={categoriesArr}

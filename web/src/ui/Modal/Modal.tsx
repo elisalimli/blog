@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
 import ReactModal from 'react-modal';
 import { useMediaQuery } from 'react-responsive';
@@ -18,6 +19,8 @@ const Modal: React.FC<{
   Footer: React.FC;
 } = ({ children, openModalText }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  // @ts-ignore
   const isMobile = useMediaQuery({ maxWidth: defaultTheme!.screens!.md });
 
   const customStyles: ReactModal.Styles = {
@@ -28,6 +31,7 @@ const Modal: React.FC<{
       transform: 'translate(-50%, -50%)',
       height: '600px',
       width: isMobile ? '100%' : '75vw',
+      // @ts-ignore
       maxWidth: defaultTheme!.screens!.md,
     },
     overlay: {
