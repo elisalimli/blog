@@ -1,24 +1,16 @@
+import { PostSnippetFragment } from '@/generated/graphql';
+import UnstyledLink from '@/ui/links/UnstyledLink';
+import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
 import { ImPlay3 } from 'react-icons/im';
-
-import Button from '@/ui/buttons/Button';
-import UnstyledLink from '@/ui/links/UnstyledLink';
-
-import NextImage from '@/components/NextImage';
-import { PostSnippetFragment, TagSnippetFragment } from '@/generated/graphql';
-import { useGetVideoId } from '@/utils/useGetVideoId';
-import Tags from '@/components/Posts/Post/Tags/Tags';
-import Thumbnail from './Thumbnail';
-import AuthorPhoto from './AuthorPhoto';
-import PostFooter from './PostFooter';
+import PostFooter from '@/components/Posts/Post/PostFooter';
+import Thumbnail from '@/components/Posts/Post/Thumbnail';
 
 interface PostProps {
   post: PostSnippetFragment;
 }
 
-const Post: React.FC<PostProps> = ({
-  post: { id, title, url, tags, isVideo },
-}) => {
+const Post: React.FC<PostProps> = ({ post: { id, title, url } }) => {
   const ytId = useGetVideoId(url);
   return (
     <li className='relative max-w-full rounded-2xl rounded-b-lg bg-gray-50 drop-shadow-md transition duration-500 hover:scale-105'>
