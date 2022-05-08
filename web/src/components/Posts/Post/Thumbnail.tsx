@@ -11,11 +11,12 @@ const Thumbnail: React.FC<ThumbnailProps> = ({ ytId }) => {
     <NextImage
       useSkeleton
       src={`http://i.ytimg.com/vi/${ytId}/mqdefault.jpg`}
-      width={320}
-      height={180}
+      width={250}
+      height={160}
       objectFit='cover' // change to suit your needs
       className='w-full'
-      alt='Icon'
+      imgClassName='rounded-lg rounded-b-none'
+      alt='Post image'
     />
   );
 };

@@ -11,7 +11,7 @@ const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
     <div className='bg-gray-100'>
       <SectionContainer>
         <Navbar />
-        <div className='flex min-h-screen flex-col justify-between'>
+        <div className=''>
           <main>{children}</main>
           <div>
             <Divider className='my-4' />
