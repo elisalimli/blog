@@ -7,17 +7,13 @@ const HomePageHeader = () => {
   return (
     <div
       style={{
+        // @todo change this
         backgroundImage:
           'url(https://cdn.britannica.com/21/195821-050-7860049D/Baku-blend-Azerbaijan-skyscrapers-buildings.jpg)',
       }}
       className='mb-8 rounded-3xl text-white'
     >
-      <div
-        className='relative flex h-[300px] w-full flex-col items-center justify-center rounded-3xl'
-        style={{
-          backgroundImage: 'linear-gradient(180deg,rgba(51,51,51,0),#484747)',
-        }}
-      >
+      <div className='imgBottomShadow relative flex h-80 w-full flex-col items-center justify-center rounded-3xl'>
         <div className='absolute left-36'>
           <h1>Spider man</h1>
 

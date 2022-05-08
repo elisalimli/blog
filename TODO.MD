@@ -1,7 +1,10 @@
+- [] Complete home page categories
+   - [ ] Refactor code 
+
 - [ ] Complete admin panel
     - [ ] create post 
         - [x] create modal for creating post
-        - [ ] Add react-select for tags
+        - [x] Add react-select for tags
     - [ ] remove post
     - [ ] edit post(with modal??)
 - [ ] Add validation to 'createPost' etc. 
