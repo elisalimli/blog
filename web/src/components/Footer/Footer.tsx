@@ -1,9 +1,8 @@
-import React from 'react';
-
+import SocialLinks from '@/components/Footer/SocialLinks';
 import Divider from '@/ui/Divider';
 import LgLogo from '@/ui/icons/LogoIcon';
-
-import SocialLinks from '@/components/Footer/SocialLinks';
+import React from 'react';
+import UnderlineLink from '@/ui/links/UnderlineLink';
 
 const Footer: React.FC = () => {
   return (
@@ -15,6 +14,12 @@ const Footer: React.FC = () => {
       <LgLogo className='my-4' width={24} height={24} />
       <p className='mb-12 text-sm text-gray-400'>
         &copy; {new Date().getFullYear()} All Rights Reserved.
+      </p>
+      <p className='mb-12 text-sm text-gray-400'>
+        Developed by{' '}
+        <UnderlineLink href='https://github.com/alisalim17/'>
+          Ali Salimli
+        </UnderlineLink>
       </p>
     </footer>
   );

@@ -29,6 +29,7 @@ html {
   --color-primary-700: rgb(var(--tw-color-primary-700)); /* #0369a1 */
   --color-primary-800: rgb(var(--tw-color-primary-800)); /* #075985 */
   --color-primary-900: rgb(var(--tw-color-primary-900)); /* #0c4a6e */
+  --color-dark: rgb(var(--tw-color-primary-900)); /* #0c4a6e */
   /* #endregion  /**======== Primary Color =========== */
 }
 
@@ -145,4 +146,17 @@ html {
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
   }
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-pagination-bullet {
+  background-color: #222222 !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 30px !important;
+  border-radius: 5px !important;
 }
