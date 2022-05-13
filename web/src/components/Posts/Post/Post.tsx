@@ -12,6 +12,7 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = ({ post: { id, title, url } }) => {
   const ytId = useGetVideoId(url);
+  // changin post url only when post's id has changed
   const postURL = useMemo(() => `/p/${id}`, [id]);
   return (
     <li className='relative max-w-full rounded-2xl rounded-b-lg bg-gray-50 drop-shadow-sm transition duration-500 hover:scale-105'>

@@ -1,21 +1,14 @@
 import CenteredLoading from '@/components/CenteredLoading';
 import { useCategoriesQuery } from '@/generated/graphql';
 import React from 'react';
-import { useMediaQuery } from 'react-responsive';
 import { Pagination } from 'swiper';
-import Image from '@/../public/images/new-york.jpg';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-import defaultTheme, { width } from 'tailwindcss/defaultTheme';
-import NextImage from '../NextImage';
 
 const Categories: React.FC = () => {
-  //@todo make this hook
-  const isMobile = useMediaQuery({ maxWidth: defaultTheme?.screens?.md });
   const [{ data, fetching }] = useCategoriesQuery();
   if (fetching) {
     return <CenteredLoading />;

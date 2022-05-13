@@ -54,11 +54,9 @@ const Dropdown: React.FC<DropdownProps> = ({
         <div
           onMouseLeave={onHover ? () => setOpen(false) : undefined}
           onMouseEnter={onHover ? () => setOpen(true) : undefined}
-          className='absolute -left-1/2 top-9 z-50'
+          className='absolute z-50'
         >
-          <div
-            className={`${fixed ? 'fixed -translate-x-full transform' : ''}`}
-          >
+          <div className={`${fixed ? 'fixed -translate-x-10 transform' : ''}`}>
             <div
               ref={wrapperRef}
               style={{

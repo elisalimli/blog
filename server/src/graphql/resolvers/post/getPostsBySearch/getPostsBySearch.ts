@@ -34,6 +34,7 @@ export class GetPostsBySearchResolver {
     const posts = await prisma.$queryRaw<PostEntity[]>`
     SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags FROM post p
     join posts_categories pc on pc."postId" = p.id
+    join category c on c.id = pc."categoryId"
     join categories_tags ct on ct."categoryId" =  pc."categoryId"
     join tag t on t.id = ct."tagId"
     ${cursor || query ? Prisma.sql`WHERE` : Prisma.empty}
@@ -42,7 +43,7 @@ export class GetPostsBySearchResolver {
     ${
       query
         ? Prisma.sql`
-         to_tsvector(t.name  || ' ' || p.title || ' ' || p.url) @@ plainto_tsquery(${query})
+         to_tsvector(t.name  || ' ' || p.title || ' ' || p.url  || ' ' || c.name) @@ plainto_tsquery(${query})
           `
         : Prisma.empty
     }

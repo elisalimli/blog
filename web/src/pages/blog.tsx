@@ -1,18 +1,29 @@
 import Posts from '@/components/Posts/Posts';
+import { withLayout } from '@/components/utils/withLayout';
 import {
   GetPostsInput,
   PostSnippetFragment,
+  useCategoriesQuery,
   usePostsQuery,
 } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 import { withUrqlClient } from 'next-urql';
 import React, { Fragment, useState } from 'react';
+import { FiChevronDown } from 'react-icons/fi';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { withLayout } from '@/components/utils/withLayout';
+import Button from '../ui/buttons/Button';
 import Divider from '../ui/Divider';
+import Dropdown from '../ui/Dropdown/Dropdown';
+import DropdownElement from '../ui/Dropdown/DropdownElement';
 import Seo from '../ui/Seo';
 
 const LIMIT = 16;
+
+const dropdownButton = () => (
+  <Button variant='ghost'>
+    All Categories <FiChevronDown />
+  </Button>
+);
 
 const BlogPage = () => {
   const [variables, setVariables] = useState<GetPostsInput>({
@@ -20,6 +31,7 @@ const BlogPage = () => {
 
     cursor: null,
   });
+  const [{ data: categoriesData }] = useCategoriesQuery();
   const [{ data, stale }] = usePostsQuery({
     variables: { input: variables },
   });
@@ -36,10 +48,16 @@ const BlogPage = () => {
   return (
     <Fragment>
       <Seo title='Home' description='Home' />
-      <h1 className='mb-2 text-gray-900'>All Posts</h1>
-      <p className='mb-3 text-lg text-gray-500'>
-        A blog created with Next.js and Tailwind.css
-      </p>
+      <section className='flex items-center justify-between '>
+        <h1 className='mb-2 font-medium text-gray-900'>Blog</h1>
+        <Dropdown button={dropdownButton}>
+          {categoriesData?.categories?.map(({ name, id }) => (
+            <DropdownElement key={`dropdown-category-${id}`}>
+              <span className='capitalize'>{name}</span>
+            </DropdownElement>
+          ))}
+        </Dropdown>
+      </section>
       <Divider className='mt-8 mb-10' />
       <InfiniteScroll
         loader={undefined}
