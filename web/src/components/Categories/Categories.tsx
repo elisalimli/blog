@@ -58,7 +58,7 @@ const Categories: React.FC = () => {
               <img
                 className='rounded-md'
                 height={400}
-                src='https://www.travelgram.com/content/img/photo/new-york.jpg'
+                src='http://www.travelgram.com/content/img/photo/new-york.jpg'
                 alt='Paris'
               />
             </div>
