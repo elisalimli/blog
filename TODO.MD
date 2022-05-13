@@ -8,8 +8,8 @@
     - [ ] remove post
     - [ ] edit post(with modal??)
 - [ ] Add validation to 'createPost' etc. 
-- [ ] Remove 'getPostsByCategory' and concat it with search
-    - [ ] Remove also 'getPostsByTag'
+- [x] Remove 'getPostsByCategory' and concat it with search
+    - [x] Remove also 'getPostsByTag'
 - [x] Add Search Posts
     - [x] Create searchbar in navbar
         - [x] Fix autofill input(background color)
