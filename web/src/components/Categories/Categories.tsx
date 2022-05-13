@@ -26,15 +26,6 @@ const Categories: React.FC = () => {
       >
         {data?.categories?.map((c) => (
           <SwiperSlide style={{ height: 500 }} key={`category-${c.id}`}>
-            {/* <NextImage
-              useSkeleton
-              width={250}
-              objectFit='contain' // change to suit your needs
-              className='w-full'
-              imgClassName='rounded-lg rounded-b-none'
-              alt='Post image'
-              src={Image}
-            /> */}
             {/* <div>{c.name}</div> */}
             <div className='relative'>
               <div
@@ -50,9 +41,10 @@ const Categories: React.FC = () => {
               </div>
               <img
                 className='rounded-md'
+                alt={`category(${c.name}) image`}
+                title={c.name.toLowerCase()}
                 height={400}
                 src='http://www.travelgram.com/content/img/photo/new-york.jpg'
-                alt='Paris'
               />
             </div>
           </SwiperSlide>

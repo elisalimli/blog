@@ -1,5 +1,0 @@
-query PostsByCategory($input: GetPostsByCategoryInput!) {
-  postsByCategory(input: $input) {
-      ...PostSnippet
-  }
-}

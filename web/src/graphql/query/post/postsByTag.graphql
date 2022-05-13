@@ -1,5 +1,0 @@
-query PostsByTag($input: GetPostsByTagInput!) {
-  postsByTag(input: $input) {
-      ...PostSnippet
-  }
-}

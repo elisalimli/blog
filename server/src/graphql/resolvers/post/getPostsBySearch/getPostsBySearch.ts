@@ -31,6 +31,8 @@ export class GetPostsBySearchResolver {
     const realLimitPlusOne = realLimit + 1;
 
     const { cursor, query } = input;
+
+    // searching post by (category,title,post url,name)
     const posts = await prisma.$queryRaw<PostEntity[]>`
     SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags FROM post p
     join posts_categories pc on pc."postId" = p.id

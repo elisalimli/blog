@@ -50,7 +50,7 @@ const BlogPage = () => {
       <Seo title='Home' description='Home' />
       <section className='flex items-center justify-between '>
         <h1 className='mb-2 font-medium text-gray-900'>Blog</h1>
-        <Dropdown button={dropdownButton}>
+        <Dropdown fixed={false} button={dropdownButton}>
           {categoriesData?.categories?.map(({ name, id }) => (
             <DropdownElement key={`dropdown-category-${id}`}>
               <span className='capitalize'>{name}</span>
