@@ -1,10 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600&display=swap');
 @tailwind base;
 @tailwind utilities;
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  --scrollbarBG: #cfd8dc;
+  --thumbBG: #b8b7b7;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+}
+
+/* #region  /**=========== Scrollbar =========== */
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--thumbBG);
+  border-radius: 6px;
+}
+/* #endregion  /**=========== Scrollbar =========== */
 
 :root {
   /* #region  /**=========== Primary Color =========== */
@@ -75,7 +110,6 @@ html {
     @apply font-primary text-base font-bold md:text-lg;
   }
 
-  body,
   .p {
     @apply font-primary text-sm md:text-base;
   }
