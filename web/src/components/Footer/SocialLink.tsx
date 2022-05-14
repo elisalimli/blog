@@ -4,13 +4,15 @@ import { IconType } from 'react-icons/lib';
 import UnstyledLink from '@/ui/links/UnstyledLink';
 
 interface SocialLinkProps {
-  Icon: IconType;
+  as: IconType;
+  href: string;
 }
-const SocialLink: React.FC<SocialLinkProps> = ({ Icon }) => {
+const SocialLink: React.FC<SocialLinkProps> = ({ as, href }) => {
+  const Icon = as;
   return (
     <li>
-      <UnstyledLink href='https://www.instagram.com/anar_anka_reshidov/'>
-        <Icon className='text-xl' />
+      <UnstyledLink href={href}>
+        <Icon className='text-xl text-gray-400 hover:text-gray-700' />
       </UnstyledLink>
     </li>
   );

@@ -8,8 +8,8 @@ import UnstyledLink from '@/ui/links/UnstyledLink';
 import PrimaryLink from '@/ui/links/PrimaryLink';
 
 const Post: React.FC<PostSnippetFragment> = ({ title, url, id }) => {
-  const videoUrl = useMemo(() => useGetVideoId(url), [url]);
-  const postURL = useMemo(() => `/p/${id}`, [id]);
+  const videoUrl = useGetVideoId(url);
+  const postURL = `/p/${id}`;
   const description =
     'Ea velit anim est reprehenderit ea nostrud fugiat proident aliqua esse tempor ex quis do.';
   return (

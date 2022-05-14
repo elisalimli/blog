@@ -25,9 +25,7 @@ const HomePage = () => {
       <Posts posts={data?.posts?.posts as PostSnippetFragment[]} />
       <Divider className='my-8' />
       <SectionHeader>CATEGORIES</SectionHeader>
-
       <Categories />
-      {/* <PostsWithCategories /> */}
     </Fragment>
   );
 };

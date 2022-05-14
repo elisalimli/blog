@@ -1,7 +1,7 @@
 import React from 'react';
 import { FiInstagram, FiTwitter, FiYoutube } from 'react-icons/fi';
-
-import SocialLink from './SocialLink';
+import uuid from 'react-uuid';
+import SocialLink from '@/components/Footer/SocialLink';
 
 const SocialLinks: React.FC = () => {
   return (
@@ -17,10 +17,10 @@ const SocialLinks: React.FC = () => {
         },
         {
           Icon: FiYoutube,
-          href: 'https://www.instagram.com/anar_anka_reshidov/',
+          href: 'https://www.youtube.com/channel/UC5Pq3-GcY8ButVAbylT9kew',
         },
-      ].map(({ Icon }, i) => (
-        <SocialLink Icon={Icon} key={`social-${i}`} />
+      ].map(({ Icon, href }) => (
+        <SocialLink href={href} as={Icon} key={`social-${uuid()}`} />
       ))}
     </ul>
   );
