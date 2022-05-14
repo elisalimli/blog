@@ -10,10 +10,11 @@ interface PostProps {
   post: PostSnippetFragment;
 }
 
-const Post: React.FC<PostProps> = ({ post: { id, title, url } }) => {
+const Post: React.FC<PostProps> = ({ post }) => {
+  const { id, url } = post;
   const ytId = useGetVideoId(url);
   // changin post url only when post's id has changed
-  const postURL = useMemo(() => `/p/${id}`, [id]);
+  const postURL = `/p/${id}`;
   return (
     <li className='relative max-w-full rounded-2xl rounded-b-lg bg-gray-50 drop-shadow-sm transition duration-500 hover:scale-105'>
       <UnstyledLink href={postURL}>
@@ -24,12 +25,7 @@ const Post: React.FC<PostProps> = ({ post: { id, title, url } }) => {
         <div className='relative'>
           <Thumbnail ytId={ytId as string} />
         </div>
-        <PostFooter
-          date='1 week ago'
-          postURL={postURL}
-          title={title}
-          views='200K views'
-        />
+        <PostFooter post={post} postURL={postURL} />
       </UnstyledLink>
     </li>
   );

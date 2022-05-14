@@ -1,5 +1,5 @@
 import { ObjectType, Field } from "type-graphql";
-import { Post, Tag } from "../../../generated";
+import { Category, Post, Tag } from "../../../generated";
 
 @ObjectType()
 export class PostEntity extends Post {
@@ -7,8 +7,8 @@ export class PostEntity extends Post {
     nullable: true,
   })
   tags?: Tag[];
-  @Field(() => String, {
+  @Field(() => Category, {
     nullable: true,
   })
-  category?: string;
+  category?: Category;
 }

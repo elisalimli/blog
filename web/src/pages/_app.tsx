@@ -18,6 +18,8 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         />
       </Head>
       <NextNProgress />
+
+      {/* @todo fix this */}
       {/* @ts-ignore */}
       <Component {...pageProps} />
     </>

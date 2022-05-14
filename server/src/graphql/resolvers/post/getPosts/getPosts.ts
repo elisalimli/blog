@@ -13,20 +13,21 @@ export class GetPostsResolver {
     @Ctx() { prisma }: MyContext,
     @Arg("input") input: GetPostsInput
   ) {
-    const realLimit = Math.min(50, input.limit);
+    const realLimit = Math.min(50, input.limit as number);
     const realLimitPlusOne = realLimit + 1;
 
     const { cursor } = input;
     const posts = await prisma.$queryRaw<PostEntity[]>`
-    SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags FROM post p
+    SELECT p.*,json_build_object('id',c.id,'name',c.name) category FROM post p
     join posts_categories pc on pc."postId" = p.id
-    join categories_tags ct on ct."categoryId" =  pc."categoryId"
-    join tag t on t.id = ct."tagId"
+    join category c on c.id = pc."categoryId"
     ${cursor ? Prisma.sql`WHERE p."createdAt" < ${cursor}` : Prisma.empty}
-    GROUP BY p.id
+    GROUP BY p.id,c.id
     ORDER BY p."createdAt" DESC
     LIMIT ${realLimitPlusOne}
     `;
+
+    console.log(posts);
     return {
       posts: posts.slice(0, realLimit),
       hasMore: posts.length === realLimitPlusOne,

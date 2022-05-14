@@ -7,15 +7,17 @@ import Divider from '@/ui/Divider';
 import NextImage from '../NextImage';
 import UnstyledLink from '@/ui/links/UnstyledLink';
 import SocialLinks from '../Footer/SocialLinks';
+import dayjs from 'dayjs';
 
 interface PostProps {
   post: PostSnippetFragment;
 }
 
-const PostPage: React.FC<PostProps> = ({ post: { title, url } }) => {
+const PostPage: React.FC<PostProps> = ({ post: { title, url, createdAt } }) => {
   const ytId = useGetVideoId(url);
   // @todo change this author image
   const [{ data }] = useMeQuery();
+  console.log('createdAt', createdAt);
 
   return (
     <article>
@@ -32,7 +34,9 @@ const PostPage: React.FC<PostProps> = ({ post: { title, url } }) => {
             <UnstyledLink className='mb-1' href='/about'>
               Anar Reshidov
             </UnstyledLink>
-            <p className='text-gray-500'>Sep 3,2012</p>
+            <p className='text-gray-500'>
+              {dayjs(createdAt).format('MMM D, YYYY')}
+            </p>
           </div>
         </div>
         <div className='mr-2'>

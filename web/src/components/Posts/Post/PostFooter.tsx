@@ -1,17 +1,15 @@
 import ArrowLink from '@/ui/links/ArrowLink';
 import React from 'react';
+import { PostSnippetFragment } from '@/generated/graphql';
+import dayjs from 'dayjs';
 
 interface IPostFooterProps {
-  title: string;
-  views: string;
+  post: PostSnippetFragment;
   postURL: string;
-  date: string;
 }
 
 const PostFooter: React.FC<IPostFooterProps> = ({
-  title,
-  date,
-  views,
+  post: { createdAt, title },
   postURL,
 }) => {
   return (
@@ -22,9 +20,9 @@ const PostFooter: React.FC<IPostFooterProps> = ({
       {/* Subtitle(date,views) */}
       <div className='flex justify-between md:flex-col '>
         <div className='flex items-center'>
-          <p>{views}</p>
+          <p>200K views</p>
           <div className='mx-2 h-1 w-1 rounded-full bg-gray-500'></div>
-          <p>{date}</p>
+          <p>{dayjs(createdAt).format('MMM D, YYYY')}</p>
         </div>
         <ArrowLink href={postURL}>Watch</ArrowLink>
       </div>
