@@ -1,6 +1,7 @@
 - [] Complete home page categories
    - [ ] Refactor code 
 
+- [ ] When you zoom out(25%) container doesn't fit all height 
 - [ ] Complete admin panel
     - [ ] create post 
         - [x] create modal for creating post

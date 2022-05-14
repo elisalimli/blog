@@ -1,4 +1,4 @@
-import Post from '@/components/Posts/Sidebar/Post';
+import SidebarPost from '@/components/Posts/Sidebar/Post';
 import { useLatestPostsQuery } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
 import Layout from '@/ui/layout/Layout';
@@ -24,7 +24,7 @@ const LatestPosts: React.FC = () => {
       {posts?.length ? (
         <ul className='mb-2 space-y-4 divide-y '>
           {posts.map((p) => (
-            <Post key={`sidebar-latest-${p.id}`} {...p} />
+            <SidebarPost key={`sidebar-latest-${p.id}`} {...p} />
           ))}
         </ul>
       ) : (
