@@ -4,12 +4,14 @@ import passport from "passport";
 import { Strategy } from "passport-google-oauth2";
 
 const router = express.Router();
+
 passport.use(
   new Strategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-      callbackURL: "http://localhost:4000/oauth2/redirect/google",
+      //@todo fix this
+      callbackURL: process.env.CALLBACK_URL,
       passReqToCallback: true,
     },
     //@ts-ignore

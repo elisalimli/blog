@@ -17,7 +17,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ['Poppins', ...fontFamily.sans],
+        primary: ['Roboto', ...fontFamily.sans],
       },
       colors: {
         primary: {

@@ -1,4 +1,4 @@
-- [] Complete home page categories
+- [x] Complete home page categories
    - [ ] Refactor code 
 
 - [ ] When you zoom out(25%) container doesn't fit all height 

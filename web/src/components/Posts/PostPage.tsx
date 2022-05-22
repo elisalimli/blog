@@ -8,12 +8,15 @@ import NextImage from '../NextImage';
 import UnstyledLink from '@/ui/links/UnstyledLink';
 import SocialLinks from '../Footer/SocialLinks';
 import dayjs from 'dayjs';
+import Tag from './Post/Tags/Tag';
 
 interface PostProps {
   post: PostSnippetFragment;
 }
 
-const PostPage: React.FC<PostProps> = ({ post: { title, url, createdAt } }) => {
+const PostPage: React.FC<PostProps> = ({
+  post: { title, url, createdAt, tags },
+}) => {
   const ytId = useGetVideoId(url);
   // @todo change this author image
   const [{ data }] = useMeQuery();
@@ -21,7 +24,7 @@ const PostPage: React.FC<PostProps> = ({ post: { title, url, createdAt } }) => {
 
   return (
     <article>
-      <header className='flex items-center justify-between'>
+      {/* <header className='flex items-center justify-between'>
         <div className='flex'>
           <NextImage
             className='mr-4'
@@ -42,11 +45,35 @@ const PostPage: React.FC<PostProps> = ({ post: { title, url, createdAt } }) => {
         <div className='mr-2'>
           <SocialLinks />
         </div>
-      </header>
+      </header> */}
       <section>
-        <h1 className='my-8 text-5xl  text-gray-800'>{title}</h1>
+        <header className='mb-10 flex flex-col items-center'>
+          <h1 className='my-8 text-center text-5xl text-gray-800'>{title}</h1>
+          <div className='flex items-center'>
+            <NextImage
+              className='mr-4'
+              width={32}
+              height={32}
+              imgClassName='rounded-full'
+              src={data?.me?.picture as string}
+            />
+
+            <span className='flex font-medium text-gray-900'>
+              Posted by Anar Rashidov
+              <span className='flex items-center text-gray-600'>
+                <div className='mx-2 h-1 w-1 rounded-full bg-gray-400'></div>
+                {dayjs(createdAt).format('MMM D, YYYY')}
+              </span>
+            </span>
+          </div>
+          <div>
+            {tags?.map((t) => (
+              <Tag {...t} />
+            ))}
+          </div>
+        </header>
         {/* @todo add desc */}
-        <p className=' font-inter my-4 text-xl leading-8 tracking-normal text-gray-900'>
+        <p className='my-4 text-xl leading-10 tracking-normal text-gray-900'>
           5. Gerekli Sınavlara Girmek (TOEFL & Gre vs..) Yüksek lisans ve
           doktora için amerikada hemen hemen her üniversitenin şart koştuğu iki
           sınav: TOEFL ve GRE. Avrupa için ise toefl şart, gre gerekli değil. Bu

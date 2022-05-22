@@ -15,7 +15,8 @@ export const sessionMiddleware = session({
     domain: isProduction ? ".alisalimli.xyz" : undefined,
     secure: isProduction, // cookie only works in https,
   },
-  secret: "asdsadadsad",
+  // @todo env
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: false,
 });

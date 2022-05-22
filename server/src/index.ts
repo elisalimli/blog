@@ -28,7 +28,7 @@ export const main: () => any = async () => {
 
   app.use(
     cors({
-      origin: "http://localhost:3000",
+      origin: process.env.CORS_ORIGIN,
       credentials: true,
     })
   );
@@ -37,8 +37,8 @@ export const main: () => any = async () => {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(router);
-  //   for cookie
-  //   app.set("trust proxy", 1);
+  //   for cookie(production)
+  app.set("trust proxy", 1);
 
   const schema = await buildSchema({
     resolvers: [

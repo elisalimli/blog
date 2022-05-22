@@ -34,7 +34,7 @@ const Post = () => {
         description={'data?.post?.title' as string}
       />
       <div className='flex flex-col space-y-12 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0 2xl:grid-cols-7'>
-        <div className='col-span-3 rounded-xl bg-white p-8 drop-shadow-md 2xl:col-span-5'>
+        <div className='col-span-3 rounded-xl border border-gray-300 bg-white p-8 drop-shadow-md 2xl:col-span-5'>
           <PostPage post={data?.post as PostSnippetFragment} />
         </div>
         <div className='col-span-1 rounded-xl pb-2 2xl:col-span-2'>

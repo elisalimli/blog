@@ -20,6 +20,8 @@ export class CreatePostResolver {
         connectOrCreate: { create: { name: string }; where: { name: string } };
       };
     }[] = [];
+    // @todo maybe limit the number of tags to 3
+
     tags?.map((t) =>
       tagsArr.push({
         tag: {

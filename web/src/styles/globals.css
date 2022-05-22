@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
 @tailwind base;
 @tailwind utilities;
 
@@ -10,17 +11,13 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
-}
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
   --scrollbarBG: #cfd8dc;
   --thumbBG: #b8b7b7;
 }
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
   scrollbar-width: thin;
   scrollbar-color: var(--thumbBG) var(--scrollbarBG);
 }

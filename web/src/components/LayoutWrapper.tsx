@@ -8,7 +8,7 @@ import SectionContainer from '@/components/SectionContainer';
 
 const LayoutWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className='bg-gray-50'>
+    <div className='min-h-screen bg-gray-50'>
       <SectionContainer>
         <Navbar />
         <div className=''>
