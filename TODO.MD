@@ -1,4 +1,16 @@
+- [ ] Muellimden sorus category(sekil),category(secme),post page
+- [ ] Add category image 
+    - [ ] Backend
+    - [ ] Frontend
+- [ ] Post description
+    - [ ] Backend
+    - [ ] Frontend
+- [ ] Add some changes to the post page
+    - [ ] For ex. copy post link
 
+
+
+-----------------
 - [x] Complete home page categories
    - [ ] Refactor code 
 
@@ -11,19 +23,9 @@
     - [ ] remove post
     - [ ] edit post(with modal??)
 - [ ] Add validation to 'createPost' etc. 
-- [x] Remove 'getPostsByCategory' and concat it with search
-    - [x] Remove also 'getPostsByTag'
-- [x] Add Search Posts
-    - [x] Create searchbar in navbar
-        - [x] Fix autofill input(background color)
-        - [x] Add pagination to it
-        - [x] Style it a bit more
-            - [x] Searching doesn't work in frontend
-            - [x] Title doesn't fit in its width -> fix that
-        - [x] Change /s page to /search?query="..." page 
-    - [x] Find a way filtering posts by tag in search query 
-    - [x] Fix postByTag page
 - [ ] Add search autocompletion(https://stackoverflow.com/questions/48949638/postgresql-fastest-index-for-autocomplete)
+
+- [ ] Improve Searching("I finally have deployed frontend" test this statement) 
 
 
 ------------------
@@ -60,3 +62,15 @@
 - [x] Use pages for pagination
 - [x] Complete tags
 - [x] Write post queries for web
+- [x] Remove 'getPostsByCategory' and concat it with search
+    - [x] Remove also 'getPostsByTag'
+- [x] Add Search Posts
+    - [x] Create searchbar in navbar
+        - [x] Fix autofill input(background color)
+        - [x] Add pagination to it
+        - [x] Style it a bit more
+            - [x] Searching doesn't work in frontend
+            - [x] Title doesn't fit in its width -> fix that
+        - [x] Change /s page to /search?query="..." page 
+    - [x] Find a way filtering posts by tag in search query 
+    - [x] Fix postByTag page

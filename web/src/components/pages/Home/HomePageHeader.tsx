@@ -14,7 +14,7 @@ const HomePageHeader = () => {
       className='mb-8 rounded-3xl text-white'
     >
       <div className='imgBottomShadow relative flex h-80 w-full flex-col items-center justify-center rounded-3xl'>
-        <div className='absolute left-36'>
+        <div className='absolute md:left-24'>
           <h1>Spider man</h1>
 
           <Divider className='mb-1 border-transparent' />
