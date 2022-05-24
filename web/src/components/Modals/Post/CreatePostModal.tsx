@@ -54,6 +54,8 @@ const CreatePostModal = () => {
         <Formik
           initialValues={{
             title: '',
+
+            description: '',
             tags: [],
             url: '',
             category: {} as ISelectOption,
@@ -82,6 +84,12 @@ const CreatePostModal = () => {
                 name='title'
                 label='Title'
                 placeholder='Enter title...'
+              />
+              <InputField
+                name='description'
+                label='Description'
+                placeholder='Enter description...'
+                textarea
               />
               <InputField
                 name='url'

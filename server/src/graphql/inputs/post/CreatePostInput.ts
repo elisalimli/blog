@@ -3,7 +3,9 @@ import { Field, InputType } from "type-graphql";
 export class CreatePostInput {
   @Field()
   title!: string;
-  // @todo add tags
+
+  @Field()
+  description!: string;
 
   @Field(() => String)
   url!: string;

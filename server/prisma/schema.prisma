@@ -72,13 +72,14 @@ model Tag {
 }
 
 model Post {
-  id         String            @id @default(uuid())
-  title      String            @db.VarChar(255)
-  categories PostsCategories[]
-  url        String // it can be a picture or video
-  isVideo    Boolean?          @default(false)
-  createdAt  String
-  updatedAt  DateTime          @updatedAt
+  id          String            @id @default(uuid())
+  title       String            @db.VarChar(255)
+  description String            @db.VarChar()
+  categories  PostsCategories[]
+  url         String // it can be a picture or video
+  isVideo     Boolean?          @default(false)
+  createdAt   String
+  updatedAt   DateTime          @updatedAt
 
   @@map("post")
 }
