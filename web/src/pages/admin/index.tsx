@@ -1,6 +1,9 @@
 import NextImage from '@/components/NextImage';
 import { withSidebar } from '@/components/utils/withSidebar';
-import { useLatestPostsQuery } from '@/generated/graphql';
+import {
+  useAdminLatestPostsQuery,
+  useLatestPostsQuery,
+} from '@/generated/graphql';
 import Divider from '@/ui/Divider';
 import UnstyledLink from '@/ui/links/UnstyledLink';
 import { useGetVideoId } from '@/utils/useGetVideoId';
@@ -9,7 +12,7 @@ import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import CreatePostModal from '@/components/Modals/Post/CreatePostModal';
 
 const Admin: React.FC = () => {
-  const [{ data }] = useLatestPostsQuery({
+  const [{ data }] = useAdminLatestPostsQuery({
     variables: { input: { limit: null } },
   });
   console.log('data', data);

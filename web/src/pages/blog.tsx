@@ -29,7 +29,6 @@ const dropdownButton = () => (
 const BlogPage = () => {
   const [variables, setVariables] = useState<GetPostsInput>({
     limit: LIMIT,
-
     cursor: null,
   });
   const [{ data: categoriesData }] = useCategoriesQuery();

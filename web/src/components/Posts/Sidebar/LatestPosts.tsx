@@ -13,7 +13,7 @@ const LatestPosts: React.FC = () => {
   });
   const router = useRouter();
   const posts = useMemo(
-    () => data?.latestPosts?.filter((p) => p.id != router?.query?.postId),
+    () => data?.posts?.posts?.filter((p) => p.id != router?.query?.postId),
     [data, router?.query?.postId]
   );
 

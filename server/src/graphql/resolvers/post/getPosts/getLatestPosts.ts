@@ -16,7 +16,6 @@ export class GetLatestPostsResolver {
     SELECT * FROM post 
     ORDER BY "createdAt" DESC
     ${limit ? Prisma.sql`LIMIT ${limit}` : Prisma.empty}
-
     `;
   }
 }

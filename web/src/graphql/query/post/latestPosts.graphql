@@ -1,5 +1,8 @@
-query LatestPosts($input: GetLatestPostsInput!) {
-  latestPosts(input: $input) {
+query LatestPosts($input: GetPostsInput!) {
+  posts(input: $input) {
+    posts {
       ...PostSnippet
+    }
+    hasMore
   }
 }

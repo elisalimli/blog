@@ -17,11 +17,18 @@ export const cursorPagination = (fieldKey: string): Resolver => {
     info.partial = !isItInTheCache;
     let hasMore = false;
 
-    // for searching
-    if (!fieldArgs?.input?.cursor)
-      fieldInfos = fieldInfos.filter(
-        (fi: any) => fi?.arguments?.input?.query == fieldArgs?.input?.query
-      );
+    // for prevent duplicated posts
+    if (!fieldArgs?.input?.cursor) {
+      // if searching
+      if (fieldArgs?.input?.query) {
+        fieldInfos = fieldInfos.filter(
+          (fi: any) => fi?.arguments?.input?.query == fieldArgs?.input?.query
+        );
+        // for home page and blog,when you load a bunch of posts,then if you navigate to home,there will be some duplicated posts
+      } else {
+        fieldInfos = [fieldInfos[0]];
+      }
+    }
 
     fieldInfos.forEach((fi) => {
       const key = cache.resolve(entityKey, fi.fieldKey) as string;

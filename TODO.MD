@@ -1,9 +1,9 @@
-- [ ] docker push
 
 - [x] Complete home page categories
    - [ ] Refactor code 
 
-- [ ] When you zoom out(25%) container doesn't fit all height 
+- [x?] When you zoom out(25%) container doesn't fit all height 
+    - [ ] Fix footer?
 - [ ] Complete admin panel
     - [ ] create post 
         - [x] create modal for creating post
@@ -32,15 +32,15 @@
 - [ ] Fix dropdown in mobile
 - [ ] Use high order component for auth(like <Protected/>)
     - [x] render props(dropdown)(react docs)
-- [ ] Add react-video-player instead of iframe
+- [x] Add react-video-player instead of iframe
 - [ ] Fix console problems
 - [x?] Seperate post parts into components
 - [ ] Check 'join'-s maybe use [left/right/inner] join
 - [ ] Complete 404 page
-- [ ] Create add new post(front)
+- [x?] Create add new post(front)
+    - [ ] Add images
 - [ ] Increasing performance ???
 - [ ] Check typegraphql docs(for auth)
-- [ ] Remove redis???
 - [x] Add dropdown for categories in mobile
     - [x] Add screen breakpoints to the tailwind.config file and get screen breakpoints using that
 - [x] Add chevron to active post
