@@ -11,10 +11,11 @@ passport.use(
       clientID: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
       //@todo fix this
-      callbackURL:
-        process.env.NODE_ENV === "production"
-          ? process.env.BACKEND_URL + "/oauth2/redirect/google"
-          : "http://localhost:4000/oauth2/redirect/google",
+      // callbackURL:
+      //   process.env.NODE_ENV === "production"
+      //     ? process.env.BACKEND_URL + "/oauth2/redirect/google"
+      //     : "http:// :4000/oauth2/redirect/google",
+      callbackURL: "/oauth2/redirect/google",
       passReqToCallback: true,
     },
     //@ts-ignore

@@ -28,17 +28,18 @@ export const main: () => any = async () => {
 
   app.use(
     cors({
-      origin: process.env.CORS_ORIGIN,
+      origin: process.env.WEB_URL,
       credentials: true,
     })
   );
+
+  //   for cookie(production)
+  app.set("trust proxy", 1);
 
   app.use(sessionMiddleware);
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(router);
-  //   for cookie(production)
-  app.set("trust proxy", 1);
 
   const schema = await buildSchema({
     resolvers: [

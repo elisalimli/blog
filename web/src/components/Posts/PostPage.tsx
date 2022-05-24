@@ -1,14 +1,13 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import dayjs from 'dayjs';
 import React from 'react';
+import ReactPlayer from 'react-player';
 
 import { PostSnippetFragment, useMeQuery } from '@/generated/graphql';
 import { useGetVideoId } from '@/utils/useGetVideoId';
-import ReactPlayer from 'react-player';
-import Divider from '@/ui/Divider';
-import NextImage from '../NextImage';
-import UnstyledLink from '@/ui/links/UnstyledLink';
-import SocialLinks from '../Footer/SocialLinks';
-import dayjs from 'dayjs';
+
 import Tag from './Post/Tags/Tag';
+import NextImage from '../NextImage';
 
 interface PostProps {
   post: PostSnippetFragment;
@@ -51,6 +50,7 @@ const PostPage: React.FC<PostProps> = ({
           <h1 className='my-8 text-center text-5xl text-gray-800'>{title}</h1>
           <div className='flex items-center'>
             <NextImage
+              alt={`Post - ${title} card image`}
               className='mr-4'
               width={32}
               height={32}
@@ -68,62 +68,31 @@ const PostPage: React.FC<PostProps> = ({
           </div>
           <div>
             {tags?.map((t) => (
-              <Tag {...t} />
+              <Tag key={`post-tag-${t.id}`} {...t} />
             ))}
           </div>
         </header>
         {/* @todo add desc */}
         <p className='my-4 text-xl leading-10 tracking-normal text-gray-900'>
-          5. Gerekli Sınavlara Girmek (TOEFL & Gre vs..) Yüksek lisans ve
-          doktora için amerikada hemen hemen her üniversitenin şart koştuğu iki
-          sınav: TOEFL ve GRE. Avrupa için ise toefl şart, gre gerekli değil. Bu
-          iki sınav ile alakalı tecrübelerimi anlatmak istiyorum, umarım
-          faydalanırsınız. Gre — Bakırköy Bilge Adam (7. Ocak 2012) GRE hakkında
-          konuşulacak pek birşey yok aslında. Sınav üç bölümden oluşuyor:
-          Verbal, Quantitative ve Analytical Writing. Yeni sisteme göre ilk iki
-          bölüm 170 üzerinden, analytical writing ise 6 üzerinden
-          değerlendiriliyor. Sınavı tamamıyle bilgisayar üzerinden çözüyorsunuz,
-          ilk iki bölüm test, üçüncü bölüm kompozisyon yazma (klavye kullanarak
-          bilgisayara). Verbal gerçekten zor, buna çalışmak kolay değil.
-          Altyapınız varsa ortalama bir skor almanız mümkün, yoksa pek
-          zorlamanın alemi yok. Hayatınızda görmediğiniz göremeyeceğiniz,
-          latince gibi görünen ama ingilizceymiş meğer diyeceğiniz kelimeler var
-          bu bölümde. Tek tavsiyem şu olabilir: zamanınızın yettiğince verbal
-          testi çözün ve gre words (http://www.majortests.com/gre/wordlist.php)
-          denen şu popüler kelimeleri ezberleyin. Ben verbal kısmından 170
-          üzerinden 140 civarı bir skor aldım ki bu gerçekten düşük bir skor.
-          Daha yüksek almam gerekirdi, başvurduğunuz üniversitedeki admission
-          yetkilileri bu kısmı birazda olsa önemsiyor. Quantitative bölümü
-          gerçekten kolay. ÖSS sınavında çözdüğümüz mat-1'in aynısı. Belki daha
-          kolay. Sadece kelime oyunu yapıyorlar bunlara dikkat etmeniz gerekir.
-          Örneğin; paulun şu kadar parası var, elisabeth parasının üçte birini
-          ona veriyor, başkası bilmem ne kadarını şuna veriyor, o başkasına
-          veriyor, sonra hepsi paula, ee söyleyin bakalım paulun ilk parasının
-          yarısı ne kadardır? Siz sanıyorsunuz parasını soracak, meğer parasının
-          yarısını sormuş. Sanırım her bölüm 30 dakika falandı gre’de. Bu bölümü
-          10 dakikada bitirebilirsiniz, ama yapmayın. Sorular öyle basit ki, tak
-          tak cevaplarken dikkat hatası yapmamak elde değil. Bu bölüme
-          hazırlanmak için 3–4 tane test çözdüm. Muhakkak önceden test çözmeniz
-          gerekir, çünkü lisede bu konuları hep türkçe gördünüz. Örneğin bir
-          ikizkenar üçgenin ingilizcesini muhtemelen bilmiyorsunuz. Dediğim
-          gibi, bol bol test çözmenizi öneririm. Bu bölümden 170 üzerinden 169
-          aldım. 1 puan kesintiye sebep olan hatam neydi hala çok merak ediyorum
-          :D Analytical writing kısmında, 2 ya da daha fazla sayıda kompozisyon
-          yazmanız bekleniyor. Sorular genelde 2 argümanı kıyaslayarak
-          aralarından birini seçmeniz, bu seçiminizin avantajlarını
-          dezavantajlarını bir bütünlük içerisinde, kompozisyon yazmanın
-          kurallarına uyarak yazmak şeklinde. Ben kendimi bildim bileli
-          kompozisyon yazamıyorum, kendi dilimde de öyle. Her insanın bu işe
-          yeteneği olmak zorunda değil :D Bu bölüme gre kitabının analytical
-          writing için verdiği tüyolara çalışarak hazırlandım. Bu sınava
-          hazırlanırken kullandığım kitap KAPLAN yayın evinin GRE hazırlık
-          kitabıydı. Bu kitabın yeterli olacağını düşünüyorum. İnternette GRE
-          ile alakalı döküman bulmak çok kolay. Bu kitabın ve internetin iyi bir
-          skor almak için yeterli olacağını düşünüyorum. Kitabi TOEFL
-          kitaplarıyla beraber aldım, toefl kısmında nasıl temin edebileceğinizi
-          anlattım.
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description Description Description
+          Description Description Description
         </p>
         {/* <Divider className='my-6' /> */}
+
+        {/* @todo fix this(typescript)!! */}
+        {/* @ts-ignore */}
         <ReactPlayer
           controls
           width='100%'

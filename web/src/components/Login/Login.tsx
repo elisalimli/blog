@@ -1,15 +1,17 @@
 import React from 'react';
+
+import Button from '@/ui/buttons/Button';
 import Divider from '@/ui/Divider';
 import Layout from '@/ui/layout/Layout';
-import Post from '@/components/Posts/Post';
-import GoogleButton from './GoogleButton';
-import { useLogoutMutation, useMeQuery } from '../../generated/graphql';
 import Loading from '@/ui/Loading';
-import Button from '../../ui/buttons/Button';
+
+import { useLogoutMutation, useMeQuery } from '@/generated/graphql';
+
+import GoogleButton from './GoogleButton';
 
 const Login: React.FC = () => {
-  const [{ data, fetching }] = useMeQuery();
-  const [{}, logout] = useLogoutMutation();
+  const [{ data }] = useMeQuery();
+  const [_, logout] = useLogoutMutation();
   const logoutOnClick = () => {
     logout();
   };

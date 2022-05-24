@@ -14,7 +14,7 @@ export const withSidebar = (WrappedComponent: React.FC) => {
 
     if (fetching) {
       return <div>loading...</div>;
-    } else if (!data?.me) {
+    } else if (data?.me?.role !== 'ADMIN') {
       router.replace('/');
     }
     // console.log('router', , '/admin' + '/salam');

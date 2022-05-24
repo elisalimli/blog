@@ -14,6 +14,10 @@ import { isServer } from '@/utils/isServer';
 
 const Header = () => {
   const [mobile, setMobile] = useState(false);
+
+  //@todo fix this!!!
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const screen = useMediaQuery({ maxWidth: defaultTheme?.screens?.lg });
 
   useEffect(() => {

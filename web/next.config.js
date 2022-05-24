@@ -2,6 +2,7 @@
 module.exports = {
   eslint: {
     dirs: ['src'],
+    ignoreDuringBuilds: true,
   },
 
   reactStrictMode: true,

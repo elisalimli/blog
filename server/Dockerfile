@@ -16,7 +16,7 @@ COPY .env.production .env
 
 
 RUN npx prisma generate
-RUN npx prisma migrate deploy
+#RUN npx prisma migrate deploy
 
 RUN yarn build
 

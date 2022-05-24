@@ -1,6 +1,6 @@
 import React from 'react';
 import { FiInstagram, FiTwitter, FiYoutube } from 'react-icons/fi';
-import uuid from 'react-uuid';
+import { v4 as uuidv4 } from 'uuid';
 import SocialLink from '@/components/Footer/SocialLink';
 
 const SocialLinks: React.FC = () => {
@@ -20,7 +20,7 @@ const SocialLinks: React.FC = () => {
           href: 'https://www.youtube.com/channel/UC5Pq3-GcY8ButVAbylT9kew',
         },
       ].map(({ Icon, href }) => (
-        <SocialLink href={href} as={Icon} key={`social-${uuid()}`} />
+        <SocialLink href={href} as={Icon} key={`social-${uuidv4()}`} />
       ))}
     </ul>
   );

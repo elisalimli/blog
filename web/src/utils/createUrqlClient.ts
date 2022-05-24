@@ -1,10 +1,8 @@
 import { cacheExchange } from '@urql/exchange-graphcache';
-import { Router } from 'next/router';
-import { dedupExchange, Exchange, fetchExchange, gql } from 'urql';
+import { dedupExchange, Exchange, fetchExchange } from 'urql';
 import { pipe, tap } from 'wonka';
-import { LogoutMutation, MeDocument, MeQuery } from '../generated/graphql';
+import { LogoutMutation, MeDocument, MeQuery } from '@/generated/graphql';
 import { betterUpdateQuery } from './betterUpdateQuery';
-
 import { cursorPagination } from './cursorPagination';
 import { isServer } from './isServer';
 
@@ -31,8 +29,8 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
   }
 
   return {
-    // url: process.env.NEXT_PUBLIC_API_URL,
-    url: 'http://localhost:4000/graphql',
+    // url: 'http://localhost:4000/graphql',
+    url: (process.env.NEXT_PUBLIC_API_URL + '/graphql') as string,
     fetchOptions: {
       credentials: 'include' as RequestCredentials,
       headers: cookie
