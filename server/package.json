@@ -13,7 +13,7 @@
     "migrate": "prisma migrate dev --name my_migrate"
   },
   "dependencies": {
-    "@prisma/client": "^3.11.1",
+    "@prisma/client": "3.11.0",
     "argon2": "0.28.2",
     "connect-redis": "^6.0.0",
     "cors": "^2.8.5",
@@ -42,8 +42,8 @@
     "@types/passport": "^1.0.7",
     "@types/passport-google-oauth2": "^0.1.5",
     "gen-env-types": "^1.3.4",
-    "prisma": "^3.11.1",
+    "prisma": "3.11.0",
     "typegraphql-prisma": "^0.19.2",
-    "typescript": "^4.5.4"
+    "typescript": "^4.6.4"
   }
 }

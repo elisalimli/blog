@@ -13,11 +13,12 @@ RUN yarn
 COPY . .
 COPY .env.production .env
 
-RUN yarn build
 
-RUN npx prisma migrate deploy
+
 RUN npx prisma generate
+RUN npx prisma migrate deploy
 
+RUN yarn build
 
 ENV NODE_ENV production
 #DATABASE_URL="postgresql://postgres:postgres@localhost:5432/blog?schema=public"

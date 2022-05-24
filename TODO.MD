@@ -1,3 +1,5 @@
+- [ ] docker push
+
 - [x] Complete home page categories
    - [ ] Refactor code 
 
