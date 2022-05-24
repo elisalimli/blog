@@ -19,15 +19,15 @@ const Categories: React.FC = () => {
     <>
       {/* @todo complete this */}
       <Swiper
-        spaceBetween={50}
+        style={{ padding: 32 }}
         pagination={{ dynamicBullets: true, clickable: true }}
         modules={[Pagination]}
         autoHeight
         breakpoints={{
           // when window width is >= 320px
-          320: {
+          0: {
             slidesPerView: 1,
-            autoHeight: true,
+
             spaceBetween: 20,
           },
           // when window width is >= 480px
