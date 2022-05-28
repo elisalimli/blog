@@ -6,7 +6,7 @@ import Seo from '@/ui/Seo';
 
 import NotFound from '@/components/404';
 import PostPage from '@/components/Posts/PostPage';
-import PostSidebar from '@/components/Posts/PostSidebar';
+import Sidebar from '@/components/Posts/Sidebar';
 import { usePostQuery } from '@/generated/graphql';
 import { PostSnippetFragment } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
@@ -38,7 +38,7 @@ const Post = () => {
           <PostPage post={data?.post as PostSnippetFragment} />
         </div>
         <div className='col-span-1 rounded-xl pb-2 2xl:col-span-2'>
-          <PostSidebar />
+          <Sidebar />
         </div>
       </div>
     </>

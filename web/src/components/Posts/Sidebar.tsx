@@ -2,7 +2,9 @@ import Login from '@/components/Login/Login';
 import LatestPosts from '@/components/Posts/Sidebar/LatestPosts';
 import React from 'react';
 
-const PostSidebar = () => {
+// For viewing the latest posts in Sidebar
+
+const Sidebar = () => {
   return (
     <div className='sticky top-6 space-y-4'>
       {[Login, LatestPosts].map((C, i) => (
@@ -16,4 +18,4 @@ const PostSidebar = () => {
     </div>
   );
 };
-export default PostSidebar;
+export default Sidebar;

@@ -9,14 +9,15 @@ interface IPostFooterProps {
 }
 
 const PostFooter: React.FC<IPostFooterProps> = ({
-  post: { createdAt, title },
+  post: { createdAt, title, description },
   postURL,
 }) => {
   return (
     <div className='mt-3 flex flex-col px-3 pb-4'>
       {/* Header */}
       <h4 className='truncate text-lg font-semibold text-gray-700'>{title}</h4>
-      <p className='truncate'>Fugiat eni duis consectetur Lorem minim.</p>
+      {/* Description */}
+      <p className='truncate'>{description}</p>
       {/* Subtitle(date,views) */}
       <div className='flex justify-between md:flex-col '>
         <div className='flex items-center'>

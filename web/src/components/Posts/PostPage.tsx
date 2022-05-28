@@ -14,7 +14,7 @@ interface PostProps {
 }
 
 const PostPage: React.FC<PostProps> = ({
-  post: { title, url, createdAt, tags },
+  post: { title, url, createdAt, tags, description },
 }) => {
   const ytId = useGetVideoId(url);
   // @todo change this author image
@@ -74,20 +74,7 @@ const PostPage: React.FC<PostProps> = ({
         </header>
         {/* @todo add desc */}
         <p className='my-4 text-xl leading-10 tracking-normal text-gray-900'>
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description Description Description
-          Description Description Description
+          {description}
         </p>
         {/* <Divider className='my-6' /> */}
 

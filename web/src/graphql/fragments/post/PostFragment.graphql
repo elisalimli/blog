@@ -2,6 +2,7 @@ fragment PostSnippet on PostEntity {
   id
   title
   url
+  description
   isVideo
   createdAt
   tags {

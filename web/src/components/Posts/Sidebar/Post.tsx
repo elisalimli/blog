@@ -1,17 +1,20 @@
-import React, { useMemo } from 'react';
-import NextImage from '@/components/NextImage';
-import UnderlineLink from '@/ui/links/UnderlineLink';
-import { useGetVideoId } from '@/utils/useGetVideoId';
 import { PostSnippetFragment } from '@/generated/graphql';
 import ArrowLink from '@/ui/links/ArrowLink';
-import UnstyledLink from '@/ui/links/UnstyledLink';
 import PrimaryLink from '@/ui/links/PrimaryLink';
+import UnstyledLink from '@/ui/links/UnstyledLink';
+import { useGetVideoId } from '@/utils/useGetVideoId';
+import React from 'react';
 
-const Post: React.FC<PostSnippetFragment> = ({ title, url, id }) => {
+//sidebar post
+const Post: React.FC<PostSnippetFragment> = ({
+  title,
+  url,
+  id,
+  description,
+}) => {
   const videoUrl = useGetVideoId(url);
   const postURL = `/p/${id}`;
-  const description =
-    'Ea velit anim est reprehenderit ea nostrud fugiat proident aliqua esse tempor ex quis do.';
+
   return (
     <li className='mt-2 flex items-center'>
       <UnstyledLink href={postURL}>
