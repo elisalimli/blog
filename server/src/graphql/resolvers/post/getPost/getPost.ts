@@ -11,15 +11,16 @@ export class GetPostResolver {
     @Ctx() { prisma }: MyContext,
     @Arg("input") { postId }: GetPostInput
   ) {
-    const post = await prisma.$queryRaw<PostEntity[]>`
+    // the return type is array,so I am returning the first element
+    return (
+      await prisma.$queryRaw<PostEntity[]>`
     SELECT p.*,json_agg(json_build_object('id',t.id,'name',t.name)) tags FROM post p
     join posts_categories pc on pc."postId" = p.id
     join categories_tags ct on ct."categoryId" =  pc."categoryId"
     join tag t on t.id = ct."tagId"    
     WHERE p.id = ${postId}
     GROUP BY p.id
-    `;
-
-    return post[0];
+    `
+    )[0];
   }
 }

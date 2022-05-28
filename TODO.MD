@@ -1,10 +1,16 @@
+
+
+- [ ] Add some changes to the post page
+    ______- [ Fix tags!!!____
+    - [ ] For ex. copy post link
+
 - [x?] Create add new post(front)
+
     - [ ] Add images
 - [ ] Add category image 
     - [ ] Backend
     - [ ] Frontend
-- [ ] Add some changes to the post page
-    - [ ] For ex. copy post link
+
 
 
 

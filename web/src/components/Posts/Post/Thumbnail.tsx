@@ -6,7 +6,6 @@ type ThumbnailProps = {
 };
 
 const Thumbnail: React.FC<ThumbnailProps> = ({ ytId }) => {
-  console.log(`http://i.ytimg.com/vi/${ytId}/mqdefault.jpg`);
   return (
     <NextImage
       useSkeleton

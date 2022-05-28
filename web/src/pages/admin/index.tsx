@@ -15,7 +15,6 @@ const Admin: React.FC = () => {
   const [{ data }] = useAdminLatestPostsQuery({
     variables: { input: { limit: null } },
   });
-  console.log('data', data);
   return (
     <div className='py-12'>
       <header>

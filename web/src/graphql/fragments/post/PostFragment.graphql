@@ -5,7 +5,4 @@ fragment PostSnippet on PostEntity {
   description
   isVideo
   createdAt
-  tags {
-    ...TagSnippet
-  }
 }

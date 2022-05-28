@@ -17,6 +17,7 @@ const Post = () => {
   const [{ data, fetching }] = usePostQuery({
     variables: { input: { postId: router.query.postId as string } },
   });
+  console.log(data);
 
   if (fetching) {
     return (
@@ -30,7 +31,7 @@ const Post = () => {
   return (
     <>
       <Seo
-        title={data?.post?.title}
+        title={`${data?.post?.title} - Anka's blog`}
         description={'data?.post?.title' as string}
       />
       <div className='flex flex-col space-y-12 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0 2xl:grid-cols-7'>

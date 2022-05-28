@@ -1,5 +1,9 @@
-query Post($input:GetPostInput!){
+query Post($input: GetPostInput!) {
   post(input: $input) {
     ...PostSnippet
+
+    tags {
+      ...TagSnippet
+    }
   }
 }

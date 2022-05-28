@@ -13,7 +13,6 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({
   backToSamePage,
   children,
 }) => {
-  console.log('public_api_url', process.env.NEXT_PUBLIC_API_URL);
   return (
     <UnstyledLink
       href={`${process.env.NEXT_PUBLIC_API_URL}/auth/google?next=${

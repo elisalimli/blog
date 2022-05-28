@@ -16,7 +16,6 @@ export class MeResolver {
 
   @FieldResolver()
   async role(@Root() root: UserEntity, @Ctx() { prisma }: MyContext) {
-    console.log(root);
     const currentUser = await prisma.user.findUnique({
       where: { id: root.id },
       select: {

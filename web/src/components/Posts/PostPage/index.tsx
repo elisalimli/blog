@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
 import ReactPlayer from 'react-player';
+import { AiOutlineTag } from 'react-icons/ai';
 
 import { PostSnippetFragment, useMeQuery } from '@/generated/graphql';
 import { useGetVideoId } from '@/utils/useGetVideoId';
@@ -18,7 +19,6 @@ const PostPage: React.FC<PostProps> = ({ post }) => {
   const { title, url, tags, description } = post;
   const ytId = useGetVideoId(url);
   // @todo change this author image
-
   return (
     <article>
       <section>
@@ -38,6 +38,14 @@ const PostPage: React.FC<PostProps> = ({ post }) => {
           height={500}
           url={`https://www.youtube.com/embed/${ytId}`}
         />
+        <div className='my-4 flex items-center'>
+          <AiOutlineTag size={20} className='mr-2 text-gray-400' />
+          <div className='flex items-center space-x-1'>
+            {tags?.map((t) => (
+              <Tag key={`post-tag-${t.id}`} {...t} />
+            ))}
+          </div>
+        </div>
       </section>
     </article>
   );

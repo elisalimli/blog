@@ -10,7 +10,10 @@ const Tag: React.FC<TagSnippetFragment> = ({ id, name }) => {
       key={`tag-${id}`}
       href={`/search?query=${name}`}
     >
-      <Button className='rounded-lg border-0  bg-gray-100 bg-opacity-80 p-1 text-sm text-gray-600 hover:bg-gray-200 hover:text-gray-700'>
+      <Button
+        className='rounded-lg border-0 bg-gray-100 bg-opacity-80 p-1 text-sm text-gray-600 hover:bg-gray-200 hover:text-gray-700'
+        variant='ghost'
+      >
         {name}
       </Button>
     </UnstyledLink>
