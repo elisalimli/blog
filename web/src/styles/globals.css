@@ -127,7 +127,7 @@ body {
     @apply w-full px-2 focus:outline-none;
   }
 
-  .inputWrapper {
+  .input-wrapper {
     @apply flex w-full items-center
     rounded-lg border border-gray-200 bg-white py-1 text-base leading-8 text-gray-700 outline-none transition-colors duration-200 ease-in-out focus-within:border-primary-400 focus-within:ring-1 focus-within:ring-primary-200;
   }
@@ -191,6 +191,6 @@ body {
 }
 /* #endregion  /**======== Custom Swiper =========== */
 
-.imgBottomShadow {
+.img-bottom-shadow {
   background-image: linear-gradient(180deg, rgba(51, 51, 51, 0), #484747);
 }

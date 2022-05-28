@@ -53,6 +53,7 @@ const Categories: React.FC = () => {
               <div className='relative'>
                 <div
                   style={{
+                    // image bottom shadow effect
                     background:
                       'linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%)',
                   }}
@@ -69,7 +70,7 @@ const Categories: React.FC = () => {
                   alt={`category(${name}) image`}
                   title={name.toLowerCase()}
                   height={400}
-                  src='http://www.travelgram.com/content/img/photo/new-york.jpg'
+                  src='https://picsum.photos/400/7  00'
                 />
               </div>
             </UnstyledLink>

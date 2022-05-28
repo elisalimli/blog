@@ -25,7 +25,7 @@ const InputField: React.FC<InputFieldProps> = ({
   return (
     <div>
       {label && <Label fieldName={field.name}>{label}</Label>}
-      <div className='inputWrapper'>
+      <div className='input-wrapper'>
         {Icon && (
           <button type='submit' className='outline-none' tabIndex={-1}>
             <Icon className='ml-2' size={25} />
@@ -33,7 +33,12 @@ const InputField: React.FC<InputFieldProps> = ({
         )}
 
         {textarea ? (
-          <textarea className='input' {...field} {...props} id={field.name} />
+          <textarea
+            className='input border-0 focus:border-0 focus:ring-0'
+            {...field}
+            {...props}
+            id={field.name}
+          />
         ) : (
           <input className='input' {...field} {...props} id={field.name} />
         )}
