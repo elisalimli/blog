@@ -1,8 +1,6 @@
-- [ ] Muellimden sorus category(sekil),category(secme),post page
+- [x?] Create add new post(front)
+    - [ ] Add images
 - [ ] Add category image 
-    - [ ] Backend
-    - [ ] Frontend
-- [ ] Post description
     - [ ] Backend
     - [ ] Frontend
 - [ ] Add some changes to the post page
@@ -39,8 +37,6 @@
 - [x?] Seperate post parts into components
 - [ ] Check 'join'-s maybe use [left/right/inner] join
 - [ ] Complete 404 page
-- [x?] Create add new post(front)
-    - [ ] Add images
 - [ ] Increasing performance ???
 - [ ] Check typegraphql docs(for auth)
 - [x] Add dropdown for categories in mobile
@@ -54,6 +50,9 @@
 - [x] complete getpostsbycategory and check if we can use filter by name in get posts by tag
 - [x] Complete Register/Login page
 - [x] Google auth
+- [x] Post description
+    - [x] Backend
+    - [x] Frontend
 - [x] Filter posts by tags
 - [x] Add Pagination(Front)
 - [x] Add Pagination(Backend)

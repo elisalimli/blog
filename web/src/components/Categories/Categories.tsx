@@ -14,10 +14,8 @@ const Categories: React.FC = () => {
   if (fetching) {
     return <CenteredLoading />;
   }
-  // https://www.travelgram.com/content/img/photo/new-york.jpg
   return (
     <>
-      {/* @todo complete this */}
       <Swiper
         style={{ padding: 32 }}
         pagination={{ dynamicBullets: true, clickable: true }}
@@ -70,7 +68,7 @@ const Categories: React.FC = () => {
                   alt={`category(${name}) image`}
                   title={name.toLowerCase()}
                   height={400}
-                  src='https://picsum.photos/400/7  00'
+                  src='https://picsum.photos/400/700'
                 />
               </div>
             </UnstyledLink>
