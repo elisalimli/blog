@@ -6,7 +6,7 @@ import React from 'react';
 
 const Sidebar = () => {
   return (
-    <div className='sticky top-6 space-y-4'>
+    <aside className='sticky top-6 space-y-4'>
       {[Login, LatestPosts].map((C, i) => (
         <div
           key={`sidebar-section-${i}`}
@@ -15,7 +15,7 @@ const Sidebar = () => {
           <C />
         </div>
       ))}
-    </div>
+    </aside>
   );
 };
 export default Sidebar;

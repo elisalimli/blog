@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { withUrqlClient } from 'next-urql';
 import NextNProgress from 'nextjs-progressbar';
 import React from 'react';
+import ReactTooltip from 'react-tooltip';
 
 import '@/styles/globals.css';
 

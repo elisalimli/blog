@@ -22,9 +22,9 @@ const PostPage: React.FC<PostProps> = ({ post }) => {
   return (
     <article>
       <section>
-        <header className='mb-10 flex flex-col items-center'>
-          <PostHeader>{title}</PostHeader>
+        <header className='mb-10'>
           <PostDetails {...post} />
+          <PostHeader>{title}</PostHeader>
         </header>
         <p className='my-4 text-xl leading-10 tracking-normal text-gray-900'>
           {description}

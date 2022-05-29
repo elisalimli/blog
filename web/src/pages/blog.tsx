@@ -11,12 +11,12 @@ import { withUrqlClient } from 'next-urql';
 import React, { Fragment, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import Button from '../ui/buttons/Button';
-import Divider from '../ui/Divider';
-import Dropdown from '../ui/Dropdown/Dropdown';
-import DropdownElement from '../ui/Dropdown/DropdownElement';
-import UnstyledLink from '../ui/links/UnstyledLink';
-import Seo from '../ui/Seo';
+import Button from '@/ui/buttons/Button';
+import Divider from '@/ui/Divider';
+import Dropdown from '@/ui/dropdown/Dropdown';
+import DropdownElement from '@/ui/dropdown/DropdownElement';
+import UnstyledLink from '@/ui/links/UnstyledLink';
+import Seo from '@/ui/Seo';
 
 const LIMIT = 16;
 

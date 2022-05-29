@@ -38,6 +38,7 @@ const Post = () => {
         <div className='col-span-3 rounded-xl border border-gray-300 bg-white p-8 drop-shadow-md 2xl:col-span-5'>
           <PostPage post={data?.post as PostSnippetFragment} />
         </div>
+
         <div className='col-span-1 rounded-xl pb-2 2xl:col-span-2'>
           <Sidebar />
         </div>
