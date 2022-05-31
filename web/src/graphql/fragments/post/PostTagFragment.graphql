@@ -1,0 +1,11 @@
+fragment PostTagSnippet on PostEntity {
+  id
+  title
+  url
+  description
+  isVideo
+  createdAt
+  tags {
+    ...TagSnippet
+  }
+}

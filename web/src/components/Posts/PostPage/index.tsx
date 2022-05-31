@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { PostSnippetFragment, TagSnippetFragment } from '@/generated/graphql';
+import {
+  PostTagSnippetFragment,
+  TagSnippetFragment,
+} from '@/generated/graphql';
 import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
 import { AiOutlineTag } from 'react-icons/ai';
@@ -9,7 +12,7 @@ import PostDetails from './PostDetails';
 import PostHeader from './PostHeader';
 
 interface PostProps {
-  post: PostSnippetFragment & { tags: TagSnippetFragment };
+  post: PostTagSnippetFragment;
 }
 
 const PostPage: React.FC<PostProps> = ({ post }) => {

@@ -1,9 +1,9 @@
 
 
-- [ ] Add some changes to the post page
-    ______- [ Fix tags!!!____
-    - [ ] For ex. copy post link
-
+- [x] Add some changes to the post page
+    - [x] Fix tags
+    - [x] For ex. copy post link
+    - [x] Create 'PostTagSnippet' and use it in [postId]
 - [x?] Create add new post(front)
 
     - [ ] Add images

@@ -3,9 +3,11 @@ import Head from 'next/head';
 import { withUrqlClient } from 'next-urql';
 import NextNProgress from 'nextjs-progressbar';
 import React from 'react';
-import ReactTooltip from 'react-tooltip';
 
 import '@/styles/globals.css';
+import 'react-toastify/dist/ReactToastify.css';
+
+import { ToastContainer, toast } from 'react-toastify';
 
 import { createUrqlClient } from '@/utils/createUrqlClient';
 
@@ -18,7 +20,21 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           name='viewport'
         />
       </Head>
+      {/* progress bar */}
       <NextNProgress />
+
+      <ToastContainer
+        theme='dark'
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       {/* @todo fix this */}
       {/* @ts-ignore */}

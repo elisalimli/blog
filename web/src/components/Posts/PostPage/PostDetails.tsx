@@ -9,12 +9,14 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { VscCopy } from 'react-icons/vsc';
 import Tooltip from '../../../ui/Tooltip';
 import ShareOnButtons from './ShareOnButtons';
+import { ToastContainer, toast } from 'react-toastify';
 
 type IPostDetailsProps = PostSnippetFragment;
 
 // post date,author name etc.
 const PostDetails: React.FC<IPostDetailsProps> = ({ title, createdAt }) => {
-  const router = useRouter();
+  const notify = () => toast('Link Copied!');
+
   return (
     <div className='flex justify-between'>
       <div className='flex'>
@@ -37,7 +39,10 @@ const PostDetails: React.FC<IPostDetailsProps> = ({ title, createdAt }) => {
       <div className='mt-4 space-x-4'>
         <ShareOnButtons />
 
-        <CopyToClipboard text={(!isServer ? window?.location : null) as any}>
+        <CopyToClipboard
+          onCopy={notify}
+          text={(!isServer ? window?.location : null) as any}
+        >
           <Button className='p-0 text-gray-500' variant='ghost'>
             <VscCopy size={24} />
           </Button>
