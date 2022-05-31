@@ -10,6 +10,7 @@ import Tag from '../Post/Tags/Tag';
 import NextImage from '../../NextImage';
 import PostHeader from './PostHeader';
 import PostDetails from './PostDetails';
+import ReactTooltip from 'react-tooltip';
 
 interface PostProps {
   post: PostSnippetFragment;

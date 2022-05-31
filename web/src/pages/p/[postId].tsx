@@ -11,6 +11,7 @@ import { usePostQuery } from '@/generated/graphql';
 import { PostSnippetFragment } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 import { withLayout } from '@/components/utils/withLayout';
+import ReactTooltip from 'react-tooltip';
 
 const Post = () => {
   const router = useRouter();
@@ -30,10 +31,26 @@ const Post = () => {
   }
   return (
     <>
+      <div className='relative'>
+        <button data-tip data-for='registerTipab'>
+          Register
+        </button>
+
+        <ReactTooltip
+          type='dark'
+          className=''
+          id='registerTipab'
+          place='top'
+          effect='solid'
+        >
+          Share on telegram
+        </ReactTooltip>
+      </div>
       <Seo
         title={`${data?.post?.title} - Anka's blog`}
         description={'data?.post?.title' as string}
       />
+
       <div className='flex flex-col space-y-12 lg:grid lg:grid-cols-4 lg:gap-8 lg:space-y-0 2xl:grid-cols-7'>
         <div className='col-span-3 rounded-xl border border-gray-300 bg-white p-8 drop-shadow-md 2xl:col-span-5'>
           <PostPage post={data?.post as PostSnippetFragment} />

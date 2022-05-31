@@ -15,6 +15,8 @@ import Button from '@/ui/buttons/Button';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { useRouter } from 'next/router';
 import { isServer } from '@/utils/isServer';
+import Tooltip from '../../../ui/Tooltip';
+import ButtonLink from '../../../ui/links/ButtonLink';
 import ReactTooltip from 'react-tooltip';
 
 type IPostDetailsProps = PostSnippetFragment;
@@ -47,54 +49,67 @@ const PostDetails: React.FC<IPostDetailsProps> = ({
         </div>
       </div>
       <div className='mt-4 space-x-4'>
-        <UnstyledLink
+        {/* <ButtonLink
+          variant='ghost'
+          target='_blank'
+          href={`https://twitter.com/intent/tweet?text=${title} by Anar Reshidov ${
+            !isServer ? window?.location : null
+          }`}
+          className='p-0'
+        >
+          <FiTwitter size={24} />
+        </ButtonLink>
+        <ButtonLink
+          variant='ghost'
+          className='p-0'
           target='_blank'
           href={`https://twitter.com/intent/tweet?text=${title} by Anar Reshidov ${
             !isServer ? window?.location : null
           }`}
         >
-          <Button className='p-0' variant='ghost'>
-            <FiTwitter size={24} />
-          </Button>
-        </UnstyledLink>
-        <UnstyledLink
-          target='_blank'
-          href={`https://twitter.com/intent/tweet?text=${title} by Anar Reshidov ${
-            !isServer ? window?.location : null
-          }`}
-        >
-          <Button className='p-0' variant='ghost'>
-            <BsTelegram size={24} />
-          </Button>
-        </UnstyledLink>
-        <p data-tip='hello world'>Tooltip</p>
+          <BsTelegram size={24} />
+        </ButtonLink> */}
+        <div className='relative'>
+          <button data-tip data-for='registerTip'>
+            Register
+          </button>
 
-        <UnstyledLink
+          <ReactTooltip
+            className='custom_react_component_tooltip'
+            type='dark'
+            id='registerTip'
+            place='top'
+            effect='solid'
+          >
+            Share on telegram
+          </ReactTooltip>
+        </div>
+        {/* <ButtonLink
+          variant='ghost'
+          className='p-0'
           target='_blank'
           href={`https://twitter.com/intent/tweet?text=${title} by Anar Reshidov ${
             !isServer ? window?.location : null
           }`}
         >
-          <Button className='p-0' variant='ghost'>
-            <BsFacebook size={24} />
-          </Button>
-        </UnstyledLink>
+          <BsFacebook size={24} />
+        </ButtonLink>
 
-        <UnstyledLink
+        <ButtonLink
+          variant='ghost'
+          className='p-0'
           target='_blank'
           href={`https://twitter.com/intent/tweet?text=${title} by Anar Reshidov ${
             !isServer ? window?.location : null
           }`}
         >
-          <Button className='p-0' variant='ghost'>
-            <BsWhatsapp size={24} />
-          </Button>
-        </UnstyledLink>
+          <BsWhatsapp size={24} />
+        </ButtonLink>
         <CopyToClipboard text={(!isServer ? window?.location : null) as any}>
           <Button className='p-0 text-gray-500' variant='ghost'>
             <VscCopy size={24} />
           </Button>
-        </CopyToClipboard>
+        </CopyToClipboard> */}
       </div>
     </div>
   );
