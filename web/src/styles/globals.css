@@ -200,7 +200,7 @@ body {
 .custom_react_component_tooltip {
   position: absolute !important;
   padding: 5px !important;
-  top: 36px !important;
+  top: 32px !important;
   left: 0 !important;
 }
 .__react_component_tooltip.show {

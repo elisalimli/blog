@@ -31,21 +31,6 @@ const Post = () => {
   }
   return (
     <>
-      <div className='relative'>
-        <button data-tip data-for='registerTipab'>
-          Register
-        </button>
-
-        <ReactTooltip
-          type='dark'
-          className=''
-          id='registerTipab'
-          place='top'
-          effect='solid'
-        >
-          Share on telegram
-        </ReactTooltip>
-      </div>
       <Seo
         title={`${data?.post?.title} - Anka's blog`}
         description={'data?.post?.title' as string}
