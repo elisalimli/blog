@@ -13,13 +13,8 @@ import ShareOnButtons from './ShareOnButtons';
 type IPostDetailsProps = PostSnippetFragment;
 
 // post date,author name etc.
-const PostDetails: React.FC<IPostDetailsProps> = ({
-  title,
-  createdAt,
-  url,
-}) => {
+const PostDetails: React.FC<IPostDetailsProps> = ({ title, createdAt }) => {
   const router = useRouter();
-  console.log('router', router);
   return (
     <div className='flex justify-between'>
       <div className='flex'>

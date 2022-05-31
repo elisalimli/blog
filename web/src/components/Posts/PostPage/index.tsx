@@ -1,19 +1,15 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React from 'react';
-import ReactPlayer from 'react-player';
-import { AiOutlineTag } from 'react-icons/ai';
-
-import { PostSnippetFragment, useMeQuery } from '@/generated/graphql';
+import { PostSnippetFragment, TagSnippetFragment } from '@/generated/graphql';
 import { useGetVideoId } from '@/utils/useGetVideoId';
-
+import React from 'react';
+import { AiOutlineTag } from 'react-icons/ai';
+import ReactPlayer from 'react-player';
 import Tag from '../Post/Tags/Tag';
-import NextImage from '../../NextImage';
-import PostHeader from './PostHeader';
 import PostDetails from './PostDetails';
-import ReactTooltip from 'react-tooltip';
+import PostHeader from './PostHeader';
 
 interface PostProps {
-  post: PostSnippetFragment;
+  post: PostSnippetFragment & { tags: TagSnippetFragment };
 }
 
 const PostPage: React.FC<PostProps> = ({ post }) => {
