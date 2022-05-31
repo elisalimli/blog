@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { withUrqlClient } from 'next-urql';
 import React from 'react';
 
-import LoginPage from '@/components/Login/LoginPage';
+import LoginPage from '@/components/pages/Login/LoginPage';
 import { useMeQuery } from '@/generated/graphql';
 import { createUrqlClient } from '@/utils/createUrqlClient';
 

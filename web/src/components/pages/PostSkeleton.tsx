@@ -9,7 +9,7 @@ function Skeleton({ ...rest }: SkeletonProps) {
       <div className='flex  items-center justify-between'>
         <div className='h-6 w-6  rounded-full bg-gray-200'></div>
         <div className='ml-1 w-full'>
-          <div className='h-5   bg-gray-200'></div>
+          <div className='h-5 bg-gray-200'></div>
         </div>
       </div>
     </div>

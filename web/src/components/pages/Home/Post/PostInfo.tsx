@@ -3,12 +3,12 @@ import React from 'react';
 import { PostSnippetFragment } from '@/generated/graphql';
 import dayjs from 'dayjs';
 
-interface IPostFooterProps {
+interface IPostInfoProps {
   post: PostSnippetFragment;
   postURL: string;
 }
 
-const PostFooter: React.FC<IPostFooterProps> = ({
+const PostInfo: React.FC<IPostInfoProps> = ({
   post: { createdAt, title, description },
   postURL,
 }) => {
@@ -30,4 +30,4 @@ const PostFooter: React.FC<IPostFooterProps> = ({
     </div>
   );
 };
-export default PostFooter;
+export default PostInfo;

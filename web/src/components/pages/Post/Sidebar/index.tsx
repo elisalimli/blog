@@ -1,5 +1,5 @@
-import Login from '@/components/Login/Login';
-import LatestPosts from '@/components/Posts/Sidebar/LatestPosts';
+import Login from '@/components/pages/Login/Login';
+import LatestPosts from '@/components/pages/Post/Sidebar/LatestPosts';
 import React from 'react';
 
 // For viewing the latest posts in Sidebar

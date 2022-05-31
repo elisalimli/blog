@@ -1,5 +1,4 @@
 import React from 'react';
-import Divider from '@/ui/Divider';
 
 const SectionHeader: React.FC = ({ children }) => {
   return (

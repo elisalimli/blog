@@ -1,4 +1,4 @@
-import Posts from '@/components/Posts/Posts';
+import Posts from '@/components/pages/Home/Posts';
 import { withLayout } from '@/components/utils/withLayout';
 import {
   GetPostsInput,

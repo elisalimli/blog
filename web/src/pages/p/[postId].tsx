@@ -1,6 +1,6 @@
 import NotFound from '@/components/404';
-import PostPage from '@/components/Posts/PostPage';
-import Sidebar from '@/components/Posts/Sidebar';
+import PostPage from '@/components/pages/Post/Main';
+import Sidebar from '@/components/pages/Post/Sidebar';
 import { withLayout } from '@/components/utils/withLayout';
 import { PostTagSnippetFragment, usePostQuery } from '@/generated/graphql';
 import Seo from '@/ui/Seo';

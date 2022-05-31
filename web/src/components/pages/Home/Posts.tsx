@@ -1,9 +1,7 @@
-import Post from '@/components/Posts/Post/Post';
-import Skeleton from '@/components/Posts/Post/PostSkeleton';
-import SectionHeader from '@/components/Posts/PostSection/SectionHeader';
+import Post from '@/components/pages/Home/Post/PostCard';
+import Skeleton from '@/components/pages/PostSkeleton';
 import { PostSnippetFragment } from '@/generated/graphql';
-import Divider from '@/ui/Divider';
-import React, { Fragment } from 'react';
+import React from 'react';
 
 interface PostProps {
   posts: PostSnippetFragment[];

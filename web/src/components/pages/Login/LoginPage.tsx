@@ -1,5 +1,5 @@
 import Image from '@/../public/images/people.png';
-import GoogleButton from '@/components/Login/GoogleButton';
+import GoogleButton from '@/components/pages/Login/GoogleButton';
 import NextImage from '@/components/NextImage';
 import Seo from '@/ui/Seo';
 import React, { Fragment } from 'react';

@@ -1,6 +1,6 @@
-import Tag from '@/components/Posts/Post/Tags/Tag';
 import { TagSnippetFragment } from '@/generated/graphql';
 import React, { Fragment } from 'react';
+import Tag from '@/ui/Tag';
 
 const Tags: React.FC<{ tags: TagSnippetFragment[] }> = ({ tags }) => {
   return (

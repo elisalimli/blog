@@ -1,9 +1,10 @@
 import React from 'react';
 import { ImGoogle } from 'react-icons/im';
+
 import Button from '@/ui/buttons/Button';
 import UnstyledLink from '@/ui/links/UnstyledLink';
-import { useRouter } from 'next/router';
-import { isServer } from '../../utils/isServer';
+
+import { isServer } from '@/utils/isServer';
 
 interface GoogleButtonProps {
   backToSamePage?: boolean;

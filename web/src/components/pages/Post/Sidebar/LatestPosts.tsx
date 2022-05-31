@@ -1,4 +1,4 @@
-import SidebarPost from '@/components/Posts/Sidebar/Post';
+import SidebarPost from '@/components/pages/Post/Sidebar/Post';
 import { useLatestPostsQuery } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
 import Layout from '@/ui/layout/Layout';

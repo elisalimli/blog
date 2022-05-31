@@ -1,7 +1,5 @@
 import HomePageHeader from '@/components/pages/Home/HomePageHeader';
-import Posts from '@/components/Posts/Posts';
-import SectionHeader from '@/components/Posts/PostSection/SectionHeader';
-import { withLayout } from '@/components/utils/withLayout';
+import Posts from '@/components/pages/Home/Posts';
 import { PostSnippetFragment, useLatestPostsQuery } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
 import Seo from '@/ui/Seo';
@@ -9,6 +7,8 @@ import { createUrqlClient } from '@/utils/createUrqlClient';
 import { withUrqlClient } from 'next-urql';
 import React, { Fragment } from 'react';
 import Categories from '@/components/Categories/Categories';
+import SectionHeader from '@/components/Section/SectionHeader';
+import { withLayout } from '@/components/utils/withLayout';
 
 const LIMIT = 8;
 const HomePage = () => {

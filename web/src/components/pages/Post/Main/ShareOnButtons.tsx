@@ -1,8 +1,9 @@
-import ButtonLink from '@/ui/links/ButtonLink';
-import Tooltip from '@/ui/Tooltip';
 import React, { Fragment, useEffect, useState } from 'react';
 import { BsFacebook, BsTelegram, BsWhatsapp } from 'react-icons/bs';
 import { FiTwitter } from 'react-icons/fi';
+
+import ButtonLink from '@/ui/links/ButtonLink';
+import Tooltip from '@/ui/Tooltip';
 
 const shareOnButtonsData = [
   {

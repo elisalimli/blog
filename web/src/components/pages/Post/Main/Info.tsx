@@ -3,13 +3,11 @@ import { PostSnippetFragment } from '@/generated/graphql';
 import Button from '@/ui/buttons/Button';
 import { isServer } from '@/utils/isServer';
 import dayjs from 'dayjs';
-import { useRouter } from 'next/router';
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { VscCopy } from 'react-icons/vsc';
-import Tooltip from '../../../ui/Tooltip';
+import { toast } from 'react-toastify';
 import ShareOnButtons from './ShareOnButtons';
-import { ToastContainer, toast } from 'react-toastify';
 
 type IPostDetailsProps = PostSnippetFragment;
 

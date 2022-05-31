@@ -1,15 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import {
-  PostTagSnippetFragment,
-  TagSnippetFragment,
-} from '@/generated/graphql';
+import PostDetails from '@/components/pages/Post/Main/Info';
+import { PostTagSnippetFragment } from '@/generated/graphql';
+import Tag from '@/ui/Tag';
 import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
 import { AiOutlineTag } from 'react-icons/ai';
 import ReactPlayer from 'react-player';
-import Tag from '../Post/Tags/Tag';
-import PostDetails from './PostDetails';
-import PostHeader from './PostHeader';
+import Title from '@/components/pages/Post/Main/Title';
 
 interface PostProps {
   post: PostTagSnippetFragment;
@@ -24,7 +21,7 @@ const PostPage: React.FC<PostProps> = ({ post }) => {
       <section>
         <header className='mb-10'>
           <PostDetails {...post} />
-          <PostHeader>{title}</PostHeader>
+          <Title>{title}</Title>
         </header>
         <p className='my-4 text-xl leading-10 tracking-normal text-gray-900'>
           {description}
