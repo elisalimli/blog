@@ -1,4 +1,4 @@
-import Post from '@/components/pages/Home/Post/PostCard';
+import PostCard from '@/components/pages/Home/Post/PostCard';
 import Skeleton from '@/components/pages/PostSkeleton';
 import { PostSnippetFragment } from '@/generated/graphql';
 import React from 'react';
@@ -12,7 +12,7 @@ const Posts = ({ posts, loading }: PostProps) => {
   return (
     <ul className='grid grid-cols-1 gap-4 md:grid-cols-3 xl:grid-cols-4'>
       {posts?.map((post) => (
-        <Post post={post} key={`post-${post.id}`} />
+        <PostCard post={post} key={`post-${post.id}`} />
       ))}
       <br />
       {loading &&

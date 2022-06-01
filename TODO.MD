@@ -1,7 +1,7 @@
 
 
 - [x] Add some changes to the post page
-    - [ ] Use next image everywhere
+    - [x] Use next image everywhere
     - [x] Fix tags
     - [x] For ex. copy post link
     - [x] Create 'PostTagSnippet' and use it in [postId]

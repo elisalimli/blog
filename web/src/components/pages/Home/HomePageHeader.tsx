@@ -15,7 +15,7 @@ const HomePageHeader = () => {
         objectFit='cover'
         alt='author image'
       />
-      <div className='z-1 img-bottom-shadow relative flex h-full items-center justify-center rounded-3xl'>
+      <div className='z-1 home-header-img-bottom-shadow relative flex h-full items-center justify-center rounded-3xl'>
         <div className='absolute text-white md:left-24'>
           <h1>Spider man</h1>
 

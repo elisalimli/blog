@@ -177,8 +177,19 @@ body {
   .animated-underline:focus-visible {
     background-size: 0 2px, 100% 2px;
   }
-}
 
+  .home-header-img-bottom-shadow {
+    background-image: linear-gradient(180deg, rgba(51, 51, 51, 0), #484747);
+  }
+
+  .category-img-bottom-shadow {
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.8) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+}
 /* #region  /**======== Custom Swiper =========== */
 
 .swiper-pagination-bullet {
@@ -192,9 +203,6 @@ body {
 /* #endregion  /**======== Custom Swiper =========== */
 
 /* Image bottom shadow effect */
-.img-bottom-shadow {
-  background-image: linear-gradient(180deg, rgba(51, 51, 51, 0), #484747);
-}
 
 /* #region  /**======== Tooltip =========== */
 
