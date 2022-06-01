@@ -2,6 +2,7 @@ import Post from '@/components/pages/Home/Post/PostCard';
 import Skeleton from '@/components/pages/PostSkeleton';
 import { PostSnippetFragment } from '@/generated/graphql';
 import React from 'react';
+import NextImage from '../../NextImage';
 
 interface PostProps {
   posts: PostSnippetFragment[];

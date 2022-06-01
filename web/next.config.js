@@ -14,6 +14,7 @@ module.exports = {
       'lh3.googleusercontent.com',
       'www.travelgram.com',
       'picsum.photos',
+      'cdn.britannica.com',
     ],
   },
 

@@ -8,6 +8,7 @@ import 'swiper/css/pagination';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
 import UnstyledLink from '@/ui/links/UnstyledLink';
+import NextImage from '@/components/NextImage';
 
 const Categories: React.FC = () => {
   const [{ data, fetching }] = useCategoriesQuery();
@@ -63,12 +64,15 @@ const Categories: React.FC = () => {
                 </div>
                 {/* @todo use next image ?? */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  className='rounded-md'
+                <NextImage
                   alt={`category(${name}) image`}
                   title={name.toLowerCase()}
-                  height={400}
                   src='https://picsum.photos/400/700'
+                  useSkeleton
+                  width={250}
+                  height={520}
+                  objectFit='cover' // change to suit your needs
+                  className='w-full'
                 />
               </div>
             </UnstyledLink>
