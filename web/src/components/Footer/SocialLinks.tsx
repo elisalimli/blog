@@ -2,6 +2,7 @@ import React from 'react';
 import { FiInstagram, FiTwitter, FiYoutube } from 'react-icons/fi';
 import { v4 as uuidv4 } from 'uuid';
 import SocialLink from '@/components/Footer/SocialLink';
+//@todo replace uuid with new 'useId' hook
 
 const SocialLinks: React.FC = () => {
   return (

@@ -60,16 +60,7 @@ const Categories: React.FC = () => {
                   objectFit='cover' // change to suit your needs
                   className='w-full'
                 />
-                <div
-                  style={
-                    {
-                      // image bottom shadow effect
-                      // background:
-                      //   'linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%)',
-                    }
-                  }
-                  className='category-img-bottom-shadow absolute bottom-0 w-full p-4 text-white'
-                >
+                <div className='category-img-bottom-shadow absolute bottom-0 w-full p-4 text-white'>
                   <h6 className='text-lg font-bold uppercase'>{name}</h6>
                   <p>Category description</p>
                   <div className='mt-2 h-2 w-8 rounded-xl bg-primary-500' />

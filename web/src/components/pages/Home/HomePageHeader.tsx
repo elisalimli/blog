@@ -6,7 +6,7 @@ import NextImage from '@/components/NextImage';
 
 const HomePageHeader = () => {
   return (
-    <div className='relative h-72'>
+    <div className='relative mb-8 h-72'>
       <NextImage
         layout='fill'
         className='pointer-events-none  w-full'
