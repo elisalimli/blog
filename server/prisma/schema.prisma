@@ -54,10 +54,11 @@ model CategoriesTags {
 }
 
 model Category {
-  id    String            @id @default(uuid())
-  name  String            @unique
-  posts PostsCategories[]
-  tags  CategoriesTags[]
+  id         String            @id @default(uuid())
+  name       String            @unique
+  posts      PostsCategories[]
+  tags       CategoriesTags[]
+  pictureUrl String
 
 
   @@map("category")
