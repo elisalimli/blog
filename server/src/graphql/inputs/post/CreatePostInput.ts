@@ -17,5 +17,5 @@ export class CreatePostInput {
   tags?: string[];
 
   @Field(() => String)
-  category!: string;
+  categoryId!: string;
 }

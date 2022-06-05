@@ -2,6 +2,7 @@ import NextImage from '@/components/NextImage';
 import { withDashboard } from '@/components/utils/withDashboard';
 import {
   useAdminLatestPostsQuery,
+  useCategoriesQuery,
   useLatestPostsQuery,
 } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
@@ -12,20 +13,20 @@ import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 import CreatePostModal from '@/components/Modals/Post/CreatePostModal';
 
 const Admin: React.FC = () => {
-  const [{ data }] = useAdminLatestPostsQuery({
+  const [{ data }] = useCategoriesQuery({
     variables: { input: { limit: null } },
   });
   return (
     <div className='py-12'>
       <header>
-        <h1 className='text-5xl text-gray-800'>Posts</h1>
+        <h1 className='text-5xl text-gray-800'>Category</h1>
       </header>
       <Divider className='my-4' />
 
       <div className='space-y-8'>
         <CreatePostModal />
-        {data?.latestPosts?.map(({ url, title, id }) => {
-          const ytId = useGetVideoId(url);
+        {data?.categories?.map(({ id, name }) => {
+          const ytId = 'sa';
 
           return (
             <div
@@ -41,12 +42,7 @@ const Admin: React.FC = () => {
                   objectFit='cover' // change to suit your needs
                   alt='Icon'
                 />
-                <UnstyledLink
-                  className='ml-2 text-2xl font-semibold'
-                  href={`/p/${id}`}
-                >
-                  {title}
-                </UnstyledLink>
+                <h5>{name}</h5>
               </div>
               <div className='flex space-x-4'>
                 <AiOutlineEdit size={28} />

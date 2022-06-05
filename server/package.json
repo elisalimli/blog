@@ -24,6 +24,7 @@
     "graphql": "15.3.0",
     "graphql-fields": "^2.0.3",
     "graphql-playground-middleware-express": "^1.7.23",
+    "graphql-upload": "^15.0.1",
     "ioredis": "^4.28.2",
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",

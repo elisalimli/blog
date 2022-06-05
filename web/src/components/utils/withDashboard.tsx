@@ -5,9 +5,9 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { BsCreditCard } from 'react-icons/bs';
 import { useAdminQuery } from '@/generated/graphql';
-import clsxm from '../../lib/clsxm';
+import clsxm from '@/lib/clsxm';
 
-export const withSidebar = (WrappedComponent: React.FC) => {
+export const withDashboard = (WrappedComponent: React.FC) => {
   const HOC = React.memo(() => {
     const [{ data, fetching }] = useAdminQuery();
     const router = useRouter();
@@ -29,12 +29,17 @@ export const withSidebar = (WrappedComponent: React.FC) => {
               </h1>
             </div>
             <Divider className='mb-1 border-gray-800' />
-            <div className='flex flex-col-reverse divide-y divide-y-reverse'>
+            <div className='flex flex-col-reverse divide-y'>
               {[
                 {
                   Icon: BsCreditCard,
-                  text: 'View/Edit/Create post',
+                  text: 'Post',
                   href: '/',
+                },
+                {
+                  Icon: BsCreditCard,
+                  text: 'Category',
+                  href: '/category',
                 },
               ].map(({ Icon, text, href }, i) => (
                 <UnstyledLink

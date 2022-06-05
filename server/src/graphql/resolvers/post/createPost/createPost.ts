@@ -40,6 +40,7 @@ export class CreatePostResolver {
     const post = await prisma.post.create({
       data: {
         ...rest,
+        // @todo prevent creating a new category when it doesn't exist
         categories: {
           create: {
             category: {
@@ -57,6 +58,7 @@ export class CreatePostResolver {
             },
           },
         },
+
         createdAt: new Date().toISOString(),
       },
     });

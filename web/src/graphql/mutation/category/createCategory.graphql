@@ -1,0 +1,7 @@
+mutation CreateCategory($input:CreatePostInput!) {
+  createPost(
+    input: $input
+  ) {
+    id
+  }
+}
