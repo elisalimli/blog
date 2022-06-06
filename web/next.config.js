@@ -9,13 +9,7 @@ module.exports = {
 
   // Uncoment to add domain whitelist
   images: {
-    domains: [
-      'i.ytimg.com',
-      'lh3.googleusercontent.com',
-      'www.travelgram.com',
-      'picsum.photos',
-      'cdn.britannica.com',
-    ],
+    domains: ['*', 'localhost'],
   },
 
   // SVGR

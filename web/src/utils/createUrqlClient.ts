@@ -5,6 +5,7 @@ import { LogoutMutation, MeDocument, MeQuery } from '@/generated/graphql';
 import { betterUpdateQuery } from './betterUpdateQuery';
 import { cursorPagination } from './cursorPagination';
 import { isServer } from './isServer';
+import { multipartFetchExchange } from '@urql/exchange-multipart-fetch';
 
 // import { MeDocument, MeQuery, RegisterMutation } from '../generated/graphql';
 
@@ -83,6 +84,7 @@ export const createUrqlClient = (ssrExchange: any, ctx: any) => {
       }),
       errorExchange,
       ssrExchange,
+      multipartFetchExchange,
       fetchExchange,
     ],
   };

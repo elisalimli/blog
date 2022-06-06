@@ -2,9 +2,11 @@ import cors from "cors";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
 import expressPlayground from "graphql-playground-middleware-express";
+import { graphqlUploadExpress } from "graphql-upload";
 import passport from "passport";
 import "reflect-metadata";
 import { buildSchema } from "type-graphql";
+import { CreateCategoryResolver } from "./graphql/resolvers/category/createCategory/createCategory";
 import { GetCategoriesResolver } from "./graphql/resolvers/category/getAllCategories/getCategories";
 import { HelloResolver } from "./graphql/resolvers/hello";
 import { CreatePostResolver } from "./graphql/resolvers/post/createPost/createPost";
@@ -25,6 +27,7 @@ const PORT = process.env.PORT || 4000;
 
 export const main: () => any = async () => {
   const app = express();
+  app.use(graphqlUploadExpress({ maxFileSize: 10000000, maxFiles: 10 }));
 
   app.use(
     cors({
@@ -40,6 +43,11 @@ export const main: () => any = async () => {
   app.use(passport.initialize());
   app.use(passport.session());
   app.use(router);
+  console.log(__dirname + "../");
+
+  // serving images in the following path
+  // ... + /dist/../
+  app.use(express.static(__dirname + "/../"));
 
   const schema = await buildSchema({
     resolvers: [
@@ -47,6 +55,7 @@ export const main: () => any = async () => {
       LogoutResolver,
       GiveRoleResolver,
       CreatePostResolver,
+      CreateCategoryResolver,
       //Queries
       GetLatestPostsResolver,
       GetPostsBySearchResolver,
@@ -59,7 +68,7 @@ export const main: () => any = async () => {
     ],
     validate: false,
   });
-  // app.use(auth);
+
   app.use(
     "/graphql",
     graphqlHTTP((req, res) => ({

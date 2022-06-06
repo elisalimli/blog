@@ -14,7 +14,7 @@ export class CreatePostResolver {
     @Ctx() { prisma }: MyContext,
     @Arg("input") input: CreatePostInput
   ): Promise<Post> {
-    const { tags, category, ...rest } = input;
+    const { tags, categoryName, ...rest } = input;
     const tagsArr: {
       tag: {
         connectOrCreate: { create: { name: string }; where: { name: string } };
@@ -46,13 +46,13 @@ export class CreatePostResolver {
             category: {
               connectOrCreate: {
                 create: {
-                  name: category,
+                  name: categoryName,
                   tags: {
                     create: tagsArr,
                   },
                 },
                 where: {
-                  name: category,
+                  name: categoryName,
                 },
               },
             },

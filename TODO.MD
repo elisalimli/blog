@@ -10,6 +10,8 @@
     - [ ] Add images
 - [ ] Add category image 
     - [ ] Backend
+        - [ ] Add validation
+            - [ ] also in 'createPost'
     - [ ] Frontend
 
 

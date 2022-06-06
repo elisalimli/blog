@@ -20,6 +20,7 @@
   "dependencies": {
     "@graphql-codegen/cli": "^2.5.0",
     "@urql/exchange-graphcache": "^4.3.6",
+    "@urql/exchange-multipart-fetch": "^0.1.14",
     "clsx": "^1.1.1",
     "dayjs": "^1.11.2",
     "debounce": "^1.2.1",
@@ -32,6 +33,7 @@
     "react": "^17.0.2",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^17.0.2",
+    "react-dropzone": "^14.2.1",
     "react-icons": "^4.3.1",
     "react-infinite-scroll-component": "^6.1.0",
     "react-is": "^17.0.2",

@@ -1,21 +1,13 @@
+import CreateCategoryModal from '@/components/Modals/Category/CreateCategoryModal';
 import NextImage from '@/components/NextImage';
 import { withDashboard } from '@/components/utils/withDashboard';
-import {
-  useAdminLatestPostsQuery,
-  useCategoriesQuery,
-  useLatestPostsQuery,
-} from '@/generated/graphql';
+import { useCategoriesQuery } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
-import UnstyledLink from '@/ui/links/UnstyledLink';
-import { useGetVideoId } from '@/utils/useGetVideoId';
 import React from 'react';
 import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
-import CreatePostModal from '@/components/Modals/Post/CreatePostModal';
 
 const Admin: React.FC = () => {
-  const [{ data }] = useCategoriesQuery({
-    variables: { input: { limit: null } },
-  });
+  const [{ data }] = useCategoriesQuery();
   return (
     <div className='py-12'>
       <header>
@@ -24,8 +16,8 @@ const Admin: React.FC = () => {
       <Divider className='my-4' />
 
       <div className='space-y-8'>
-        <CreatePostModal />
-        {data?.categories?.map(({ id, name }) => {
+        <CreateCategoryModal />
+        {data?.categories?.map(({ id, name, pictureUrl }) => {
           const ytId = 'sa';
 
           return (
@@ -36,7 +28,7 @@ const Admin: React.FC = () => {
               <div className='flex items-center'>
                 <NextImage
                   useSkeleton
-                  src={`http://i.ytimg.com/vi/${ytId}/mqdefault.jpg`}
+                  src={pictureUrl as string}
                   width={220}
                   height={80}
                   objectFit='cover' // change to suit your needs

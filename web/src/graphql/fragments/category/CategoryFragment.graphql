@@ -1,4 +1,5 @@
 fragment CategorySnippet on Category {
    id
    name
+   pictureUrl
 }

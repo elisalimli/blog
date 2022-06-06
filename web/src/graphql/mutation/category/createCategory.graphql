@@ -1,7 +1,5 @@
-mutation CreateCategory($input:CreatePostInput!) {
-  createPost(
+mutation CreateCategory($input:CreateCategoryInput!) {
+  createCategory(
     input: $input
-  ) {
-    id
-  }
+  ) 
 }

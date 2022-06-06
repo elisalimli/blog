@@ -68,7 +68,7 @@ const CreatePostModal = () => {
             const input = {
               ...props,
               isVideo: true,
-              category: props.category.value as string,
+              categoryName: props.category.value as string,
             };
             const post = await createPostMutation({
               input,
