@@ -20,7 +20,7 @@ export class CreateCategoryResolver {
     const file_name = `${uuidv4()}-${filename}`;
     const imagePath = __dirname + `/../../../../../images/${file_name}`;
 
-    const a = await new Promise(async (resolve, reject) =>
+    await new Promise(async (resolve, reject) =>
       createReadStream()
         .pipe(createWriteStream(imagePath))
         .on("finish", () => resolve(true))

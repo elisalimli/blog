@@ -1,4 +1,6 @@
 import {
+  CategorySnippetFragment,
+  TagSnippetFragment,
   useCategoriesQuery,
   useCreatePostMutation,
   useTagsQuery,
@@ -11,6 +13,8 @@ import { useRouter } from 'next/router';
 import React, { useMemo } from 'react';
 import Creatable from 'react-select/creatable';
 import Label from '@/ui/Form/Label';
+import { formatTags } from '../../utils/formatTags';
+import { formatCategories } from '../../utils/formatCategories';
 
 interface ISelectOption {
   label: string;
@@ -19,33 +23,21 @@ interface ISelectOption {
 
 const CreatePostModal = () => {
   const [_, createPostMutation] = useCreatePostMutation();
-  const [{ data: dataTags }] = useTagsQuery();
-  const [{ data: dataCategories }] = useCategoriesQuery();
+  const [{ data: tags }] = useTagsQuery();
+  const [{ data: categories }] = useCategoriesQuery();
   const router = useRouter();
 
   // @todo optimize this
   // parsing database tags array to react-select options
-  const tagsArr = useMemo(() => {
-    const arr: { label: string; value: string }[] = [];
-    dataTags?.tags?.map((i) => {
-      arr.push({
-        label: i.name,
-        value: i.name,
-      });
-    });
-    return arr;
-  }, [dataTags]);
+  const tagsArr = useMemo(
+    () => formatTags(tags?.tags as TagSnippetFragment[]),
+    [tags]
+  );
 
-  const categoriesArr = useMemo(() => {
-    const arr: { label: string; value: string }[] = [];
-    dataCategories?.categories?.map((i) => {
-      arr.push({
-        label: i.name,
-        value: i.name,
-      });
-    });
-    return arr;
-  }, [dataCategories]);
+  const categoriesArr = useMemo(
+    () => formatCategories(categories?.categories as CategorySnippetFragment[]),
+    [categories]
+  );
 
   return (
     <Modal openModalText='+ Create a new one'>

@@ -46,14 +46,14 @@ const Categories: React.FC = () => {
         }}
         className='select-none'
       >
-        {data?.categories?.map(({ name, id }) => (
+        {data?.categories?.map(({ name, id, pictureUrl }) => (
           <SwiperSlide key={`category-${id}`}>
             <UnstyledLink href={`/search?query=${name}`}>
               <div className='relative '>
                 <NextImage
                   alt={`category(${name}) image`}
                   title={name.toLowerCase()}
-                  src='https://picsum.photos/400/700'
+                  src={pictureUrl as string}
                   useSkeleton
                   width={250}
                   height={520}

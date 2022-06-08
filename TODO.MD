@@ -9,10 +9,11 @@
 
     - [ ] Add images
 - [ ] Add category image 
-    - [ ] Backend
+    - [x] Backend
+        - [ ] Add image optimiztion
         - [ ] Add validation
             - [ ] also in 'createPost'
-    - [ ] Frontend
+    - [x] Frontend
 
 
 
