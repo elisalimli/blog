@@ -18,6 +18,7 @@ import {
   useCreatePostMutation,
   useTagsQuery,
 } from '@/generated/graphql';
+import { toErrorMap } from '../../../utils/toErrorMap';
 
 interface ISelectOption {
   label: string;
@@ -53,9 +54,9 @@ const CreatePostModal = () => {
             description: '',
             tags: [],
             url: '',
-            category: {} as ISelectOption,
+            categoryName: {} as ISelectOption,
           }}
-          onSubmit={async (props) => {
+          onSubmit={async (props, { setErrors }) => {
             props.tags = props.tags.map((t: ISelectOption) => {
               return t.value;
             }) as any;
@@ -63,14 +64,18 @@ const CreatePostModal = () => {
             const input = {
               ...props,
               isVideo: true,
-              categoryName: props.category.value as string,
+              categoryName: (props.categoryName.value as string) || '',
             };
-            const post = await createPostMutation({
+            const { data } = await createPostMutation({
               input,
             });
-
-            // redirecting to the new post
-            router.push(`/p/${post?.data?.createPost?.id}`);
+            const post = data?.createPost;
+            if (post?.errors) {
+              setErrors(toErrorMap(post?.errors as any));
+            } else if (post?.ok) {
+              // redirecting to the new post
+              router.push(`/p/${post?.post?.id}`);
+            }
           }}
         >
           {({ setFieldValue }) => (
