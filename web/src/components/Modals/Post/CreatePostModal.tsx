@@ -1,3 +1,16 @@
+import { Form, Formik } from 'formik';
+import { useRouter } from 'next/router';
+import React, { useMemo } from 'react';
+import ReactSelect from 'react-select';
+import Creatable from 'react-select/creatable';
+
+import Button from '@/ui/buttons/Button';
+import InputField from '@/ui/Form/InputField';
+import Label from '@/ui/Form/Label';
+import Modal from '@/ui/Modal/Modal';
+
+import { formatCategories } from '@/components/utils/formatCategories';
+import { formatTags } from '@/components/utils/formatTags';
 import {
   CategorySnippetFragment,
   TagSnippetFragment,
@@ -5,16 +18,6 @@ import {
   useCreatePostMutation,
   useTagsQuery,
 } from '@/generated/graphql';
-import Button from '@/ui/buttons/Button';
-import InputField from '@/ui/Form/InputField';
-import Modal from '@/ui/Modal/Modal';
-import { Form, Formik } from 'formik';
-import { useRouter } from 'next/router';
-import React, { useMemo } from 'react';
-import Creatable from 'react-select/creatable';
-import Label from '@/ui/Form/Label';
-import { formatTags } from '../../utils/formatTags';
-import { formatCategories } from '../../utils/formatCategories';
 
 interface ISelectOption {
   label: string;
@@ -100,13 +103,9 @@ const CreatePostModal = () => {
               </div>
               <div>
                 <Label fieldName='category'>Category</Label>
-                <Creatable
+                <ReactSelect
                   maxMenuHeight={200}
                   name='category'
-                  onChange={(myCategoriesArr) =>
-                    // for formik
-                    setFieldValue('category', myCategoriesArr)
-                  }
                   options={categoriesArr}
                 />
               </div>

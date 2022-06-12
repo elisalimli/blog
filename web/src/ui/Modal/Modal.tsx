@@ -13,12 +13,13 @@ ReactModal.setAppElement('#__next');
 
 const Modal: React.FC<{
   openModalText: string;
+  defaultModalOpen?: boolean;
 }> & {
   Header: React.FC;
   Body: React.FC;
   Footer: React.FC;
-} = ({ children, openModalText }) => {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
+} = ({ children, openModalText, defaultModalOpen = false }) => {
+  const [modalIsOpen, setIsOpen] = React.useState(defaultModalOpen);
 
   // @ts-ignore
   const isMobile = useMediaQuery({ maxWidth: defaultTheme!.screens!.md });

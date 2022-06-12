@@ -12,8 +12,11 @@ export const withDashboard = (WrappedComponent: React.FC) => {
     const [{ data, fetching }] = useAdminQuery();
     const router = useRouter();
     let content = <div>loading...</div>;
+
+    //redirecting to hoem page if user isn't ADMIN
     if (data?.me?.role !== 'ADMIN' && !fetching) {
       router.replace('/');
+      // Otherwise,showing the actual dashboard
     } else if (data?.me?.role === 'ADMIN') {
       content = (
         <div className='grid min-h-screen grid-cols-10 gap-4'>
@@ -34,12 +37,12 @@ export const withDashboard = (WrappedComponent: React.FC) => {
                 {
                   Icon: BsCreditCard,
                   text: 'Post',
-                  href: '/',
+                  href: '',
                 },
                 {
                   Icon: BsCreditCard,
                   text: 'Category',
-                  href: '/category',
+                  href: 'category',
                 },
               ].map(({ Icon, text, href }, i) => (
                 <UnstyledLink
