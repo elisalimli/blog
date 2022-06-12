@@ -59,6 +59,7 @@ model Category {
   posts      PostsCategories[]
   tags       CategoriesTags[]
   pictureUrl String?
+  createdAt  DateTime          @default(now())
 
 
   @@map("category")
@@ -79,15 +80,16 @@ model Post {
   categories  PostsCategories[]
   url         String // it can be a picture or video
   isVideo     Boolean?          @default(false)
-  createdAt   String
+  createdAt   DateTime          @default(now())
   updatedAt   DateTime          @updatedAt
 
   @@map("post")
 }
 
 model User {
-  id   String @id @unique
-  role Role   @default(USER)
+  id        String   @id @unique
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
   // posts    Post[]
 
   @@map("user")

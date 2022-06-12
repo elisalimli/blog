@@ -6,7 +6,11 @@ import { MyContext } from "../../../../utils/MyContext";
 export class GetCategoriesResolver {
   @Query(() => [Category], { nullable: true })
   async categories(@Ctx() { prisma }: MyContext) {
-    return prisma.category.findMany();
+    return prisma.category.findMany({
+      orderBy: {
+        createdAt: "asc",
+      },
+    });
   }
 
   @FieldResolver()

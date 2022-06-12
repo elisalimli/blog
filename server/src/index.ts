@@ -1,6 +1,8 @@
 import cors from "cors";
+import dayjs from "dayjs";
 import express from "express";
 import { graphqlHTTP } from "express-graphql";
+import { GraphQLScalarType, Kind } from "graphql";
 import expressPlayground from "graphql-playground-middleware-express";
 import { graphqlUploadExpress } from "graphql-upload";
 import passport from "passport";
@@ -22,6 +24,7 @@ import router from "./utils/passportAuth";
 import { prisma } from "./utils/prisma";
 import { redis } from "./utils/redis";
 import { sessionMiddleware } from "./utils/sessionMiddleware";
+import { DateTimeResolver } from "graphql-scalars";
 
 const PORT = process.env.PORT || 4000;
 
@@ -66,6 +69,10 @@ export const main: () => any = async () => {
       MeResolver,
       HelloResolver,
     ],
+
+    // for handling dates in graphql
+    scalarsMap: [{ type: Date, scalar: DateTimeResolver }],
+
     validate: false,
   });
 
@@ -73,6 +80,7 @@ export const main: () => any = async () => {
     "/graphql",
     graphqlHTTP((req, res) => ({
       schema,
+
       graphiql: true,
       context: {
         req,

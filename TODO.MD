@@ -10,7 +10,7 @@
     - [] Add images
 - [ ] Add category image 
     - [x] Backend
-        - [ ] Add image optimiztion
+        - [x] Add image optimiztion
         - [ ] Add validation
             - [ ] also in 'createPost'
     - [x] Frontend
