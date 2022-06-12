@@ -1,4 +1,4 @@
-
+- use useImperativeHandle hook in modal
 
 - [x] Add some changes to the post page
     - [x] Use next image everywhere
@@ -7,7 +7,7 @@
     - [x] Create 'PostTagSnippet' and use it in [postId]
 - [x?] Create add new post(front)
 
-    - [ ] Add images
+    - [] Add images
 - [ ] Add category image 
     - [x] Backend
         - [ ] Add image optimiztion
