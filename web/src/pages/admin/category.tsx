@@ -5,7 +5,6 @@ import { useCategoriesQuery } from '@/generated/graphql';
 import Divider from '@/ui/Divider';
 import dayjs from 'dayjs';
 import React from 'react';
-import { AiOutlineDelete, AiOutlineEdit } from 'react-icons/ai';
 
 const Admin: React.FC = () => {
   const [{ data }] = useCategoriesQuery();
@@ -32,6 +31,7 @@ const Admin: React.FC = () => {
           </thead>
           <tbody>
             {data?.categories?.map(({ id, name, pictureUrl, createdAt }) => {
+              console.log('cr', createdAt);
               return (
                 <tr className='mb-2 p-5' key={`admin-post-${id}`}>
                   <td className='flex justify-center'>
@@ -48,7 +48,7 @@ const Admin: React.FC = () => {
                   <td className='text-center'>{name}</td>
                   <td className='text-center'>Earth, Wind, and Fire</td>
                   <td className='text-center'>
-                    {dayjs(createdAt).format('MMM D, YYY')}
+                    {dayjs(createdAt).format('MMM D, YYYY')}
                   </td>
                 </tr>
               );

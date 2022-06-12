@@ -23,7 +23,7 @@ const PostInfo: React.FC<IPostInfoProps> = ({
         <div className='flex items-center'>
           <p>200K views</p>
           <div className='mx-2 h-1 w-1 rounded-full bg-gray-500'></div>
-          <p>{dayjs(createdAt).format('MMM D, YYY')}</p>
+          <p>{dayjs(createdAt).format('MMM D, YYYY')}</p>
         </div>
         <ArrowLink href={postURL}>Watch</ArrowLink>
       </div>
