@@ -17,10 +17,9 @@ export class CreateCategoryResolver {
   ): Promise<boolean> {
     const file_name = await uploadImage(file);
 
-    const a = await prisma.category.create({
+    await prisma.category.create({
       data: { name, pictureUrl: file_name },
     });
-    console.log(a, file);
     return true;
   }
 }

@@ -17,23 +17,23 @@ const Admin: React.FC = () => {
 
       <div>
         <CreateCategoryModal />
-        <table
-          className='w-full'
-          style={{ borderCollapse: 'separate', borderSpacing: '5em' }}
-        >
-          <thead>
+        <table className='gfg w-full text-left text-sm text-gray-500 dark:text-gray-400'>
+          <thead className='text-xs uppercase text-gray-500'>
             <tr>
-              <th>Image</th>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Date</th>
+              <th className='text-center'>Image</th>
+              <th className='text-center'>Title</th>
+              <th className='text-center'>Description</th>
+              <th className='text-center'>Date</th>
             </tr>
           </thead>
           <tbody>
             {data?.categories?.map(({ id, name, pictureUrl, createdAt }) => {
               console.log('cr', createdAt);
               return (
-                <tr className='mb-2 p-5' key={`admin-post-${id}`}>
+                <tr
+                  className='odd:bg-white even:bg-gray-50'
+                  key={`admin-post-${id}`}
+                >
                   <td className='flex justify-center'>
                     <NextImage
                       useSkeleton
