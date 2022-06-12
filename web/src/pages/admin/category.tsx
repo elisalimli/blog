@@ -28,7 +28,6 @@ const Admin: React.FC = () => {
           </thead>
           <tbody>
             {data?.categories?.map(({ id, name, pictureUrl, createdAt }) => {
-              console.log('cr', createdAt);
               return (
                 <tr
                   className='odd:bg-white even:bg-gray-50'
