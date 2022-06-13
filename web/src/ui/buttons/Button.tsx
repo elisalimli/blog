@@ -38,7 +38,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled: buttonDisabled,
       isLoading,
       variant = 'primary',
-      borderRadius = 'md',
+      borderRadius = 'lg',
       isDarkBg = false,
       ...rest
     },
@@ -85,11 +85,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             ],
           ],
           //#endregion  //*======== Variants ===========
-          `rounded-${borderRadius}`,
           'disabled:cursor-not-allowed',
           isLoading &&
             'relative text-transparent transition-none hover:text-transparent disabled:cursor-wait',
-          className
+          className,
+          `rounded-${borderRadius}`
         )}
         {...rest}
       >

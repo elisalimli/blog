@@ -12,7 +12,8 @@
     - [x] Backend
         - [x] Add image optimiztion
         - [ ] Add validation
-            - [ ] also in 'createPost'
+            - [x] also in 'createPost'
+                - [ ] adding validation also for tags/category ???
     - [x] Frontend
 
 
